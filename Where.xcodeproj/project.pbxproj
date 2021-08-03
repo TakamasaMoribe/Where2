@@ -15,6 +15,7 @@
 		7F467C2826B53370008B641E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F467C2626B53370008B641E /* LaunchScreen.storyboard */; };
 		7F467C3126B5338E008B641E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F467C3026B5338D008B641E /* MapKit.framework */; };
 		7F467C3326B533E4008B641E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F467C3226B533E4008B641E /* CoreLocation.framework */; };
+		7F56416B26B9365000D5F62E /* CurrentViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56416A26B9365000D5F62E /* CurrentViewcontroller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		7F467C2926B53370008B641E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F467C3026B5338D008B641E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7F467C3226B533E4008B641E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7F56416A26B9365000D5F62E /* CurrentViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentViewcontroller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				7F467C1D26B5336F008B641E /* SceneDelegate.swift */,
 				7F467C1F26B5336F008B641E /* ViewController.swift */,
 				7F467C2126B5336F008B641E /* Main.storyboard */,
+				7F56416A26B9365000D5F62E /* CurrentViewcontroller.swift */,
 				7F467C2426B53370008B641E /* Assets.xcassets */,
 				7F467C2626B53370008B641E /* LaunchScreen.storyboard */,
 				7F467C2926B53370008B641E /* Info.plist */,
@@ -153,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F56416B26B9365000D5F62E /* CurrentViewcontroller.swift in Sources */,
 				7F467C2026B5336F008B641E /* ViewController.swift in Sources */,
 				7F467C1C26B5336F008B641E /* AppDelegate.swift in Sources */,
 				7F467C1E26B5336F008B641E /* SceneDelegate.swift in Sources */,
