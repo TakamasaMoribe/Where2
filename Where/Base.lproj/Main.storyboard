@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Where" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewConrtoller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="Where" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,6 +46,9 @@
                                         <rect key="frame" x="0.0" y="501" width="279" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="設定"/>
+                                        <connections>
+                                            <action selector="goSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zvm-Bz-9Vd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -67,13 +70,13 @@
         <!--Setting View Controller-->
         <scene sceneID="0Vs-Rl-Xfs">
             <objects>
-                <viewController id="b9o-1Z-ua1" customClass="SettingViewController" customModule="Where" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nco-HY-yU2">
+                <viewController storyboardIdentifier="Setting" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b9o-1Z-ua1" customClass="SettingViewController" customModule="Where" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="Setting" id="nco-HY-yU2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="地名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajA-9D-ini">
-                                <rect key="frame" x="147" y="123" width="65" height="39"/>
+                                <rect key="frame" x="125" y="125" width="124" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <nil key="textColor"/>
@@ -84,12 +87,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="destination" destination="ajA-9D-ini" id="6sc-dL-5ta"/>
+                        <outlet property="destLabel" destination="ajA-9D-ini" id="8sM-lj-cOx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3b3-XF-KEg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889" y="543"/>
+            <point key="canvasLocation" x="888.79999999999995" y="542.87856071964018"/>
         </scene>
         <!--Current View Controller-->
         <scene sceneID="Dbz-Sr-a9K">

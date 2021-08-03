@@ -10,6 +10,7 @@ import UIKit
 class SettingViewController: ViewController {
     
     
+
     @IBOutlet weak var destLabel: UILabel!
     
     override func viewDidLoad() {
