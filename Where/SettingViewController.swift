@@ -15,9 +15,10 @@ class SettingViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         destLabel.text = "筑波山"
-    
     }
+    
+    
+    
     
 }
