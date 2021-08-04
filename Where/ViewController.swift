@@ -14,9 +14,7 @@ class ViewController: UIViewController {
     }
     
     
-    
-    // Nextボタン押下時の処理
- 
+    // Startボタン押下時の処理
     @IBAction func goSetting(_ sender: Any) {
          // ①storyboardのインスタンス取得
          let storyboard: UIStoryboard = self.storyboard!

@@ -115,13 +115,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfp-5c-oXj">
-                                <rect key="frame" x="149" y="156" width="90" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sxh-9j-e0C"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -129,7 +122,6 @@
                     <navigationItem key="navigationItem" id="LLv-9P-Eix"/>
                     <connections>
                         <outlet property="mapView" destination="wDf-x1-kSq" id="wOu-b4-gmg"/>
-                        <outlet property="testLabel" destination="Qfp-5c-oXj" id="lhI-Oi-2lO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dYv-p8-4T5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

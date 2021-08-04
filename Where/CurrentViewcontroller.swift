@@ -17,9 +17,6 @@ fileprivate class TreeOverlay:MKPolyline{}
 
 class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewDelegate {
     
- 
-    @IBOutlet weak var testLabel: UILabel!
-    
     // Mapを使用する
     @IBOutlet weak var mapView: MKMapView!
     // ロケーションマネージャーのインスタンス
@@ -29,8 +26,6 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        testLabel.text = "ためし"
-
         locManager = CLLocationManager()
         locManager.delegate = self
  
