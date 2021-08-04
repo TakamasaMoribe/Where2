@@ -18,7 +18,15 @@ class SettingViewController: ViewController {
         destLabel.text = "筑波山"
     }
     
-    
-    
+    @IBAction func returnButton(_ sender: Any) {
+        // ①storyboardのインスタンス取得
+        let storyboard: UIStoryboard = self.storyboard!
+        // ②遷移先ViewControllerのインスタンス取得
+        let nextView = storyboard.instantiateViewController(withIdentifier: "ViewConrtoller") as! ViewController
+        // ③画面遷移
+        self.present(nextView, animated: true, completion: nil)
+        
+        
+    }
     
 }
