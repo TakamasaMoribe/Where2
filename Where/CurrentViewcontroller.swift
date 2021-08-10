@@ -13,7 +13,7 @@ import CoreLocation
 //最初に、MKPolylineクラスを拡張する2つのクラスを作成する
 fileprivate class FujiOverlay:MKPolyline{}
 fileprivate class TreeOverlay:MKPolyline{}
-fileprivate class GreenOverlay:MKPolyline{} // 追加した山への線を緑色で引く
+fileprivate class AddOverlay:MKPolyline{} // 追加した山への線を緑色で引く
 
 
 class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewDelegate {
@@ -74,38 +74,36 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
         mapView.delegate = self
         
         // ここから線を引く部分。
-        // 現在地と富士山と東京スカイツリーの座標を指定する
+        // 現在地と富士山と東京スカイツリーの座標を指定する・・・追加した山の分をつくる
         let locNow = CLLocationCoordinate2D(latitude: ido, longitude: keido)
         let locFuji = CLLocationCoordinate2D(latitude: 35.3625, longitude: 138.7306)
         let locTree = CLLocationCoordinate2D(latitude: 35.710139, longitude: 139.810833)
-        
+        let locAdd = CLLocationCoordinate2D(latitude: 36.000, longitude: 140.000)//適当な値
         let arrFuji = [locNow,locFuji]// 現在地と富士山を入れた配列
         let arrTree = [locNow,locTree]// 現在地とスカイツリーを入れた配列
+        let arrAdd = [locNow,locAdd]// 現在地と追加した山を入れた配列
         
         let fujiLine = FujiOverlay(coordinates: arrFuji, count: 2)// ２点を結ぶ
         mapView.addOverlays([fujiLine])// 地図上に描く 現在地ー富士山
         let treeLine = TreeOverlay(coordinates: arrTree, count: 2)// ２点を結ぶ
         mapView.addOverlays([treeLine])// 地図上に描く 現在地ースカイツリー
+        let addLine = AddOverlay(coordinates: arrAdd, count: 2)// ２点を結ぶ
+        mapView.addOverlays([addLine])// 地図上に描く 現在地ー追加した山
     }
 
-    // ポリライン(オーバーレイ)がどちらのクラスのものか、場合分けして２通りの色で線を引くswitch-case文で３つに分ける
+    // ポリライン(オーバーレイ)がどちらのクラスのものか、switch-case文で３つに分ける
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
-
-//        if overlay is FujiOverlay {
-//            renderer.strokeColor = UIColor.red// 赤い線
-//            renderer.lineWidth = 2
-//        } else {
-//            renderer.strokeColor = UIColor.blue// 青い線
-//            renderer.lineWidth = 2
-//        }
         
         switch overlay {
         case is FujiOverlay:
-                renderer.strokeColor = UIColor.red// 赤い線
+                renderer.strokeColor = UIColor.red// 赤い線　富士山
                 renderer.lineWidth = 2
         case is TreeOverlay:
-                renderer.strokeColor = UIColor.blue//
+                renderer.strokeColor = UIColor.blue//青い線　スカイツリー
+                renderer.lineWidth = 2
+        case is AddOverlay:
+                renderer.strokeColor = UIColor.green//緑の線　追加した山
                 renderer.lineWidth = 2
         default:break
             
