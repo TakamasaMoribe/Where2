@@ -28,7 +28,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
 
     // コンポーネントの数（ホイールの数）。ここでは１つになる　山名だけ
     func numberOfComponents(in myPickerView: UIPickerView) -> Int {
-        return datas.count //コンポーネントの数は、1
+        return 1 //datas.count //ここではコンポーネントの数は、1
     }
     
     // コンポーネントごとの行数（選択肢の個数）　ここでは山名の数だけ
