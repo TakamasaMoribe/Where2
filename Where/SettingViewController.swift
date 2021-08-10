@@ -12,19 +12,12 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var myPickerView: UIPickerView!
     
     @IBAction func returnButton(_ sender: Any) {
-//            // ①storyboardのインスタンス取得
-//            let storyboard: UIStoryboard = self.storyboard!
-//            // ②遷移先ViewControllerのインスタンス取得
-//            let nextView = storyboard.instantiateViewController(withIdentifier: "ViewConrtoller") as! ViewController
-//            // ③画面遷移
-//            self.present(nextView, animated: true, completion: nil)
-        
     //------追加した山の値の保存
-        let tempList = UserDefaults.standard.array(forKey: "mountLocTemp")//読み込み
-        UserDefaults.standard.set(tempList, forKey: "mountLocTemp") //保存
-        print("save \(tempList!)")//確認用出力
-       // UserDefaults.standard.set(myList, forKey: "myList")
-        
+        let tempList = UserDefaults.standard.array(forKey: "mountLocTemp")//tempListへ読み込み
+        UserDefaults.standard.set(tempList, forKey: "mountLocTemp") //"mountLocTemp"として保存
+         //print("save \(tempList!)")//確認用出力
+         // UserDefaults.standard.set(myList, forKey: "myList")
+    // 地図表示へ画面遷移
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "CurrentViewController") as! CurrentViewController
         self.present(nextView, animated: true, completion: nil)
