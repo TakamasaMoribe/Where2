@@ -11,6 +11,29 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBOutlet weak var myPickerView: UIPickerView!
     
+    @IBAction func returnButton(_ sender: Any) {
+//            // ①storyboardのインスタンス取得
+//            let storyboard: UIStoryboard = self.storyboard!
+//            // ②遷移先ViewControllerのインスタンス取得
+//            let nextView = storyboard.instantiateViewController(withIdentifier: "ViewConrtoller") as! ViewController
+//            // ③画面遷移
+//            self.present(nextView, animated: true, completion: nil)
+        
+    //------追加した山の値の保存
+        let tempList = UserDefaults.standard.array(forKey: "mountLocTemp")//読み込み
+        UserDefaults.standard.set(tempList, forKey: "mountLocTemp") //保存
+        print("save \(tempList!)")//確認用出力
+       // UserDefaults.standard.set(myList, forKey: "myList")
+        
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewController(withIdentifier: "CurrentViewController") as! CurrentViewController
+        self.present(nextView, animated: true, completion: nil)
+        
+    //------
+        
+            
+    }
+
     // ドラムロールボタンの選択肢を配列にして格納
     let datas = ["筑波山", "男体山", "浅間山"] //最初は、山名だけの表示にしてみる
     //let datas = [["茨城","栃木","群馬","福岡","鹿児島","沖縄"],["筑波山", "男体山", "浅間山"]]
@@ -57,22 +80,15 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         print(mountLoc[choice][0]) //山名の取り出し
         print(mountLoc[choice][1]) //緯度
         print(mountLoc[choice][2]) //経度
+        //配列にして保存する・・・決定ボタンを押したら保存する
+        UserDefaults.standard.set(mountLoc[choice], forKey: "mountLocTemp")//保存
+print("choice\(mountLoc[choice])")
+        let tempList = UserDefaults.standard.array(forKey: "mountLocTemp")//読み込み試し
+print("tempList\(tempList!)")
+        
+    }
+    
 
-    }
-    
-    
-    
-    
-//------------------------------------------
-    @IBAction func returnButton(_ sender: Any) {
-        // ①storyboardのインスタンス取得
-        let storyboard: UIStoryboard = self.storyboard!
-        // ②遷移先ViewControllerのインスタンス取得
-        let nextView = storyboard.instantiateViewController(withIdentifier: "ViewConrtoller") as! ViewController
-        // ③画面遷移
-        self.present(nextView, animated: true, completion: nil)
-    }
-//------------------------------------------
 
 }
 

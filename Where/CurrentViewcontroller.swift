@@ -13,7 +13,7 @@ import CoreLocation
 //最初に、MKPolylineクラスを拡張する2つのクラスを作成する
 fileprivate class FujiOverlay:MKPolyline{}
 fileprivate class TreeOverlay:MKPolyline{}
-fileprivate class AddOverlay:MKPolyline{} // 追加した山への線を緑色で引く
+fileprivate class AddOverlay:MKPolyline{} // 追加した山への線を紫色で引く
 
 
 class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewDelegate {
@@ -95,22 +95,19 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
         
-        switch overlay {
-        case is FujiOverlay:
-                renderer.strokeColor = UIColor.red// 赤い線　富士山
-                renderer.lineWidth = 2
-        case is TreeOverlay:
-                renderer.strokeColor = UIColor.blue//青い線　スカイツリー
-                renderer.lineWidth = 2
-        case is AddOverlay:
-                renderer.strokeColor = UIColor.green//緑の線　追加した山
-                renderer.lineWidth = 2
-        default:break
-            
-        }
-        
-        
-        
+            switch overlay {
+                case is FujiOverlay:
+                    renderer.strokeColor = UIColor.red// 赤い線　富士山
+                    renderer.lineWidth = 2
+                case is TreeOverlay:
+                    renderer.strokeColor = UIColor.blue//青い線　スカイツリー
+                    renderer.lineWidth = 2
+                case is AddOverlay:
+                    renderer.strokeColor = UIColor.purple//紫の線　追加した山
+                    renderer.lineWidth = 2
+                default:
+                    break
+            }
         return renderer
     }
     
