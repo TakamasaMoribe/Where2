@@ -109,6 +109,9 @@
                             <constraint firstItem="m6K-qa-Sqa" firstAttribute="centerX" secondItem="ajA-9D-ini" secondAttribute="centerX" id="dHe-Za-2wv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="myPickerView" destination="7cs-BQ-oK5" id="QkU-sb-64E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3b3-XF-KEg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
