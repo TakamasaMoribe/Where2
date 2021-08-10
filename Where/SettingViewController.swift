@@ -9,15 +9,7 @@ import UIKit
 
 class SettingViewController: ViewController {
     
-    
 
-    @IBOutlet weak var destLabel: UILabel!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        destLabel.text = "筑波山"
-    }
-    
     @IBAction func returnButton(_ sender: Any) {
         // ①storyboardのインスタンス取得
         let storyboard: UIStoryboard = self.storyboard!
@@ -25,8 +17,7 @@ class SettingViewController: ViewController {
         let nextView = storyboard.instantiateViewController(withIdentifier: "ViewConrtoller") as! ViewController
         // ③画面遷移
         self.present(nextView, animated: true, completion: nil)
-        
-        
     }
-    
 }
+
+
