@@ -22,6 +22,11 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         super.viewDidLoad()
         myPickerView.delegate = self
         myPickerView.dataSource = self
+        
+        //PickerViewが表示された時、まだ選択されていないので、defaultとして浅間山を使う
+        print("default\(yamaLoc[0][0])") //山名の取り出し　浅間山
+        print("default\(yamaLoc[0][1])") //緯度
+        print("default\(yamaLoc[0][2])") //経度
     }
 //-------------------------------
 
@@ -47,11 +52,11 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     // ドラムが回転して、項目が選ばれた　ここでは一次元配列にしたので、[row]列の項目だけ
     func pickerView(_ myPickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         //現在選択されている行番号
-        let row0 = myPickerView.selectedRow(inComponent: 0)//ここでは一次元配列　１つ目のコンポーネント 山
+        let choice = myPickerView.selectedRow(inComponent: 0)//ここでは一次元配列＝inComponent: 0　１つ目のコンポーネント 山
         //現在選択されている項目名
-        print(yamaLoc[row0][0]) //山名の取り出し
-        print(yamaLoc[row0][1]) //緯度
-        print(yamaLoc[row0][2]) //経度
+        print(yamaLoc[choice][0]) //山名の取り出し
+        print(yamaLoc[choice][1]) //緯度
+        print(yamaLoc[choice][2]) //経度
 
     }
     

@@ -82,13 +82,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cs-BQ-oK5">
-                                <rect key="frame" x="0.0" y="121" width="375" height="162"/>
+                                <rect key="frame" x="0.0" y="121" width="320" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="xkx-pF-IzE"/>
                                 </constraints>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6K-qa-Sqa">
-                                <rect key="frame" x="163" y="495" width="49" height="41"/>
+                                <rect key="frame" x="135.5" y="495" width="49" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="決定"/>
                                 <connections>
@@ -99,14 +99,13 @@
                         <viewLayoutGuide key="safeArea" id="3g2-uh-Tjw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ajA-9D-ini" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="45" id="4Yy-cz-8Sl"/>
-                            <constraint firstItem="7cs-BQ-oK5" firstAttribute="top" secondItem="ajA-9D-ini" secondAttribute="bottom" constant="37" id="5Fp-vP-OKs"/>
-                            <constraint firstItem="ajA-9D-ini" firstAttribute="centerX" secondItem="nco-HY-yU2" secondAttribute="centerX" id="83R-7y-rbp"/>
-                            <constraint firstItem="ajA-9D-ini" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="90" id="KbN-a6-ImT"/>
+                            <constraint firstItem="ajA-9D-ini" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="90" id="DgL-67-mSt"/>
                             <constraint firstItem="3g2-uh-Tjw" firstAttribute="bottom" secondItem="m6K-qa-Sqa" secondAttribute="bottom" constant="131" id="LPm-HW-DYg"/>
                             <constraint firstItem="m6K-qa-Sqa" firstAttribute="centerX" secondItem="7cs-BQ-oK5" secondAttribute="centerX" id="RsR-1w-hXo"/>
                             <constraint firstItem="7cs-BQ-oK5" firstAttribute="leading" secondItem="nco-HY-yU2" secondAttribute="leading" id="Th5-Oy-Dxu"/>
-                            <constraint firstItem="m6K-qa-Sqa" firstAttribute="centerX" secondItem="ajA-9D-ini" secondAttribute="centerX" id="dHe-Za-2wv"/>
+                            <constraint firstItem="7cs-BQ-oK5" firstAttribute="top" secondItem="ajA-9D-ini" secondAttribute="bottom" constant="37" id="lyp-wA-Ng1"/>
+                            <constraint firstItem="ajA-9D-ini" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="45" id="sM3-g2-nri"/>
+                            <constraint firstItem="ajA-9D-ini" firstAttribute="centerX" secondItem="nco-HY-yU2" secondAttribute="centerX" id="ybE-fa-c1l"/>
                         </constraints>
                     </view>
                     <connections>
