@@ -12,7 +12,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var myPickerView: UIPickerView!
     
     // ドラムロールボタンの選択肢を配列にして格納
-    let datas = [["茨城","栃木","群馬","福岡","鹿児島","沖縄"],["筑波山", "男体山", "浅間山"]]
+    let datas = ["筑波山", "男体山", "浅間山"] //最初は、山名だけの表示にしてみる
+    //let datas = [["茨城","栃木","群馬","福岡","鹿児島","沖縄"],["筑波山", "男体山", "浅間山"]]
     // 山の緯度経度
     let yamaLoc = [["筑波山",36.1320, 140.0636],["男体山",36.4543, 139.2939],["浅間山",36.2412, 138.3134]]
         
@@ -25,32 +26,32 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
 //-------------------------------
 
 
-    // コンポーネントの数（ホイールの数）。ここでは２つになる　県を選択、山を選択
+    // コンポーネントの数（ホイールの数）。ここでは１つになる　山名だけ
     func numberOfComponents(in myPickerView: UIPickerView) -> Int {
-        return datas.count //コンポーネントの数は、2
+        return datas.count //コンポーネントの数は、1
     }
     
-    // コンポーネントごとの行数（選択肢の個数）　県名の数と山名の数
+    // コンポーネントごとの行数（選択肢の個数）　ここでは山名の数だけ
     func pickerView(_ myPickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         let data = datas[component]//datas配列の中から、コンポーネントごとに配列を抜き出し個数を得る
         return data.count
     }
 
-    // 選択中のコンポーネントの番号と行から、選択中の項目名を返す
+    // 選択中のコンポーネントの番号と行から、選択中の項目名を返す　ここでは一次元配列にしたので、[row]列の項目だけ
     func pickerView(_ myPickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         //指定のコンポーネントから指定中の項目名を取り出す。
-        let item = datas[component][row]//コンポーネントの番号,項目の番号
+        let item = datas[row]//項目の番号
         return item
     }
 
-    // ドラムが回転して、項目が選ばれた
+    // ドラムが回転して、項目が選ばれた　ここでは一次元配列にしたので、[row]列の項目だけ
     func pickerView(_ myPickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         //現在選択されている行番号
-        let row2 = myPickerView.selectedRow(inComponent: 1)//２つ目のコンポーネント 山
+        let row0 = myPickerView.selectedRow(inComponent: 0)//ここでは一次元配列　１つ目のコンポーネント 山
         //現在選択されている項目名
-        print(yamaLoc[row2][0]) //山名の取り出し
-        print(yamaLoc[row2][1]) //緯度
-        print(yamaLoc[row2][2]) //経度
+        print(yamaLoc[row0][0]) //山名の取り出し
+        print(yamaLoc[row0][1]) //緯度
+        print(yamaLoc[row0][2]) //経度
 
     }
     
