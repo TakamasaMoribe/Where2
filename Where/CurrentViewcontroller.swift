@@ -9,10 +9,11 @@ import UIKit
 import MapKit
 import CoreLocation
 
-// MKPolylineクラスの拡張　２色の線を引くため
+// MKPolylineクラスの拡張　３色の線を引くため
 //最初に、MKPolylineクラスを拡張する2つのクラスを作成する
 fileprivate class FujiOverlay:MKPolyline{}
 fileprivate class TreeOverlay:MKPolyline{}
+fileprivate class GreenOverlay:MKPolyline{} // 追加した山への線を緑色で引く
 
 
 class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewDelegate {
@@ -87,16 +88,31 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
         mapView.addOverlays([treeLine])// 地図上に描く 現在地ースカイツリー
     }
 
-    // ポリライン(オーバーレイ)がどちらのクラスのものか、場合分けして２通りの色で線を引く
+    // ポリライン(オーバーレイ)がどちらのクラスのものか、場合分けして２通りの色で線を引くswitch-case文で３つに分ける
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
-        if overlay is FujiOverlay {
-            renderer.strokeColor = UIColor.red// 赤い線
-            renderer.lineWidth = 2
-        } else {
-            renderer.strokeColor = UIColor.blue// 青い線
-            renderer.lineWidth = 2
+
+//        if overlay is FujiOverlay {
+//            renderer.strokeColor = UIColor.red// 赤い線
+//            renderer.lineWidth = 2
+//        } else {
+//            renderer.strokeColor = UIColor.blue// 青い線
+//            renderer.lineWidth = 2
+//        }
+        
+        switch overlay {
+        case is FujiOverlay:
+                renderer.strokeColor = UIColor.red// 赤い線
+                renderer.lineWidth = 2
+        case is TreeOverlay:
+                renderer.strokeColor = UIColor.blue//
+                renderer.lineWidth = 2
+        default:break
+            
         }
+        
+        
+        
         return renderer
     }
     
