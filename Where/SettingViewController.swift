@@ -15,7 +15,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     let datas = ["筑波山", "男体山", "浅間山"] //最初は、山名だけの表示にしてみる
     //let datas = [["茨城","栃木","群馬","福岡","鹿児島","沖縄"],["筑波山", "男体山", "浅間山"]]
     // 山の緯度経度
-    let yamaLoc = [["筑波山",36.1320, 140.0636],["男体山",36.4543, 139.2939],["浅間山",36.2412, 138.3134]]
+    let mountLoc = [["筑波山",36.1320, 140.0636],["男体山",36.4543, 139.2939],["浅間山",36.2412, 138.3134]]
         
 //-------------------------------
     override func viewDidLoad() {
@@ -23,10 +23,10 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         myPickerView.delegate = self
         myPickerView.dataSource = self
         
-        //PickerViewが表示された時、まだ選択されていないので、defaultとして浅間山を使う
-        print("default\(yamaLoc[0][0])") //山名の取り出し　浅間山
-        print("default\(yamaLoc[0][1])") //緯度
-        print("default\(yamaLoc[0][2])") //経度
+        //PickerViewが表示された時、まだ選択されていないので、確認表示用にdefaultとして浅間山を使う
+        print("default\(mountLoc[0][0])") //山名の取り出し　浅間山
+        print("default\(mountLoc[0][1])") //緯度
+        print("default\(mountLoc[0][2])") //経度
     }
 //-------------------------------
 
@@ -54,9 +54,9 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         //現在選択されている行番号
         let choice = myPickerView.selectedRow(inComponent: 0)//ここでは一次元配列＝inComponent: 0　１つ目のコンポーネント 山
         //現在選択されている項目名
-        print(yamaLoc[choice][0]) //山名の取り出し
-        print(yamaLoc[choice][1]) //緯度
-        print(yamaLoc[choice][2]) //経度
+        print(mountLoc[choice][0]) //山名の取り出し
+        print(mountLoc[choice][1]) //緯度
+        print(mountLoc[choice][2]) //経度
 
     }
     
