@@ -12,28 +12,24 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var myPickerView: UIPickerView!
     
     @IBAction func returnButton(_ sender: Any) {
-    //------追加した山の値の保存
-        let tempList = UserDefaults.standard.array(forKey: "mountLocTemp")//tempListへ読み込み
-        UserDefaults.standard.set(tempList, forKey: "mountLocTemp") //"mountLocTemp"として保存
-         //print("save \(tempList!)")//確認用出力
-         // UserDefaults.standard.set(myList, forKey: "myList")
-    // 地図表示へ画面遷移
+        // 追加した山名と緯度経度の保存
+        let mtName = UserDefaults.standard.string(forKey: "mtName")//山名mtNameへ読み込み
+        let mtLatitude = UserDefaults.standard.double(forKey: "mtLatitude")//緯度mtLatitude
+        let mtLongitude = UserDefaults.standard.double(forKey: "mtLongitude")//経度mtLongitude
+        UserDefaults.standard.set(mtName, forKey: "mtName")//山名保存
+        UserDefaults.standard.set(mtLatitude, forKey: "mtLatitude")//緯度保存
+        UserDefaults.standard.set(mtLongitude, forKey: "mtLongitude")//経度保存
+
+        // 地図表示へ画面遷移
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "CurrentViewController") as! CurrentViewController
         self.present(nextView, animated: true, completion: nil)
-        
-    //------
             
     }
-    
-    // ドラムロールボタンの選択肢を配列にして格納
-    let datas = ["筑波山", "男体山", "浅間山"] //最初は、山名だけの表示にしてみる
-    // 山の緯度経度
+    // ドラムロールボタンの選択肢を配列にして格納する
+    let datas = ["筑波山", "男体山", "浅間山"] //ドラム１個で、山名だけの表示
+    // 山の緯度経度の値　ｃｓｖファイルを作って、読み込む形にする
     let mountLoc = [["筑波山",36.2253, 140.1067],["男体山",36.7650, 139.4908],["浅間山",36.406333, 138.52300]]
-//男体山  36度45分54秒  139度29分27秒   36.7650  4908
-//筑波山　36度13分31秒  140度06分24秒   36.2253  1067
-//    筑波山　　36度13分31秒  140度06分24秒
-//    男体山　　36度45分54秒　139度29分27秒
     
         
 //-------------------------------
@@ -41,15 +37,9 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         super.viewDidLoad()
         myPickerView.delegate = self
         myPickerView.dataSource = self
-        
-        //PickerViewが表示された時、まだ選択されていないので、確認表示用にdefaultとして浅間山を使う
-        print("default\(mountLoc[0][0])") //山名の取り出し　浅間山
-        print("default\(mountLoc[0][1])") //緯度
-        print("default\(mountLoc[0][2])") //経度
+
     }
 //-------------------------------
-
-
     // コンポーネントの数（ホイールの数）。ここでは１つになる　山名だけ
     func numberOfComponents(in myPickerView: UIPickerView) -> Int {
         return 1 //datas.count //ここではコンポーネントの数は、1
@@ -74,18 +64,10 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         let choice = myPickerView.selectedRow(inComponent: 0)//
 
         //配列にして保存する・・・決定ボタンを押したら保存する
-        UserDefaults.standard.set(mountLoc[choice], forKey: "mountLocTemp")//全部保存
-print("choice\(mountLoc[choice])")
+        UserDefaults.standard.set(mountLoc[choice], forKey: "mountLocTemp")//全部保存　不使用
         UserDefaults.standard.set(mountLoc[choice][0], forKey: "mtName")//山名保存
         UserDefaults.standard.set(mountLoc[choice][1], forKey: "mtLatitude")//緯度保存
         UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtLongitude")//経度保存
-        
-        let mtName = UserDefaults.standard.string(forKey: "mtName")//山名読み出し
-print("mtName\(mtName!)")
-        let mtLatitude = UserDefaults.standard.double(forKey: "mtLatitude")//緯度読み出し
-print("mtLatitude\(mtLatitude)")
-        let mtLongitude = UserDefaults.standard.double(forKey: "mtLongitude")//経度読み出し
-print("mtLongitude\(mtLongitude)")
     }
     
 
