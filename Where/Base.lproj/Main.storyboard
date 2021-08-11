@@ -30,7 +30,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <state key="normal" title="Start"/>
                                         <connections>
-                                            <segue destination="usj-0I-PfH" kind="show" id="DcT-eG-zw5"/>
+                                            <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Nj-7s-B6W"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HjF-zN-5XP">
@@ -121,7 +121,7 @@
             <objects>
                 <viewController storyboardIdentifier="CurrentViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="usj-0I-PfH" customClass="CurrentViewController" customModule="Where" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qzn-zb-2Rd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wDf-x1-kSq">
