@@ -66,24 +66,22 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
 
     // ドラムが回転して、項目が選ばれた　ここでは一次元配列にしたので、[row]列の項目だけ
     func pickerView(_ myPickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //現在選択されている行番号
-        let choice = myPickerView.selectedRow(inComponent: 0)//ここでは一次元配列＝inComponent: 0　１つ目のコンポーネント 山
-        //現在選択されている項目名
-        print(mountLoc[choice][0]) //山名の取り出し
-        print(mountLoc[choice][1]) //緯度
-        print(mountLoc[choice][2]) //経度
+        //現在選択されている行番号 ここでは一次元配列なので、inComponent: 0　１つ目のコンポーネント=山名
+        let choice = myPickerView.selectedRow(inComponent: 0)//
+
         //配列にして保存する・・・決定ボタンを押したら保存する
-        UserDefaults.standard.set(mountLoc[choice], forKey: "mountLocTemp")//保存
+        UserDefaults.standard.set(mountLoc[choice], forKey: "mountLocTemp")//全部保存
 print("choice\(mountLoc[choice])")
-        UserDefaults.standard.set(mountLoc[choice][0], forKey: "mountLocTempMtName")//山名保存
-        UserDefaults.standard.set(mountLoc[choice][1], forKey: "mountLocTempLatitude")//緯度保存
-        UserDefaults.standard.set(mountLoc[choice][2], forKey: "mountLocTempLongitude")//経度保存
-        let tempName = UserDefaults.standard.string(forKey: "mountLocTempMtName")//山名読み出し
-print("tempList\(tempName!)")
-        let tempLatitude = UserDefaults.standard.double(forKey: "mountLocTempLatitude")//緯度読み出し
-print("tempLatitude\(tempLatitude)")
-        let tempLongitude = UserDefaults.standard.double(forKey: "mountLocTempLongitude")//経度読み出し
-print("tempLongitude\(tempLongitude)")
+        UserDefaults.standard.set(mountLoc[choice][0], forKey: "mtName")//山名保存
+        UserDefaults.standard.set(mountLoc[choice][1], forKey: "mtLatitude")//緯度保存
+        UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtLongitude")//経度保存
+        
+        let mtName = UserDefaults.standard.string(forKey: "mtName")//山名読み出し
+print("mtName\(mtName!)")
+        let mtLatitude = UserDefaults.standard.double(forKey: "mtLatitude")//緯度読み出し
+print("mtLatitude\(mtLatitude)")
+        let mtLongitude = UserDefaults.standard.double(forKey: "mtLongitude")//経度読み出し
+print("mtLongitude\(mtLongitude)")
     }
     
 

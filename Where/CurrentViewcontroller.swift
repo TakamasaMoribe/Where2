@@ -78,14 +78,18 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
         let locNow = CLLocationCoordinate2D(latitude: ido, longitude: keido)
         let locFuji = CLLocationCoordinate2D(latitude: 35.3625, longitude: 138.7306)
         let locTree = CLLocationCoordinate2D(latitude: 35.710139, longitude: 139.810833)
-//        let locAdd = CLLocationCoordinate2D(latitude: 36.000, longitude: 140.000)//適当な値
-        let tempList = UserDefaults.standard.array(forKey: "mountLocTemp")//tempListへ読み込み
-print(tempList!)
-//        let tempMount = tempList![0]
-        let tempLatitude = tempList![1]
-        let tempLongitude = tempList![2]
         
-        let locAdd = CLLocationCoordinate2D(latitude: tempLatitude as! CLLocationDegrees, longitude: tempLongitude as! CLLocationDegrees)
+//        let tempList = UserDefaults.standard.array(forKey: "mountLocTemp")//tempListへ読み込み
+
+        let mtName = UserDefaults.standard.string(forKey: "mtName")//山名読み出し・・・今は使用しない
+        let mtLatitude = UserDefaults.standard.double(forKey: "mtLatitude")//緯度読み出し
+        let mtLongitude = UserDefaults.standard.double(forKey: "mtLongitude")//経度読み出し
+        
+//        let tempName = tempList![0]//山名・・・今は使用しない
+//        let tempLatitude = tempList![1]
+//        let tempLongitude = tempList![2]
+        
+        let locAdd = CLLocationCoordinate2D(latitude: mtLatitude as! CLLocationDegrees, longitude: mtLongitude as! CLLocationDegrees)
         
         let arrFuji = [locNow,locFuji]// 現在地と富士山を入れた配列
         let arrTree = [locNow,locTree]// 現在地とスカイツリーを入れた配列
