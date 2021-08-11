@@ -82,7 +82,9 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
         // 追加した山名、緯度経度を読み込む
         //let mtName = UserDefaults.standard.string(forKey: "mtName")//山名読み込み・今は不使用
         let mtLatitude = UserDefaults.standard.double(forKey: "mtLatitude")//緯度読み込み
+
         let mtLongitude = UserDefaults.standard.double(forKey: "mtLongitude")//経度読み込み
+        
         let locAdd = CLLocationCoordinate2D(latitude: mtLatitude , longitude: mtLongitude )
         
         let arrFuji = [locNow,locFuji]// 現在地と富士山を入れた配列
@@ -94,7 +96,11 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
         let treeLine = TreeOverlay(coordinates: arrTree, count: 2)// ２点を結ぶ
         mapView.addOverlays([treeLine])// 地図上に描く 現在地ースカイツリー
         let addLine = AddOverlay(coordinates: arrAdd, count: 2)// ２点を結ぶ
-        mapView.addOverlays([addLine])// 地図上に描く 現在地ー追加した山
+        if mtLatitude != 0 {
+            mapView.addOverlays([addLine])// 地図上に描く 現在地ー追加した山
+        }
+        
+        
     }
 
     // ポリライン(オーバーレイ)がどちらのクラスのものか、switch-case文で３つに分ける
