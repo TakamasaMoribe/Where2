@@ -74,22 +74,16 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
         mapView.delegate = self
         
         // ここから線を引く部分。
-        // 現在地と富士山と東京スカイツリーの座標を指定する・・・追加した山の分をつくる
+        // 現在地と富士山と東京スカイツリーの座標を指定する
         let locNow = CLLocationCoordinate2D(latitude: ido, longitude: keido)
         let locFuji = CLLocationCoordinate2D(latitude: 35.3625, longitude: 138.7306)
         let locTree = CLLocationCoordinate2D(latitude: 35.710139, longitude: 139.810833)
         
-//        let tempList = UserDefaults.standard.array(forKey: "mountLocTemp")//tempListへ読み込み
-
-        let mtName = UserDefaults.standard.string(forKey: "mtName")//山名読み出し・・・今は使用しない
-        let mtLatitude = UserDefaults.standard.double(forKey: "mtLatitude")//緯度読み出し
-        let mtLongitude = UserDefaults.standard.double(forKey: "mtLongitude")//経度読み出し
-        
-//        let tempName = tempList![0]//山名・・・今は使用しない
-//        let tempLatitude = tempList![1]
-//        let tempLongitude = tempList![2]
-        
-        let locAdd = CLLocationCoordinate2D(latitude: mtLatitude as! CLLocationDegrees, longitude: mtLongitude as! CLLocationDegrees)
+        // 追加した山名、緯度経度を読み込む
+        //let mtName = UserDefaults.standard.string(forKey: "mtName")//山名読み込み・今は不使用
+        let mtLatitude = UserDefaults.standard.double(forKey: "mtLatitude")//緯度読み込み
+        let mtLongitude = UserDefaults.standard.double(forKey: "mtLongitude")//経度読み込み
+        let locAdd = CLLocationCoordinate2D(latitude: mtLatitude , longitude: mtLongitude )
         
         let arrFuji = [locNow,locFuji]// 現在地と富士山を入れた配列
         let arrTree = [locNow,locTree]// 現在地とスカイツリーを入れた配列

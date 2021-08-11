@@ -13,9 +13,9 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBAction func returnButton(_ sender: Any) {
         // 追加した山名と緯度経度の保存
-        let mtName = UserDefaults.standard.string(forKey: "mtName")//山名mtNameへ読み込み
-        let mtLatitude = UserDefaults.standard.double(forKey: "mtLatitude")//緯度mtLatitude
-        let mtLongitude = UserDefaults.standard.double(forKey: "mtLongitude")//経度mtLongitude
+        let mtName = UserDefaults.standard.string(forKey: "mtName")//山名をmtNameへ読み込み
+        let mtLatitude = UserDefaults.standard.double(forKey: "mtLatitude")//緯度をmtLatitude
+        let mtLongitude = UserDefaults.standard.double(forKey: "mtLongitude")//経度をmtLongitude
         UserDefaults.standard.set(mtName, forKey: "mtName")//山名保存
         UserDefaults.standard.set(mtLatitude, forKey: "mtLatitude")//緯度保存
         UserDefaults.standard.set(mtLongitude, forKey: "mtLongitude")//経度保存
@@ -28,7 +28,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     }
     // ドラムロールボタンの選択肢を配列にして格納する
     let datas = ["筑波山", "男体山", "浅間山"] //ドラム１個で、山名だけの表示
-    // 山の緯度経度の値　ｃｓｖファイルを作って、読み込む形にする
+    // 山名と緯度経度を具体的に指定する。　課題：ｃｓｖファイルを作って、読み込む形にする
     let mountLoc = [["筑波山",36.2253, 140.1067],["男体山",36.7650, 139.4908],["浅間山",36.406333, 138.52300]]
     
         
