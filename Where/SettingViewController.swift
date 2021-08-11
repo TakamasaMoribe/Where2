@@ -23,18 +23,14 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         self.present(nextView, animated: true, completion: nil)
         
     //------
-        
             
     }
-
+    
     // ドラムロールボタンの選択肢を配列にして格納
     let datas = ["筑波山", "男体山", "浅間山"] //最初は、山名だけの表示にしてみる
-    //let datas = [["茨城","栃木","群馬","福岡","鹿児島","沖縄"],["筑波山", "男体山", "浅間山"]]
     // 山の緯度経度
     let mountLoc = [["筑波山",36.1320, 140.0636],["男体山",36.4543, 139.2939],["浅間山",36.406333, 138.52300]]
-  //  let yamaLoc = [["筑波山",36.1320, 140.0636],["男体山",36.4543, 139.2939],["浅間山",36.406333, 138.52300]]
-    //36.406333    138.52300
-    //36.2412, 138.3134
+
         
 //-------------------------------
     override func viewDidLoad() {
@@ -79,9 +75,15 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         //配列にして保存する・・・決定ボタンを押したら保存する
         UserDefaults.standard.set(mountLoc[choice], forKey: "mountLocTemp")//保存
 print("choice\(mountLoc[choice])")
-        let tempList = UserDefaults.standard.array(forKey: "mountLocTemp")//読み込み試し
-print("tempList\(tempList!)")
-        
+        UserDefaults.standard.set(mountLoc[choice][0], forKey: "mountLocTempMtName")//山名保存
+        UserDefaults.standard.set(mountLoc[choice][1], forKey: "mountLocTempLatitude")//緯度保存
+        UserDefaults.standard.set(mountLoc[choice][2], forKey: "mountLocTempLongitude")//経度保存
+        let tempName = UserDefaults.standard.string(forKey: "mountLocTempMtName")//山名読み出し
+print("tempList\(tempName!)")
+        let tempLatitude = UserDefaults.standard.double(forKey: "mountLocTempLatitude")//緯度読み出し
+print("tempLatitude\(tempLatitude)")
+        let tempLongitude = UserDefaults.standard.double(forKey: "mountLocTempLongitude")//経度読み出し
+print("tempLongitude\(tempLongitude)")
     }
     
 
