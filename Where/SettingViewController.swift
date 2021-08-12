@@ -2,7 +2,7 @@
 //  SettingViewController.swift
 //  Where
 //
-//  Created by 森部高昌 on 2021/08/10
+//  Created by 森部高昌 on 2021/08/12
 //
 
 import UIKit
@@ -37,9 +37,31 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         super.viewDidLoad()
         myPickerView.delegate = self
         myPickerView.dataSource = self
-
+        
+        //csvファイルから、山のデータを読み込む
+        //データを格納するための配列を準備する
+        var dataArray :[[String]] = [] //二重配列にして、空配列にしておく
+        
+        //データの読み込み準備 ファイルが見つからないときは実行しない
+        guard let thePath = Bundle.main.path(forResource: "myTextfile", ofType: "csv") else {
+            return
+        }
+        
+         do {
+            let csvStringData = try String(contentsOfFile: thePath, encoding: String.Encoding.utf8)
+            csvStringData.enumerateLines(invoking: {(line,stop) in //改行されるごとに分割する
+                let data = line.components(separatedBy: ",") //１行を","で分割して配列に入れる
+                dataArray.append(data) //格納用の配列に、１行ずつ追加していく
+                }) //invokingからのクロージャここまで
+            
+            }catch let error as NSError {
+             print("ファイル読み込みに失敗。\n \(error)")
+         } //Do節ここまで
+        
     }
+    
 //-------------------------------
+
     // コンポーネントの数（ホイールの数）。ここでは１つになる　山名だけ
     func numberOfComponents(in myPickerView: UIPickerView) -> Int {
         return 1 //datas.count //ここではコンポーネントの数は、1
@@ -70,7 +92,6 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtLongitude")//経度保存
     }
     
-
 
 }
 
