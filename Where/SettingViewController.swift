@@ -11,7 +11,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBOutlet weak var myPickerView: UIPickerView!
     
-    @IBAction func returnButton(_ sender: Any) {
+    @IBAction func returnButton(_ sender: Any) { //設定を終了して、地図へ画面遷移する
         // 追加した山名と緯度経度の保存
         let mtName = UserDefaults.standard.string(forKey: "mtName")//山名をmtNameへ読み込み
         let mtLatitude = UserDefaults.standard.double(forKey: "mtLatitude")//緯度をmtLatitude
@@ -26,11 +26,15 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         self.present(nextView, animated: true, completion: nil)
             
     }
-    // ドラムロールボタンの選択肢を配列にして格納する
-    let datas = ["筑波山", "男体山", "浅間山"] //ドラム１個で、山名だけの表示
-    // 山名と緯度経度を具体的に指定する。　課題：ｃｓｖファイルを作って、読み込む形にする
-    let mountLoc = [["筑波山",36.2253, 140.1067],["男体山",36.7650, 139.4908],["浅間山",36.406333, 138.52300]]
     
+
+    
+//    // ドラムロールボタンの選択肢を配列にして格納する
+    let datas = ["筑波山", "男体山", "浅間山"] //ドラム１個で、山名だけの表示
+//    // 山名と緯度経度を具体的に指定する。　課題：ｃｓｖファイルを作って、読み込む形にする
+//    let mountLoc = [["筑波山",36.2253, 140.1067],["男体山",36.7650, 139.4908],["浅間山",36.406333, 138.52300]]
+    //var mountLoc:[[String]] = []
+    //mountLoc = dataLoad()
         
 //-------------------------------
     override func viewDidLoad() {
@@ -38,13 +42,21 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         myPickerView.delegate = self
         myPickerView.dataSource = self
         
-        //csvファイルから、山のデータを読み込む
+        var mountLoc:[[String]] = []
+        mountLoc = dataLoad()
+        print(mountLoc)
+    }
+//-------------------------------
+
+    //csvファイルから、山のデータを読み込む
+    func dataLoad() -> [[String]] {
+
         //データを格納するための配列を準備する
         var dataArray :[[String]] = [] //二重配列にして、空配列にしておく
         
         //データの読み込み準備 ファイルが見つからないときは実行しない
         guard let thePath = Bundle.main.path(forResource: "myTextfile", ofType: "csv") else {
-            return
+            return [[]]
         }
         
          do {
@@ -58,7 +70,15 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
              print("ファイル読み込みに失敗。\n \(error)")
          } //Do節ここまで
         
+        //dataArray = [番号、地域名、山名、緯度、経度]
+        // ドラムロールボタンの選択肢を配列にして格納する
+        let datas = ["筑波山", "男体山", "浅間山"] //ドラム１個で、山名だけの表示
+        // 山名と緯度経度を具体的に指定する。ｃｓｖファイルから読み込むんだ配列dataArrayを使う
+     //   let mountLoc = dataArray
+
+        return dataArray
     }
+    
     
 //-------------------------------
 
@@ -86,10 +106,10 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         let choice = myPickerView.selectedRow(inComponent: 0)//
 
         //配列にして保存する・・・決定ボタンを押したら保存する
-        UserDefaults.standard.set(mountLoc[choice], forKey: "mountLocTemp")//全部保存　不使用
-        UserDefaults.standard.set(mountLoc[choice][0], forKey: "mtName")//山名保存
-        UserDefaults.standard.set(mountLoc[choice][1], forKey: "mtLatitude")//緯度保存
-        UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtLongitude")//経度保存
+//        UserDefaults.standard.set(mountLoc[choice], forKey: "mountLocTemp")//全部保存　不使用
+//        UserDefaults.standard.set(mountLoc[choice][0], forKey: "mtName")//山名保存
+//        UserDefaults.standard.set(mountLoc[choice][1], forKey: "mtLatitude")//緯度保存
+//        UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtLongitude")//経度保存
     }
     
 
