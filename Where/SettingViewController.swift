@@ -7,6 +7,10 @@
 
 import UIKit
 
+var mountLoc:[[String]] = []//二重配列にして、空配列にしておく
+var datas:[String] = [] // 山名を取り出す配列
+
+
 class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var myPickerView: UIPickerView!
@@ -25,15 +29,26 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         let nextView = storyboard.instantiateViewController(withIdentifier: "CurrentViewController") as! CurrentViewController
         self.present(nextView, animated: true, completion: nil)
     }
-    
 
     
-//    // ドラムロールボタンの選択肢を配列にして格納する
-    let datas = ["筑波山", "男体山", "浅間山"] //ドラム１個で、山名だけの表示
-//    // 山名と緯度経度を具体的に指定する。　課題：ｃｓｖファイルを作って、読み込む形にする
-//    let mountLoc = [["筑波山",36.2253, 140.1067],["男体山",36.7650, 139.4908],["浅間山",36.406333, 138.52300]]
-    //var mountLoc:[[String]] = []
-    //mountLoc = dataLoad()
+//    var mountLoc:[[String]] = []//二重配列にして、空配列にしておく
+//    var datas:[String] = [] // 山名を取り出す配列
+//    var mtName:String
+//    var latitude:String
+//    var longitude:String
+//
+//    init(mountLoc:[[String]]) {
+//        mtName = mountLoc[[0]]  //山名
+//        latitude = mountLoc[[1]]    //緯度
+//        longitude = mountLoc[[2]]   //経度
+//    }
+
+//    mountLoc = dataLoad()//山の配列データ[山名、緯度、経度]
+//    datas = setMountName(mountData: mountLoc)//山名のみの配列
+
+    //    // ドラムロールボタンの選択肢を配列にして格納する
+//    let datas = ["筑波山", "男体山", "浅間山"] //ドラム１個で、山名だけの表示
+
         
 //-------------------------------
     override func viewDidLoad() {
@@ -41,13 +56,12 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         myPickerView.delegate = self
         myPickerView.dataSource = self
         
-        var mountLoc:[[String]] = []//二重配列にして、空配列にしておく
+//        var mountLoc:[[String]] = []//二重配列にして、空配列にしておく
         mountLoc = dataLoad()//山の配列データ[山名、緯度、経度]
-        //print(mountLoc) OK
-        var datas:[String] = [] // 山名を取り出す配列
+//print(mountLoc)
+//        var datas:[String] = [] // 山名を取り出す配列
         datas = setMountName(mountData: mountLoc)//山名のみの配列
-        //print(datas) OK
-
+//print(datas)
         
     }
 //-------------------------------
@@ -75,7 +89,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         
         return dataArray // dataArray = [[山名、緯度、経度]] 二重配列
     }
-    
+//-------------------------------
+
 // 山名だけの配列を取り出す。（ドラムロールに山名だけを表示するため）　-------------------------------
     func setMountName(mountData:[[String]]) -> [String] {
         let mountCount = mountData.count // 山の数
@@ -95,8 +110,10 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     
     // コンポーネントごとの行数（選択肢の個数）　ここでは山名の数だけ
     func pickerView(_ myPickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        let data = datas[component]//datas配列の中から、コンポーネントごとに配列を抜き出し個数を得る
-        return data.count
+ //       let data = datas[component]//datas配列の中から、コンポーネントごとに配列を抜き出し個数を得る
+ //       print("datas:\(datas)")
+ //       print("data:\(data)")
+        return datas.count
     }
 
     // 選択中のコンポーネントの番号と行から、選択中の項目名を返す　ここでは一次元配列にしたので、[row]列の項目だけ
@@ -113,9 +130,9 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
 
         //配列にして保存する・・・決定ボタンを押したら保存する・・・・この場所でなくても良い？
 //        UserDefaults.standard.set(mountLoc[choice], forKey: "mountLocTemp")//全部保存　不使用
-//        UserDefaults.standard.set(mountLoc[choice][0], forKey: "mtName")//山名保存
-//        UserDefaults.standard.set(mountLoc[choice][1], forKey: "mtLatitude")//緯度保存
-//        UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtLongitude")//経度保存
+        UserDefaults.standard.set(mountLoc[choice][0], forKey: "mtName")//山名保存
+        UserDefaults.standard.set(mountLoc[choice][1], forKey: "mtLatitude")//緯度保存
+        UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtLongitude")//経度保存
     }
     
 
