@@ -38,9 +38,9 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         myPickerView.dataSource = self
         
         mountLoc = dataLoad()//山の配列データ[山名、緯度、経度]
-//print(mountLoc)
+print("mountLoc\(mountLoc)")
         datas = setMountName(mountData: mountLoc)//山名のみの配列
-//print("datas\(datas)")
+print("datas\(datas)")
         
     }
 //-------------------------------
@@ -51,7 +51,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         var dataArray :[[String]] = [] //二重配列にして、空配列にしておく
         
         //データの読み込み準備 ファイルが見つからないときは実行しない
-        guard let thePath = Bundle.main.path(forResource: "locationData", ofType: "csv") else {
+        guard let thePath = Bundle.main.path(forResource: "mtDataAll", ofType: "csv") else {
             return [["null"]]
         }
         
@@ -65,7 +65,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             }catch let error as NSError {
              print("ファイル読み込みに失敗。\n \(error)")
          } //Do節ここまで
-        
+
         return dataArray // dataArray = [[山名、緯度、経度]] 二重配列
     }
 //-------------------------------
