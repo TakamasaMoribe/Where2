@@ -7,7 +7,7 @@
 
 import UIKit
 
-var mountLoc:[[String]] = []//二重配列にして、空配列にしておく
+var mountLoc:[[String]] = [] //二重配列にして、空配列にしておく
 var datas:[String] = [] // 山名を取り出す配列
 
 
@@ -30,25 +30,6 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         self.present(nextView, animated: true, completion: nil)
     }
 
-    
-//    var mountLoc:[[String]] = []//二重配列にして、空配列にしておく
-//    var datas:[String] = [] // 山名を取り出す配列
-//    var mtName:String
-//    var latitude:String
-//    var longitude:String
-//
-//    init(mountLoc:[[String]]) {
-//        mtName = mountLoc[[0]]  //山名
-//        latitude = mountLoc[[1]]    //緯度
-//        longitude = mountLoc[[2]]   //経度
-//    }
-
-//    mountLoc = dataLoad()//山の配列データ[山名、緯度、経度]
-//    datas = setMountName(mountData: mountLoc)//山名のみの配列
-
-    //    // ドラムロールボタンの選択肢を配列にして格納する
-//    let datas = ["筑波山", "男体山", "浅間山"] //ドラム１個で、山名だけの表示
-
         
 //-------------------------------
     override func viewDidLoad() {
@@ -56,12 +37,10 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         myPickerView.delegate = self
         myPickerView.dataSource = self
         
-//        var mountLoc:[[String]] = []//二重配列にして、空配列にしておく
         mountLoc = dataLoad()//山の配列データ[山名、緯度、経度]
 //print(mountLoc)
-//        var datas:[String] = [] // 山名を取り出す配列
         datas = setMountName(mountData: mountLoc)//山名のみの配列
-//print(datas)
+//print("datas\(datas)")
         
     }
 //-------------------------------
@@ -105,7 +84,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
 
     // コンポーネントの数（ホイールの数）。ここでは１つになる　山名だけ
     func numberOfComponents(in myPickerView: UIPickerView) -> Int {
-        return 1 //datas.count　と書けば汎用的 //ここではコンポーネントの数は、1
+        return 1 //mountLoc[0].count//　と書けば汎用的？ //ここではコンポーネントの数は、1
     }
     
     // コンポーネントごとの行数（選択肢の個数）　ここでは山名の数だけ
@@ -113,7 +92,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
  //       let data = datas[component]//datas配列の中から、コンポーネントごとに配列を抜き出し個数を得る
  //       print("datas:\(datas)")
  //       print("data:\(data)")
-        return datas.count
+        return datas.count // 変更の要あり？
     }
 
     // 選択中のコンポーネントの番号と行から、選択中の項目名を返す　ここでは一次元配列にしたので、[row]列の項目だけ
@@ -129,7 +108,6 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         let choice = myPickerView.selectedRow(inComponent: 0)//
 
         //配列にして保存する・・・決定ボタンを押したら保存する・・・・この場所でなくても良い？
-//        UserDefaults.standard.set(mountLoc[choice], forKey: "mountLocTemp")//全部保存　不使用
         UserDefaults.standard.set(mountLoc[choice][0], forKey: "mtName")//山名保存
         UserDefaults.standard.set(mountLoc[choice][1], forKey: "mtLatitude")//緯度保存
         UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtLongitude")//経度保存
