@@ -8,6 +8,7 @@
 import UIKit
 
 var mountLoc:[[String]] = [] //二重配列にして、空配列にしておく
+var areaName:[String] = [] // 地域名を取り出す配列
 var datas:[String] = [] // 山名を取り出す配列
 
 
@@ -37,8 +38,10 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         myPickerView.delegate = self
         myPickerView.dataSource = self
         
-        mountLoc = dataLoad()//山の配列データ[山名、緯度、経度]
+        mountLoc = dataLoad()//山の配列データを読み込む[番号、地域名、山名、緯度、経度]
 print("mountLoc\(mountLoc)")
+        areaName = setAreaName(mountData: mountLoc)//地域名を取り出して配列にする
+print("areaName\(areaName)")
         datas = setMountName(mountData: mountLoc)//山名のみの配列
 print("datas\(datas)")
         
@@ -69,15 +72,27 @@ print("datas\(datas)")
         return dataArray // dataArray = [[山名、緯度、経度]] 二重配列
     }
 //-------------------------------
-
-// 山名だけの配列を取り出す。（ドラムロールに山名だけを表示するため）　-------------------------------
-    func setMountName(mountData:[[String]]) -> [String] {
+    // 地域名だけの配列を取り出す。（ドラムロールに地域名だけを表示するため）------------------------
+        func setAreaName(mountData:[[String]]) -> [String]{
+            let mountCount = mountData.count // 山の数
+            var areaName:[String] = []
+                for i in 0...mountCount-1 {
+                    //mountName.append(mountData[i].first!) //山名は、配列内の最初の要素（変更前）
+                    areaName.append(mountData[i][1]) //地域名は、配列内の２番目の要素
+                }
+            return areaName // 地域名の配列
+        }
+    
+    
+// 山名だけの配列を取り出す。（ドラムロールに山名だけを表示するため）　地域名用に作る　------------------------
+    func setMountName(mountData:[[String]]) -> [String]{
         let mountCount = mountData.count // 山の数
         var mountName:[String] = [] // 山名を取り出す配列
             for i in 0...mountCount-1 {
-                mountName.append(mountData[i].first!) //山名は、配列内の最初の要素
+                //mountName.append(mountData[i].first!) //山名は、配列内の最初の要素（変更前）
+                mountName.append(mountData[i][2]) //山名は、配列内の３番目の要素
             }
-        return mountName // 山名だけの配列
+        return mountName // 山名の配列
     }
     
 //-------------------------------
