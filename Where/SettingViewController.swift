@@ -42,7 +42,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
 print("mountLoc\(mountLoc)")
         areaName = setAreaName(mountData: mountLoc)//地域名を取り出して配列にする
 print("areaName\(areaName)")
-        datas = setMountName(mountData: mountLoc)//山名のみの配列
+        datas = setMountName(mountData: mountLoc)//山名を取り出して配列にする
 print("datas\(datas)")
         
     }
@@ -71,8 +71,9 @@ print("datas\(datas)")
 
         return dataArray // dataArray = [[山名、緯度、経度]] 二重配列
     }
-//-------------------------------
-    // 地域名だけの配列を取り出す。（ドラムロールに地域名だけを表示するため）------------------------
+    
+    
+//　地域名だけの配列を取り出す。（ドラムロール１に地域名だけを表示するため）----------------------------
         func setAreaName(mountData:[[String]]) -> [String]{
             let mountCount = mountData.count // 山の数
             var areaName:[String] = []
@@ -83,8 +84,7 @@ print("datas\(datas)")
             return areaName // 地域名の配列
         }
     
-    
-// 山名だけの配列を取り出す。（ドラムロールに山名だけを表示するため）　地域名用に作る　------------------------
+// 山名だけの配列を取り出す。（ドラムロール２に山名だけを表示するため）　　------------------------
     func setMountName(mountData:[[String]]) -> [String]{
         let mountCount = mountData.count // 山の数
         var mountName:[String] = [] // 山名を取り出す配列
@@ -97,7 +97,7 @@ print("datas\(datas)")
     
 //-------------------------------
 
-    // コンポーネントの数（ホイールの数）。ここでは１つになる　山名だけ
+    // コンポーネントの数（ホイールの数）。ここでは１つになる　山名だけ・・地域名にする　２になる
     func numberOfComponents(in myPickerView: UIPickerView) -> Int {
         return 1 //mountLoc[0].count//　と書けば汎用的？ //ここではコンポーネントの数は、1
     }
