@@ -55,8 +55,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         var dataArray :[[String]] = [] //二重配列にして、空配列にしておく
         
         //データの読み込み準備 ファイルが見つからないときは実行しない
-        guard let thePath = Bundle.main.path(forResource: "関東近郊", ofType: "csv") else {
-            return [[]]
+        guard let thePath = Bundle.main.path(forResource: "locationData", ofType: "csv") else {
+            return [["null"]]
         }
         
          do {
@@ -65,17 +65,16 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                 let data = line.components(separatedBy: ",") //１行を","で分割して配列に入れる
                 dataArray.append(data) //格納用の配列に、１行ずつ追加していく
                 }) //invokingからのクロージャここまで
-            
+
             }catch let error as NSError {
              print("ファイル読み込みに失敗。\n \(error)")
          } //Do節ここまで
         
-        //dataArray = [番号、地域名、山名、緯度、経度]
+        //dataArray = [山名、緯度、経度]
         // ドラムロールボタンの選択肢を配列にして格納する
         let datas = ["筑波山", "男体山", "浅間山"] //ドラム１個で、山名だけの表示
         // 山名と緯度経度を具体的に指定する。ｃｓｖファイルから読み込むんだ配列dataArrayを使う
      //   let mountLoc = dataArray
-print(dataArray)
         
         return dataArray
     }
