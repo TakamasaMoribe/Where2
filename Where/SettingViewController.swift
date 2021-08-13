@@ -44,6 +44,10 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         var mountLoc:[[String]] = []//二重配列にして、空配列にしておく
         mountLoc = dataLoad()//山の配列データ[山名、緯度、経度]
         //print(mountLoc) OK
+        var datas:[String] = [] // 山名を取り出す配列
+        datas = setMountName(mountData: mountLoc)//山名のみの配列
+        //print(datas) OK
+
         
     }
 //-------------------------------
@@ -69,21 +73,15 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
              print("ファイル読み込みに失敗。\n \(error)")
          } //Do節ここまで
         
-        
-        // ドラムロールボタンの選択肢を配列にして格納する
-        let datas = ["筑波山", "男体山", "浅間山"] //ドラム１個で、山名だけの表示
-        // 山名と緯度経度を具体的に指定する。ｃｓｖファイルから読み込むんだ配列dataArrayを使う
-        
         return dataArray // dataArray = [[山名、緯度、経度]] 二重配列
     }
     
 // 山名だけの配列を取り出す。（ドラムロールに山名だけを表示するため）　-------------------------------
-
-    func setMountName(mountData:Array<String>) -> Array<String> {
-
+    func setMountName(mountData:[[String]]) -> [String] {
+        let mountCount = mountData.count // 山の数
         var mountName:[String] = [] // 山名を取り出す配列
-            for _ in mountData {
-                mountName.append(mountData.first!) //山名は、配列内の最初の要素
+            for i in 0...mountCount-1 {
+                mountName.append(mountData[i].first!) //山名は、配列内の最初の要素
             }
         return mountName // 山名だけの配列
     }
@@ -92,7 +90,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
 
     // コンポーネントの数（ホイールの数）。ここでは１つになる　山名だけ
     func numberOfComponents(in myPickerView: UIPickerView) -> Int {
-        return 1 //datas.count //ここではコンポーネントの数は、1
+        return 1 //datas.count　と書けば汎用的 //ここではコンポーネントの数は、1
     }
     
     // コンポーネントごとの行数（選択肢の個数）　ここでは山名の数だけ
