@@ -24,7 +24,6 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "CurrentViewController") as! CurrentViewController
         self.present(nextView, animated: true, completion: nil)
-            
     }
     
 
@@ -42,12 +41,12 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         myPickerView.delegate = self
         myPickerView.dataSource = self
         
-        var mountLoc:[[String]] = []
-        mountLoc = dataLoad()
-        print(mountLoc)
+        var mountLoc:[[String]] = []//二重配列にして、空配列にしておく
+        mountLoc = dataLoad()//山の配列データ[山名、緯度、経度]
+        //print(mountLoc) OK
+        
     }
 //-------------------------------
-
     //csvファイルから、山のデータを読み込む
     func dataLoad() -> [[String]] {
 
@@ -70,15 +69,24 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
              print("ファイル読み込みに失敗。\n \(error)")
          } //Do節ここまで
         
-        //dataArray = [山名、緯度、経度]
+        
         // ドラムロールボタンの選択肢を配列にして格納する
         let datas = ["筑波山", "男体山", "浅間山"] //ドラム１個で、山名だけの表示
         // 山名と緯度経度を具体的に指定する。ｃｓｖファイルから読み込むんだ配列dataArrayを使う
-     //   let mountLoc = dataArray
         
-        return dataArray
+        return dataArray // dataArray = [[山名、緯度、経度]] 二重配列
     }
     
+// 山名だけの配列を取り出す。（ドラムロールに山名だけを表示するため）　-------------------------------
+
+    func setMountName(mountData:Array<String>) -> Array<String> {
+
+        var mountName:[String] = [] // 山名を取り出す配列
+            for _ in mountData {
+                mountName.append(mountData.first!) //山名は、配列内の最初の要素
+            }
+        return mountName // 山名だけの配列
+    }
     
 //-------------------------------
 
@@ -105,7 +113,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         //現在選択されている行番号 ここでは一次元配列なので、inComponent: 0　１つ目のコンポーネント=山名
         let choice = myPickerView.selectedRow(inComponent: 0)//
 
-        //配列にして保存する・・・決定ボタンを押したら保存する
+        //配列にして保存する・・・決定ボタンを押したら保存する・・・・この場所でなくても良い？
 //        UserDefaults.standard.set(mountLoc[choice], forKey: "mountLocTemp")//全部保存　不使用
 //        UserDefaults.standard.set(mountLoc[choice][0], forKey: "mtName")//山名保存
 //        UserDefaults.standard.set(mountLoc[choice][1], forKey: "mtLatitude")//緯度保存
