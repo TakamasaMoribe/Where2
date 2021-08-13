@@ -33,6 +33,7 @@
 		7F467C3226B533E4008B641E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7F56416A26B9365000D5F62E /* CurrentViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentViewcontroller.swift; sourceTree = "<group>"; };
 		7F56416C26B93A6300D5F62E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		7F84783A26C661FF0090EB80 /* mtDataAll.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = mtDataAll.csv; sourceTree = "<group>"; };
 		7FF20E6926C5F029009916AC /* locationData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = locationData.csv; path = ../../../../Desktop/locationData.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +79,7 @@
 				7F467C2426B53370008B641E /* Assets.xcassets */,
 				7F467C2626B53370008B641E /* LaunchScreen.storyboard */,
 				7F467C2926B53370008B641E /* Info.plist */,
+				7F84783A26C661FF0090EB80 /* mtDataAll.csv */,
 				7FF20E6926C5F029009916AC /* locationData.csv */,
 			);
 			path = Where;
