@@ -73,7 +73,7 @@ print("datas\(datas)")
     }
     
     
-//　地域名だけの配列を取り出す。（ドラムロール１に地域名だけを表示するため）----------------------------
+//　地域名だけの配列を取り出す。（ドラムロール１に地域名だけを表示するため）　１つにまとめられる？？？？
         func setAreaName(mountData:[[String]]) -> [String]{
             let mountCount = mountData.count // 山の数
             var areaName:[String] = []
