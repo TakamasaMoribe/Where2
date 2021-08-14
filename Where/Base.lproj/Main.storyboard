@@ -113,6 +113,9 @@
                                 <rect key="frame" x="90" y="442" width="41" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="選択"/>
+                                <connections>
+                                    <action selector="selectButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="wqZ-qP-XEI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6K-qa-Sqa">
                                 <rect key="frame" x="163" y="512" width="49" height="41"/>
@@ -139,8 +142,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mtPickerView" destination="oMM-KY-wEa" id="Gcw-K4-yBI"/>
-                        <outlet property="myPickerView" destination="7cs-BQ-oK5" id="QkU-sb-64E"/>
+                        <outlet property="areaPickerView" destination="7cs-BQ-oK5" id="ocb-Uf-WBs"/>
+                        <outlet property="mountPickerView" destination="oMM-KY-wEa" id="pkX-t8-LBp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3b3-XF-KEg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
