@@ -9,8 +9,11 @@ import UIKit
 
 var mountLoc:[[String]] = [] //二重配列にして、空配列にしておく
 //var areaName:[String] = [] // 地域名を取り出す配列
-let areaName = ["北海道","東北","関東甲信越","中部","近畿中国四国九州"] // 地域名
+let areaName = ["北海道","東北","関東甲信越","中部","近畿中国","四国九州"] // 地域名
 var mountName:[String] = [] // 山名を取り出す配列
+
+//地域名を選び、その中の山を選ぶ。地域名と山名で構成される二重配列を作っておく
+let compos = [areaName,mountName] //コンポーネントに表示する配列
 
 
 class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -41,11 +44,11 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         
         mountLoc = dataLoad()//山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
 print("mountLoc\(mountLoc)")
-        areaName = setAreaName(mountData: mountLoc)//地域名　を取り出して配列にする　リテラルで入力しておく
+//        areaName = setAreaName(mountData: mountLoc)//地域名の配列　リテラルで入力しておく
 print("areaName\(areaName)")
         mountName = setMountName(mountData: mountLoc)//山名　を取り出して配列にする
 print("mountName\(mountName)")
-        
+                     
     }
 //-------------------------------
     //csvファイルから、山のデータを読み込む
@@ -74,17 +77,17 @@ print("mountName\(mountName)")
     }
     
     
-//　地域名だけの配列を取り出す。（ドラムロール１に地域名だけを表示するため）　１つにまとめられる？？？？
-        func setAreaName(mountData:[[String]]) -> [String]{
-            let mountCount = mountData.count // 山の数
-            var areaName:[String] = []
-                for i in 0...mountCount-1 {
-                    areaName.append(mountData[i][1]) //地域名は、配列内の２番目の要素
-                }
-            return areaName // 地域名の配列
-        }
+//　地域名だけの配列を取り出す。（ドラムロール１に地域名だけを表示するため）　リテラルで入力した
+//        func setAreaName(mountData:[[String]]) -> [String]{
+//            let mountCount = mountData.count // 山の数
+//            var areaName:[String] = []
+//                for i in 0...mountCount-1 {
+//                    areaName.append(mountData[i][1]) //地域名は、配列内の２番目の要素
+//                }
+//            return areaName // 地域名の配列
+//        }
     
-// 山名だけの配列を取り出す。（ドラムロール２に山名だけを表示するため）　　------------------------
+// 山名だけの配列を取り出す。（ドラムロールに山名だけを表示するため）
     func setMountName(mountData:[[String]]) -> [String]{
         let mountCount = mountData.count // 山の数
         var mountName:[String] = [] // 山名を取り出す配列
@@ -94,7 +97,7 @@ print("mountName\(mountName)")
         return mountName // 山名の配列
     }
     
-//-------------------------------
+//-------------------------------　------------------------
 
     // コンポーネントの数（ホイールの数）。ここでは２つになる　地域名と山名
     func numberOfComponents(in myPickerView: UIPickerView) -> Int {
@@ -109,22 +112,30 @@ print("mountName\(mountName)")
         return areaName.count //mountName.count // 変更の要あり？
     }
 
-    // 選択中のコンポーネントの番号と行から、選択中の項目名を返す　ここでは一次元配列にしたので、[row]列の項目だけ
+    // 選択中のコンポーネントの番号と行から、選択中の項目名を返す
     func pickerView(_ myPickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         //指定のコンポーネントから指定中の項目名を取り出す。
-        let item = areaName[row]//mountName[row]//項目の番号？
+        let item = compos[component][row] // 何番目のcomponentの 何行row？？？
         return item
     }
 
-    // ドラムが回転して、どの項目が選ばれたか。　[row]列の項目？
+    // ドラムが回転して、どの項目が選ばれたか。情報得る。
+    //row1,row2でコンポーネント内の行番号。item1,item2でその内容。
     func pickerView(_ myPickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //現在選択されている行番号 ここでは一次元配列なので、inComponent: 0
-        let choice = myPickerView.selectedRow(inComponent: 0)//１つ目のコンポーネント=地域名
+        //現在選択されている行番号
+        let row1 = myPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行=地域名
+        let row2 = myPickerView.selectedRow(inComponent: 1)//コンポーネント２内の行=山名
+        //現在選択されている内容
+        let item1 = self.pickerView(myPickerView, titleForRow: row1, forComponent: 0)//地域名
+        let item2 = self.pickerView(myPickerView, titleForRow: row2, forComponent: 1)//山名
+        
+        //選んだ山名の、配列のインデックスは？？？？
 
-        //配列にして保存する。・・決定ボタンを押したら保存するようにすればよい？　この場所でなくても良い？
-        UserDefaults.standard.set(mountLoc[choice][0], forKey: "mtName")//山名保存
-        UserDefaults.standard.set(mountLoc[choice][1], forKey: "mtLatitude")//緯度保存
-        UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtLongitude")//経度保存
+        //配列 mountLoc[choice][] に、山名、緯度、経度を保存する。地図画面に遷移したときに取り出す
+        //・・決定ボタンを押したら保存するようにすればよい？　保存はこの場所でなくても良い？
+//        UserDefaults.standard.set(mountLoc[choice][0], forKey: "mtName")//山名保存
+//        UserDefaults.standard.set(mountLoc[choice][1], forKey: "mtLatitude")//緯度保存
+//        UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtLongitude")//経度保存
     }
     
 }
