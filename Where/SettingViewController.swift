@@ -8,7 +8,8 @@
 import UIKit
 
 var mountLoc:[[String]] = [] //二重配列にして、空配列にしておく
-var areaName:[String] = [] // 地域名を取り出す配列
+//var areaName:[String] = [] // 地域名を取り出す配列
+let areaName = ["北海道","東北","関東甲信越","中部","近畿中国四国九州"] // 地域名
 var mountName:[String] = [] // 山名を取り出す配列
 
 
@@ -40,7 +41,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         
         mountLoc = dataLoad()//山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
 print("mountLoc\(mountLoc)")
-        areaName = setAreaName(mountData: mountLoc)//地域名　を取り出して配列にする
+        areaName = setAreaName(mountData: mountLoc)//地域名　を取り出して配列にする　リテラルで入力しておく
 print("areaName\(areaName)")
         mountName = setMountName(mountData: mountLoc)//山名　を取り出して配列にする
 print("mountName\(mountName)")
