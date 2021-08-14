@@ -9,7 +9,7 @@ import UIKit
 
 var mountLoc:[[String]] = [] //二重配列にして、空配列にしておく
 var areaName:[String] = [] // 地域名を取り出す配列
-var datas:[String] = [] // 山名を取り出す配列
+var mountName:[String] = [] // 山名を取り出す配列
 
 
 class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -38,12 +38,12 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         myPickerView.delegate = self
         myPickerView.dataSource = self
         
-        mountLoc = dataLoad()//山の配列データを読み込む[番号、地域名、山名、緯度、経度]
+        mountLoc = dataLoad()//山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
 print("mountLoc\(mountLoc)")
-        areaName = setAreaName(mountData: mountLoc)//地域名を取り出して配列にする
+        areaName = setAreaName(mountData: mountLoc)//地域名　を取り出して配列にする
 print("areaName\(areaName)")
-        datas = setMountName(mountData: mountLoc)//山名を取り出して配列にする
-print("datas\(datas)")
+        mountName = setMountName(mountData: mountLoc)//山名　を取り出して配列にする
+print("mountName\(mountName)")
         
     }
 //-------------------------------
@@ -69,7 +69,7 @@ print("datas\(datas)")
              print("ファイル読み込みに失敗。\n \(error)")
          } //Do節ここまで
 
-        return dataArray // dataArray = [[山名、緯度、経度]] 二重配列
+        return dataArray // dataArray = [[番号、地域名、山名、緯度、経度]] 二重配列
     }
     
     
@@ -78,7 +78,6 @@ print("datas\(datas)")
             let mountCount = mountData.count // 山の数
             var areaName:[String] = []
                 for i in 0...mountCount-1 {
-                    //mountName.append(mountData[i].first!) //山名は、配列内の最初の要素（変更前）
                     areaName.append(mountData[i][1]) //地域名は、配列内の２番目の要素
                 }
             return areaName // 地域名の配列
@@ -89,7 +88,6 @@ print("datas\(datas)")
         let mountCount = mountData.count // 山の数
         var mountName:[String] = [] // 山名を取り出す配列
             for i in 0...mountCount-1 {
-                //mountName.append(mountData[i].first!) //山名は、配列内の最初の要素（変更前）
                 mountName.append(mountData[i][2]) //山名は、配列内の３番目の要素
             }
         return mountName // 山名の配列
@@ -97,38 +95,37 @@ print("datas\(datas)")
     
 //-------------------------------
 
-    // コンポーネントの数（ホイールの数）。ここでは１つになる　山名だけ・・地域名にする　２になる
+    // コンポーネントの数（ホイールの数）。ここでは２つになる　地域名と山名
     func numberOfComponents(in myPickerView: UIPickerView) -> Int {
-        return 1 //mountLoc[0].count//　と書けば汎用的？ //ここではコンポーネントの数は、1
+        return 2 //ここではコンポーネントの数は、２
     }
     
-    // コンポーネントごとの行数（選択肢の個数）　ここでは山名の数だけ
+    // コンポーネントごとの行数（選択肢の個数）　地域名？個。山名？個
     func pickerView(_ myPickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
- //       let data = datas[component]//datas配列の中から、コンポーネントごとに配列を抜き出し個数を得る
- //       print("datas:\(datas)")
+ //       let data = mountName[component]//mountName配列の中から、コンポーネントごとに配列を抜き出し個数を得る
+ //       print("mountName:\(mountName)")
  //       print("data:\(data)")
-        return datas.count // 変更の要あり？
+        return areaName.count //mountName.count // 変更の要あり？
     }
 
     // 選択中のコンポーネントの番号と行から、選択中の項目名を返す　ここでは一次元配列にしたので、[row]列の項目だけ
     func pickerView(_ myPickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         //指定のコンポーネントから指定中の項目名を取り出す。
-        let item = datas[row]//項目の番号
+        let item = areaName[row]//mountName[row]//項目の番号？
         return item
     }
 
-    // ドラムが回転して、項目が選ばれた　ここでは一次元配列にしたので、[row]列の項目だけ
+    // ドラムが回転して、どの項目が選ばれたか。　[row]列の項目？
     func pickerView(_ myPickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //現在選択されている行番号 ここでは一次元配列なので、inComponent: 0　１つ目のコンポーネント=山名
-        let choice = myPickerView.selectedRow(inComponent: 0)//
+        //現在選択されている行番号 ここでは一次元配列なので、inComponent: 0
+        let choice = myPickerView.selectedRow(inComponent: 0)//１つ目のコンポーネント=地域名
 
-        //配列にして保存する・・・決定ボタンを押したら保存する・・・・この場所でなくても良い？
+        //配列にして保存する。・・決定ボタンを押したら保存するようにすればよい？　この場所でなくても良い？
         UserDefaults.standard.set(mountLoc[choice][0], forKey: "mtName")//山名保存
         UserDefaults.standard.set(mountLoc[choice][1], forKey: "mtLatitude")//緯度保存
         UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtLongitude")//経度保存
     }
     
-
 }
 
 
