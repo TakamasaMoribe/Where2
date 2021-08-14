@@ -91,45 +91,55 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目的地の追加" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajA-9D-ini">
-                                <rect key="frame" x="71" y="45" width="249" height="39"/>
+                                <rect key="frame" x="71" y="45" width="194" height="38.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cs-BQ-oK5">
-                                <rect key="frame" x="0.0" y="121" width="320" height="162"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="162" id="xkx-pF-IzE"/>
-                                </constraints>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="紫色の線を引きます" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YkB-6w-JVK">
+                                <rect key="frame" x="36" y="92" width="249" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7cs-BQ-oK5">
+                                <rect key="frame" x="20" y="100" width="160" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oMM-KY-wEa">
+                                <rect key="frame" x="195" y="100" width="160" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1FM-pp-3BE">
+                                <rect key="frame" x="90" y="442" width="41" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="選択"/>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6K-qa-Sqa">
-                                <rect key="frame" x="135.5" y="495" width="49" height="41"/>
+                                <rect key="frame" x="163" y="512" width="49" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="決定"/>
                                 <connections>
                                     <action selector="returnButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="Atq-il-tle"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="紫色の線を引きます" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YkB-6w-JVK">
-                                <rect key="frame" x="36" y="92" width="249" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3g2-uh-Tjw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="3g2-uh-Tjw" firstAttribute="bottom" secondItem="m6K-qa-Sqa" secondAttribute="bottom" constant="114" id="7Nm-4U-Kzu"/>
                             <constraint firstItem="ajA-9D-ini" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="45" id="9XI-Mn-KdM"/>
                             <constraint firstItem="ajA-9D-ini" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="71" id="Fsl-a5-pTm"/>
-                            <constraint firstItem="3g2-uh-Tjw" firstAttribute="bottom" secondItem="m6K-qa-Sqa" secondAttribute="bottom" constant="131" id="LPm-HW-DYg"/>
-                            <constraint firstItem="m6K-qa-Sqa" firstAttribute="centerX" secondItem="7cs-BQ-oK5" secondAttribute="centerX" id="RsR-1w-hXo"/>
-                            <constraint firstItem="7cs-BQ-oK5" firstAttribute="leading" secondItem="nco-HY-yU2" secondAttribute="leading" id="Th5-Oy-Dxu"/>
-                            <constraint firstItem="ajA-9D-ini" firstAttribute="trailing" secondItem="7cs-BQ-oK5" secondAttribute="trailing" id="bI1-r8-toA"/>
-                            <constraint firstItem="7cs-BQ-oK5" firstAttribute="top" secondItem="ajA-9D-ini" secondAttribute="bottom" constant="37" id="q01-8I-BNM"/>
+                            <constraint firstItem="1FM-pp-3BE" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="90" id="HJO-kw-OXK"/>
+                            <constraint firstItem="YkB-6w-JVK" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="36" id="Htx-Il-dMH"/>
+                            <constraint firstItem="3g2-uh-Tjw" firstAttribute="bottom" secondItem="1FM-pp-3BE" secondAttribute="bottom" constant="189" id="YtX-J8-sxp"/>
+                            <constraint firstItem="YkB-6w-JVK" firstAttribute="top" secondItem="ajA-9D-ini" secondAttribute="bottom" constant="8.5" id="cVF-XM-ISr"/>
+                            <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ajA-9D-ini" secondAttribute="trailing" symbolic="YES" id="hXm-Zc-Kpt"/>
+                            <constraint firstItem="m6K-qa-Sqa" firstAttribute="centerX" secondItem="nco-HY-yU2" secondAttribute="centerX" id="p6S-gH-GlE"/>
+                            <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" secondItem="YkB-6w-JVK" secondAttribute="trailing" constant="90" id="s9y-Ko-qHx"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="mtPickerView" destination="oMM-KY-wEa" id="Gcw-K4-yBI"/>
                         <outlet property="myPickerView" destination="7cs-BQ-oK5" id="QkU-sb-64E"/>
                     </connections>
                 </viewController>

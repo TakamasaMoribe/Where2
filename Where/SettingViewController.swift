@@ -20,6 +20,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBOutlet weak var myPickerView: UIPickerView!
     
+    @IBOutlet weak var mtPickerView: UIPickerView!
+    
     @IBAction func returnButton(_ sender: Any) { //設定を終了して、地図へ画面遷移する
         // 追加した山名と緯度経度の保存
         let mtName = UserDefaults.standard.string(forKey: "mtName")//山名をmtNameへ読み込み
@@ -101,7 +103,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
 
     // コンポーネントの数（ホイールの数）。ここでは２つになる　地域名と山名
     func numberOfComponents(in myPickerView: UIPickerView) -> Int {
-        return compos.count //２　　ここではコンポーネントの数は、２
+        return 1//compos.count //２　　ここではコンポーネントの数は、２
     }
     
     // コンポーネントごとの行数（選択肢の個数）　地域名○個。山名○個
