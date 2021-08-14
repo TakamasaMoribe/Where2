@@ -43,11 +43,11 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         myPickerView.dataSource = self
         
         mountLoc = dataLoad()//山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
-print("mountLoc\(mountLoc)")
+//print("mountLoc\(mountLoc)")
 //        areaName = setAreaName(mountData: mountLoc)//地域名の配列　リテラルで入力しておく
-print("areaName\(areaName)")
+//print("areaName\(areaName)")
         mountName = setMountName(mountData: mountLoc)//山名　を取り出して配列にする
-print("mountName\(mountName)")
+//print("mountName\(mountName)")
                      
     }
 //-------------------------------
@@ -97,19 +97,17 @@ print("mountName\(mountName)")
         return mountName // 山名の配列
     }
     
-//-------------------------------　------------------------
+//-------------------------------------------------------------------------------
 
     // コンポーネントの数（ホイールの数）。ここでは２つになる　地域名と山名
     func numberOfComponents(in myPickerView: UIPickerView) -> Int {
-        return 2 //ここではコンポーネントの数は、２
+        return compos.count //２　　ここではコンポーネントの数は、２
     }
     
-    // コンポーネントごとの行数（選択肢の個数）　地域名？個。山名？個
+    // コンポーネントごとの行数（選択肢の個数）　地域名○個。山名○個
     func pickerView(_ myPickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
- //       let data = mountName[component]//mountName配列の中から、コンポーネントごとに配列を抜き出し個数を得る
- //       print("mountName:\(mountName)")
- //       print("data:\(data)")
-        return areaName.count //mountName.count // 変更の要あり？
+        let compo = compos[component] //コンポーネントごとに配列を抜き出し個数を得る
+        return compo.count //各コンポーネントの行数？？？
     }
 
     // 選択中のコンポーネントの番号と行から、選択中の項目名を返す
@@ -129,6 +127,11 @@ print("mountName\(mountName)")
         let item1 = self.pickerView(myPickerView, titleForRow: row1, forComponent: 0)//地域名
         let item2 = self.pickerView(myPickerView, titleForRow: row2, forComponent: 1)//山名
         
+print(item1!)
+print(item2!)
+        
+        //選んだ地域に応じて、山名を変えて表示する・・・・地域ごとに山の配列を作る？？？
+        //①地域名・・選択ボタンクリック、②山名・・選択ボタンクリック、③決定ボタンクリック　としてみる？
         //選んだ山名の、配列のインデックスは？？？？
 
         //配列 mountLoc[choice][] に、山名、緯度、経度を保存する。地図画面に遷移したときに取り出す
