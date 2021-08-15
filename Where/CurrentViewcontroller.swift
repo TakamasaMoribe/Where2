@@ -80,11 +80,12 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
         let locTree = CLLocationCoordinate2D(latitude: 35.710139, longitude: 139.810833)
         
         // 追加した山名、緯度経度を読み込む
-        //let mtName = UserDefaults.standard.string(forKey: "mtName")//山名読み込み・今は不使用
+        let mtName = UserDefaults.standard.string(forKey: "mtName")//山名読み込み
+print(mtName!)
         let mtLatitude = UserDefaults.standard.double(forKey: "mtLatitude")//緯度読み込み
-
+print(mtLatitude)
         let mtLongitude = UserDefaults.standard.double(forKey: "mtLongitude")//経度読み込み
-        
+print(mtLongitude)
         let locAdd = CLLocationCoordinate2D(latitude: mtLatitude , longitude: mtLongitude )
         
         let arrFuji = [locNow,locFuji]// 現在地と富士山を入れた配列

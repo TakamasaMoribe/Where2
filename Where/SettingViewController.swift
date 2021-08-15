@@ -8,9 +8,10 @@
 import UIKit
 
 var mountLoc:[[String]] = [] //二重配列にして、空配列にしておく
-//var areaName:[String] = [] // 地域名を取り出す配列
 let areaName = ["北海道","東北","関東甲信越","中部","近畿中国","四国九州"] // 地域名
 var mountName:[String] = [] // 山名を取り出す配列
+var choice:Int = 0 // ドラムロールで選択した項目の番号
+
 
 //地域名を選び、その中の山を選ぶ。地域名と山名で構成される二重配列を作っておく・・・・不要になる？？？
 let compos = [areaName,mountName] //コンポーネントに表示する配列
@@ -129,10 +130,6 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                 return "該当なし"  //必要ないが
             }
         }
-//        let item = areaName[row] // rowは、何行目かを示す
-//        print("row:\(row)")
-//        print("item:\(item)")
-//        return item
     }
 
     // ドラムが回転して、どの項目が選ばれたか。情報を得る。
@@ -147,8 +144,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         } else {
             if (picker.tag == 2){
                 let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
+                choice = row2 // 選択した項目の番号
                 print("row2:\(row2)")
-                //row2が、0になっている
                 let item2 = self.pickerView(mountPickerView, titleForRow: row2, forComponent: 1)//山名
                 print("row2:\(row2)")
                 print("item2!\(item2!)")
@@ -162,9 +159,9 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
 
         //配列 mountLoc[choice][] に、山名、緯度、経度を保存する。地図画面に遷移したときに取り出す
         //・・決定ボタンを押したら保存するようにすればよい？　保存はこの場所でなくても良い？
-//        UserDefaults.standard.set(mountLoc[choice][0], forKey: "mtName")//山名保存
-//        UserDefaults.standard.set(mountLoc[choice][1], forKey: "mtLatitude")//緯度保存
-//        UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtLongitude")//経度保存
+        UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtName")//山名保存
+        UserDefaults.standard.set(mountLoc[choice][3], forKey: "mtLatitude")//緯度保存
+        UserDefaults.standard.set(mountLoc[choice][4], forKey: "mtLongitude")//経度保存
     }
     
 }
