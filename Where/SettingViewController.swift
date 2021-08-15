@@ -19,7 +19,6 @@ let compos = [areaName,mountName] //コンポーネントに表示する配列
 class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     
-    
     @IBOutlet weak var areaPickerView: UIPickerView!
     @IBOutlet weak var mountPickerView: UIPickerView!
     
@@ -53,32 +52,27 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         mountPickerView.tag = 2
         
         mountLoc = dataLoad()//山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
-        mountName = setMountName(mountData: mountLoc)//山名　を取り出して配列にする
-                     
+        mountName = setMountName(mountData: mountLoc)//山名だけ　を取り出して配列にする
+        
     }
 //-------------------------------
     //csvファイルから、山のデータを読み込む
     func dataLoad() -> [[String]] {
-
         //データを格納するための配列を準備する
         var dataArray :[[String]] = [] //二重配列にして、空配列にしておく
-        
         //データの読み込み準備 ファイルが見つからないときは実行しない
         guard let thePath = Bundle.main.path(forResource: "mtDataAll", ofType: "csv") else {
             return [["null"]]
         }
-        
          do {
             let csvStringData = try String(contentsOfFile: thePath, encoding: String.Encoding.utf8)
             csvStringData.enumerateLines(invoking: {(line,stop) in //改行されるごとに分割する
                 let data = line.components(separatedBy: ",") //１行を","で分割して配列に入れる
                 dataArray.append(data) //格納用の配列に、１行ずつ追加していく
                 }) //invokingからのクロージャここまで
-
             }catch let error as NSError {
              print("ファイル読み込みに失敗。\n \(error)")
          } //Do節ここまで
-
         return dataArray // dataArray = [[番号、地域名、山名、緯度、経度]] 二重配列
     }
     
@@ -94,50 +88,73 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
 //-------------------------------------------------------------------------------
-    // 地域名用コンポーネントの数（ホイールの数）
+    // コンポーネントの数（ホイールの数）
     func numberOfComponents(in picker: UIPickerView) -> Int {
-        if (picker.tag == 1){ //tagで分岐 この場合はどちらでも　１個
-            return 1//
+        if (picker.tag == 1){  //tagで分岐
+            return 1 //地域名用は１個
         }else{
-            return 1//
+            if (picker.tag == 2){
+            return 1 // 山名用も１個
+            }else{
+                return 1 //必要ないが
         }
     }
-    
-    // 地域名用コンポーネントの行数（選択肢の個数）
+        
+ //    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    }
+    // 地域名用コンポーネントの行数（配列の要素数＝選択肢の個数）を得る
     func pickerView(_ picker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if (picker.tag == 1){ //tagで分岐
             print("areaName.count:\(areaName.count)")
-            return areaName.count // 地域名を表示するドラムロール　配列の要素数を得る
-        }else{
+            return areaName.count // 地域名表示用ドラムロール
+        } else {
+            if (picker.tag == 2){
             print("mountName.count:\(mountName.count)")
-            return mountName.count // 山名を表示するドラムロール
+            return mountName.count // 山名表示用ドラムロール
+            } else {
+                return 1 //必要ないが
+            }
         }
     }
 
     // 選択中のコンポーネントの番号と行から、選択中の項目名を返す
-    func pickerView(_ areaPickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ picker: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         //指定のコンポーネントから指定中の項目名を取り出す。
-        let item = areaName[row] // rowは、何行目かを示す
-        print("row:\(row)")
-        print("item:\(item)")
-        return item
+        if (picker.tag == 1){ //tagで分岐
+            return areaName[row] // row行目の地域名
+        } else {
+            if (picker.tag == 2){
+                return mountName[row] // row行目の山名
+            } else {
+                return "該当なし"  //必要ないが
+            }
+        }
+//        let item = areaName[row] // rowは、何行目かを示す
+//        print("row:\(row)")
+//        print("item:\(item)")
+//        return item
     }
 
     // ドラムが回転して、どの項目が選ばれたか。情報を得る。
-    //row1,row2でコンポーネント内の行番号。item1,item2でその内容。
-    func pickerView(_ areaPickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //現在選択されている行番号
-        let row1 = areaPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行=地域名
-        let row2 = areaPickerView.selectedRow(inComponent: 1)//コンポーネント２内の行=山名
-        //現在選択されている内容
-//        let item1 = self.pickerView(areaPickerView, titleForRow: row1, forComponent: 0)//地域名
-//        let item2 = self.pickerView(areaPickerView, titleForRow: row2, forComponent: 1)//山名
-        
-//print("item1!\(item1!)")
-//print("item2!\(item2!)")
-        
-    
-        
+    //row1,row2でコンポーネント内の行番号。item1,item2でその内容。 ここでもtagで分岐する
+    func pickerView(_ picker: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        //現在選択されている行番号とその内容
+        if (picker.tag == 1){ //tagで分岐
+            let row1 = areaPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行=地域名
+            let item1 = self.pickerView(areaPickerView, titleForRow: row1, forComponent: 0)//地域名
+            print("row1:\(row1)")
+            print("item1!\(item1!)")
+        } else {
+            if (picker.tag == 2){
+                let row2 = areaPickerView.selectedRow(inComponent: 1)//コンポーネント２内の行=山名
+                //row2が、0になっている
+                let item2 = self.pickerView(areaPickerView, titleForRow: row2, forComponent: 1)//山名
+                print("row2:\(row2)")
+                print("item2!\(item2!)")
+            }
+        }
+
+
         //選んだ地域に応じて、山名を変えて表示する・・・・地域ごとに山の配列を作る？？？
         //①地域名・・選択ボタンクリック、②山名・・選択ボタンクリック、③決定ボタンクリック　としてみる？
         //選んだ山名の、配列のインデックスは？？？？
