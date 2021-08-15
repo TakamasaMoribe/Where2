@@ -7,8 +7,10 @@
 
 import UIKit
 
-var mountLoc:[[String]] = [] //二重配列にして、空配列にしておく
+var mountLoc:[[String]] = [] //山のデータ。二重配列にして、空配列にしておく
 let areaName = ["北海道","東北","関東甲信越","中部","近畿中国","四国九州"] // 地域名
+var selectedRegion:String = "" // ドラムロールで選んだ地域名
+var selectedMounts:[[String]] = [] //二重配列にして、空配列にしておく
 var mountName:[String] = [] // 山名を取り出す配列
 var choice:Int = 0 // ドラムロールで選択した項目の番号
 
@@ -78,7 +80,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     
-// 山名だけの配列を取り出す。（ドラムロールに山名だけを表示するため）
+// 山名だけ取り出した配列をつくる。（ドラムロールに山名だけを表示するため）
     func setMountName(mountData:[[String]]) -> [String]{
         let mountCount = mountData.count // 山の数
         var mountName:[String] = [] // 山名を取り出す配列
@@ -141,6 +143,11 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             let item1 = self.pickerView(areaPickerView, titleForRow: row1, forComponent: 0)//地域名
             print("row1:\(row1)")
             print("item1!\(item1!)")
+            
+         //選んだ地域に応じて、山のデータ配列をつくる
+            selectedMounts = extract(selectedRegion,mountLoc)
+            print(selectedMounts)
+            
         } else {
             if (picker.tag == 2){
                 let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
@@ -151,17 +158,26 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                 print("item2!\(item2!)")
             }
         }
-
-        //選んだ地域に応じて、山名を変えて表示する・・地域ごとに山の配列を作っておく　実行中に作る方法もあるが・・・
-        //①地域名・・選択ボタンクリック、②山名・・選択ボタンクリック、③決定ボタンクリック　としてみる？
-        //選んだ山名の、配列のインデックスは？？？？
-
-        //配列 mountLoc[choice][] に、山名、緯度、経度を保存する。地図画面に遷移したときに取り出す
         //・・決定ボタンを押したら保存するようにすればよい？　保存はこの場所でなくても良い？
         UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtName") //[2]山名
         UserDefaults.standard.set(mountLoc[choice][3], forKey: "mtLatitude") //[3]緯度保存
         UserDefaults.standard.set(mountLoc[choice][4], forKey: "mtLongitude") //[4]経度保存
     }
+ 
+    // 二重配列から、特定の要素を含む配列を取り出して、新しい二重配列をつくる ----------------------
+    // 地域名に応じた山のデータ配列を抜き出す　word:地域名、Array:元のデータ配列
+    func extract(_ word:String ,_ Array:[[String]]) -> [[String]] {
+        var filtered:[[String]] = []//　ドラムロールで選択した"地域名"を含む。抽出した配列
+        var j = 0 // ループカウンタ
+        for array in mountLoc { //山のデータ配列[番号、地域名、山名、緯度、経度]
+            // array[1]:２番目の要素（地域名）だけ調べる
+            if array[1] == selectedRegion { //取り出した要素が、検索値に等しい時
+                filtered.append(array)
+            }
+            j = j + 1
+        }
+        return filtered
+    } //---------------------------------------------------------------------------------
     
 }
 
