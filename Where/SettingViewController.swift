@@ -152,16 +152,15 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             }
         }
 
-
-        //選んだ地域に応じて、山名を変えて表示する・・・・地域ごとに山の配列を作る？？？
+        //選んだ地域に応じて、山名を変えて表示する・・地域ごとに山の配列を作っておく　実行中に作る方法もあるが・・・
         //①地域名・・選択ボタンクリック、②山名・・選択ボタンクリック、③決定ボタンクリック　としてみる？
         //選んだ山名の、配列のインデックスは？？？？
 
         //配列 mountLoc[choice][] に、山名、緯度、経度を保存する。地図画面に遷移したときに取り出す
         //・・決定ボタンを押したら保存するようにすればよい？　保存はこの場所でなくても良い？
-        UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtName")//山名保存
-        UserDefaults.standard.set(mountLoc[choice][3], forKey: "mtLatitude")//緯度保存
-        UserDefaults.standard.set(mountLoc[choice][4], forKey: "mtLongitude")//経度保存
+        UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtName") //[2]山名
+        UserDefaults.standard.set(mountLoc[choice][3], forKey: "mtLatitude") //[3]緯度保存
+        UserDefaults.standard.set(mountLoc[choice][4], forKey: "mtLongitude") //[4]経度保存
     }
     
 }

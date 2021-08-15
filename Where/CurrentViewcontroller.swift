@@ -97,7 +97,7 @@ print(mtLongitude)
         let treeLine = TreeOverlay(coordinates: arrTree, count: 2)// ２点を結ぶ
         mapView.addOverlays([treeLine])// 地図上に描く 現在地ースカイツリー
         let addLine = AddOverlay(coordinates: arrAdd, count: 2)// ２点を結ぶ
-        if mtLatitude != 0 {
+        if mtLatitude != 0 { //値がないと北緯０度、東経０度の位置に線を引く
             mapView.addOverlays([addLine])// 地図上に描く 現在地ー追加した山
         }
         
