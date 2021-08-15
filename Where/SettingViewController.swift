@@ -140,15 +140,16 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     func pickerView(_ picker: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         //現在選択されている行番号とその内容
         if (picker.tag == 1){ //tagで分岐
-            let row1 = areaPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行=地域名
+            let row1 = areaPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
             let item1 = self.pickerView(areaPickerView, titleForRow: row1, forComponent: 0)//地域名
             print("row1:\(row1)")
             print("item1!\(item1!)")
         } else {
             if (picker.tag == 2){
-                let row2 = areaPickerView.selectedRow(inComponent: 1)//コンポーネント２内の行=山名
+                let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
+                print("row2:\(row2)")
                 //row2が、0になっている
-                let item2 = self.pickerView(areaPickerView, titleForRow: row2, forComponent: 1)//山名
+                let item2 = self.pickerView(mountPickerView, titleForRow: row2, forComponent: 1)//山名
                 print("row2:\(row2)")
                 print("item2!\(item2!)")
             }
