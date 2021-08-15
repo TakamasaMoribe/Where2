@@ -145,14 +145,15 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             print("item1!\(item1!)")
             
          //選んだ地域に応じて、山のデータ配列をつくる
+            selectedRegion = item1!
             selectedMounts = extract(selectedRegion,mountLoc)
-            print(selectedMounts)
+            print("selectedRegion\(selectedRegion)") //OK
+            print("selectedMounts\(selectedMounts)") //OK
             
         } else {
             if (picker.tag == 2){
                 let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
                 choice = row2 // 選択した項目の番号
-                print("row2:\(row2)")
                 let item2 = self.pickerView(mountPickerView, titleForRow: row2, forComponent: 1)//山名
                 print("row2:\(row2)")
                 print("item2!\(item2!)")
@@ -176,6 +177,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             }
             j = j + 1
         }
+        print("filterd:\(filtered)")
         return filtered
     } //---------------------------------------------------------------------------------
     
