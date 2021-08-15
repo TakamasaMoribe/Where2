@@ -22,10 +22,12 @@ let compos = [areaName,mountName] //コンポーネントに表示する配列
 class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     
-    @IBOutlet weak var areaPickerView: UIPickerView!
-    @IBOutlet weak var mountPickerView: UIPickerView!
+    @IBOutlet weak var areaPickerView: UIPickerView! // 地域名
+    @IBOutlet weak var mountPickerView: UIPickerView! // 山名
     
-    @IBAction func selectButton(_ sender: Any) {
+    @IBAction func selectButton(_ sender: Any) { //地域名の選択終了ボタン
+        // 山名の表示を地域名に応じたものにする
+        
     }
     
     @IBAction func returnButton(_ sender: Any) { //設定を終了して、地図へ画面遷移する
