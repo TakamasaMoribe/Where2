@@ -57,8 +57,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         mountPickerView.tag = 2
         
         mountLoc = dataLoad()//山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
-        mountName = setMountName(mountData: mountLoc)//山名だけ　を取り出して配列にする
-        
+        //mountName = setMountName(mountData: mountLoc)//山名だけ　を取り出して配列にする
+        mountName = setMountName(mountData: selectedMounts)//山名だけ　を取り出して配列にする selectedMountsにしてみた
     }
 //-------------------------------
     //csvファイルから、山のデータを読み込む
@@ -148,7 +148,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             
          //選んだ地域に応じて、山のデータ配列をつくる
             selectedRegion = item1!
-            selectedMounts = extract(selectedRegion,mountLoc)
+            selectedMounts = extract(selectedRegion,mountLoc)// これを使えば良い？？？？？？
+            
             print("selectedRegion\(selectedRegion)") //OK
             print("selectedMounts\(selectedMounts)") //OK
             
