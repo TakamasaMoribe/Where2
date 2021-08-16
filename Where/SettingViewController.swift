@@ -26,7 +26,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var mountPickerView: UIPickerView! // 山名
     
     @IBAction func selectButton(_ sender: Any) { //地域名の選択終了ボタン
-        // 山名の表示を地域名に応じたものにする
+        // ２番めのドラムロールに山名の表示を地域名に応じたものにする
+        // 配列　mountName のデータを表示に使っている
         
     }
     
@@ -58,6 +59,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         
         mountLoc = dataLoad()//山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
         //mountName = setMountName(mountData: mountLoc)//山名だけ　を取り出して配列にする
+        selectedMounts = dataLoad()//山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
         mountName = setMountName(mountData: selectedMounts)//山名だけ　を取り出して配列にする selectedMountsにしてみた
     }
 //-------------------------------
@@ -107,15 +109,15 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         
  //    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     }
-    // 地域名用コンポーネントの行数（配列の要素数＝選択肢の個数）を得る
+    // コンポーネントの行数（配列の要素数＝選択肢の個数）を得る
     func pickerView(_ picker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if (picker.tag == 1){ //tagで分岐
+        if (picker.tag == 1){ //地域名を表示するドラムロール
             print("areaName.count:\(areaName.count)")
-            return areaName.count // 地域名表示用ドラムロール
+            return areaName.count // 地域名の個数
         } else {
-            if (picker.tag == 2){
+            if (picker.tag == 2){ //山名を表示するドラムロール
             print("mountName.count:\(mountName.count)")
-            return mountName.count // 山名表示用ドラムロール
+            return mountName.count // 山名の個数
             } else {
                 return 1 //必要ないが
             }
@@ -146,15 +148,15 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             print("row1:\(row1)")
             print("item1!\(item1!)")
             
-         //選んだ地域に応じて、山のデータ配列をつくる
+         //選んだ地域に応じて、山のデータ配列をつくる　mountNameも地域に応じたものに変更する必要がある？？？
             selectedRegion = item1!
-            selectedMounts = extract(selectedRegion,mountLoc)// これを使えば良い？？？？？？
+            //selectedMounts = extract(selectedRegion,mountLoc)// これを使えば良い？？？ちょっと違う？
             
             print("selectedRegion\(selectedRegion)") //OK
             print("selectedMounts\(selectedMounts)") //OK
             
         } else {
-            if (picker.tag == 2){
+            if (picker.tag == 2){ //ここで、地域名に応じた山名を表示するようにする？？？？
                 let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
                 choice = row2 // 選択した項目の番号
                 let item2 = self.pickerView(mountPickerView, titleForRow: row2, forComponent: 1)//山名
