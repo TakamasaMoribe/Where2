@@ -14,6 +14,8 @@ var selectedMounts:[[String]] = [] //地域に応じた山の基本データ [[m
 var mountsName:[String] = [] // 山名を入れる配列
 var selectedMountsName:[String] = [] // 地域に応じた山名を入れる配列
 var choice:Int = 0 // ドラムロールで選択した項目の番号
+var flag:Bool = false //地域名の選択ボタンを押したかどうか。山名の絞り込み開始に利用する
+
 
 
 //地域名を選び、その中の山を選ぶ。地域名と山名で構成される二重配列を作っておく・・・・不要になる？？？
@@ -27,9 +29,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var mountPickerView: UIPickerView! // 山名
     
     @IBAction func selectButton(_ sender: Any) { //地域名の選択終了ボタン
-        // ２番めのドラムロールに山名の表示を地域名に応じたものにする
-        // 配列　mountsName のデータを表示に使っている
-        
+        flag = true // // ２番めのドラムロールに山名の表示を地域名に応じたものにする
     }
     
     @IBAction func returnButton(_ sender: Any) { //設定を終了して、地図へ画面遷移する
@@ -133,9 +133,13 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         } else {
             if (picker.tag == 2){// row行目の山名 [areaName]の内容によってここを更新する？
                 
-                selectedMountsName = setmountsName(mountData: selectedMounts) // 地域名に応じた山名の配列を得る
-                print(selectedMountsName[row])
-                return selectedMountsName[row]
+                if (flag == true) { //地域名の選択ボタンを押した時
+                    selectedMountsName = setmountsName(mountData: selectedMounts) // 地域名に応じた山名の配列を得る
+                    print("selectedMountsName:\(selectedMountsName[row])")
+                    return selectedMountsName[row]
+                }
+                print(mountsName[row])
+                return mountsName[row]
                 //return mountsName[row] // row行目の山名 [areaName]の内容によってここを更新する？
             } else {
                 return "該当なし"  //必要ないが
@@ -155,7 +159,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             
          //選んだ地域に応じて、山のデータ配列をつくる　mountsNameも地域に応じたものに変更する必要がある？？？
             selectedRegion = item1!
-            //selectedMounts = extract(selectedRegion,mountLoc)// これを使えば良い？？？ちょっと違う？
+            selectedMounts = extract(selectedRegion,mountLoc)// これを使えば良い？？？ちょっと違う？
             
             print("selectedRegion\(selectedRegion)") //OK
             //print("selectedMounts\(selectedMounts)") //OK　いまのところ、すべての山のデータを表示している
