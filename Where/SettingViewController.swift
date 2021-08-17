@@ -11,12 +11,12 @@ var mountLoc:[[String]] = [] //山のデータ。二重配列にして、空配�
 let areaName = ["北海道","東北","関東甲信越","中部","近畿中国","四国九州"] // 地域名
 var selectedRegion:String = "" // ドラムロールで選んだ地域名
 var selectedMounts:[[String]] = [] //二重配列にして、空配列にしておく
-var mountName:[String] = [] // 山名を取り出す配列
+var mountsName:[String] = [] // 山名を取り出す配列
 var choice:Int = 0 // ドラムロールで選択した項目の番号
 
 
 //地域名を選び、その中の山を選ぶ。地域名と山名で構成される二重配列を作っておく・・・・不要になる？？？
-let compos = [areaName,mountName] //コンポーネントに表示する配列
+let compos = [areaName,mountsName] //コンポーネントに表示する配列
 
 
 class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -27,7 +27,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBAction func selectButton(_ sender: Any) { //地域名の選択終了ボタン
         // ２番めのドラムロールに山名の表示を地域名に応じたものにする
-        // 配列　mountName のデータを表示に使っている
+        // 配列　mountsName のデータを表示に使っている
         
     }
     
@@ -58,9 +58,9 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         mountPickerView.tag = 2
         
         mountLoc = dataLoad()//山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
-        //mountName = setMountName(mountData: mountLoc)//山名だけ　を取り出して配列にする
+        //mountsName = setmountsName(mountData: mountLoc)//山名だけ　を取り出して配列にする
         selectedMounts = dataLoad()//山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
-        mountName = setMountName(mountData: selectedMounts)//山名だけ　を取り出して配列にする selectedMountsにしてみた
+        mountsName = setmountsName(mountData: selectedMounts)//山名だけ　を取り出して配列にする selectedMountsにしてみた
     }
 //-------------------------------
     //csvファイルから、山のデータを読み込む
@@ -85,13 +85,13 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     
     
 // 山名だけ取り出した配列をつくる。（ドラムロールに山名だけを表示するため）
-    func setMountName(mountData:[[String]]) -> [String]{
+    func setmountsName(mountData:[[String]]) -> [String]{
         let mountCount = mountData.count // 山の数
-        var mountName:[String] = [] // 山名を取り出す配列
+        var mountsName:[String] = [] // 山名を取り出す配列
             for i in 0...mountCount-1 {
-                mountName.append(mountData[i][2]) //山名は、配列内の３番目の要素
+                mountsName.append(mountData[i][2]) //山名は、配列内の３番目の要素
             }
-        return mountName // 山名の配列
+        return mountsName // 山名の配列
     }
     
 //-------------------------------------------------------------------------------
@@ -116,22 +116,22 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             return areaName.count // 地域名の個数
         } else {
             if (picker.tag == 2){ //山名を表示するドラムロール
-                print("mountName.count:\(mountName.count)")
-                return mountName.count // 山名の個数
+                print("mountsName.count:\(mountsName.count)")
+                return mountsName.count // 山名の個数
             } else {
                 return 1 //必要ないが
             }
         }
     }
 
-    // 選択中のコンポーネントの番号と行から、選択中の項目名を返す
+    // 選択中のコンポーネントの番号と行から、指定した配列[areaName]と[mountsName]から項目名を返す row行目
     func pickerView(_ picker: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         //指定のコンポーネントから指定中の項目名を取り出す。
         if (picker.tag == 1){ //tagで分岐
             return areaName[row] // row行目の地域名
         } else {
             if (picker.tag == 2){
-                return mountName[row] // row行目の山名
+                return mountsName[row] // row行目の山名 [areaName]の内容によってここを更新する？
             } else {
                 return "該当なし"  //必要ないが
             }
@@ -148,7 +148,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             print("row1:\(row1)")
             print("item1!\(item1!)")
             
-         //選んだ地域に応じて、山のデータ配列をつくる　mountNameも地域に応じたものに変更する必要がある？？？
+         //選んだ地域に応じて、山のデータ配列をつくる　mountsNameも地域に応じたものに変更する必要がある？？？
             selectedRegion = item1!
             //selectedMounts = extract(selectedRegion,mountLoc)// これを使えば良い？？？ちょっと違う？
             
