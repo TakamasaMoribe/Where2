@@ -7,11 +7,12 @@
 
 import UIKit
 
-var mountLoc:[[String]] = [] //山のデータ。二重配列にして、空配列にしておく
+var mountLoc:[[String]] = [] //山の基本データ。二重配列にして、空配列にしておく
 let areaName = ["北海道","東北","関東甲信越","中部","近畿中国","四国九州"] // 地域名
 var selectedRegion:String = "" // ドラムロールで選んだ地域名
-var selectedMounts:[[String]] = [] //二重配列にして、空配列にしておく
-var mountsName:[String] = [] // 山名を取り出す配列
+var selectedMounts:[[String]] = [] //地域に応じた山の基本データ [[mountLoc]]から取り出す func extract
+var mountsName:[String] = [] // 山名を入れる配列
+var selectedMountsName:[String] = [] // 地域に応じた山名を入れる配列
 var choice:Int = 0 // ドラムロールで選択した項目の番号
 
 
@@ -58,9 +59,9 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         mountPickerView.tag = 2
         
         mountLoc = dataLoad()//山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
-        //mountsName = setmountsName(mountData: mountLoc)//山名だけ　を取り出して配列にする
+        mountsName = setmountsName(mountData: mountLoc)//山名だけ　を取り出して配列にする
         selectedMounts = dataLoad()//山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
-        mountsName = setmountsName(mountData: selectedMounts)//山名だけ　を取り出して配列にする selectedMountsにしてみた
+        selectedMountsName = setmountsName(mountData: selectedMounts)//山名だけ　を取り出して配列にする selectedMountsにしてみた
     }
 //-------------------------------
     //csvファイルから、山のデータを読み込む
@@ -130,7 +131,9 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         if (picker.tag == 1){ //tagで分岐
             return areaName[row] // row行目の地域名
         } else {
-            if (picker.tag == 2){
+            if (picker.tag == 2){// row行目の山名 [areaName]の内容によってここを更新する？
+                
+                
                 return mountsName[row] // row行目の山名 [areaName]の内容によってここを更新する？
             } else {
                 return "該当なし"  //必要ないが
@@ -153,15 +156,16 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             //selectedMounts = extract(selectedRegion,mountLoc)// これを使えば良い？？？ちょっと違う？
             
             print("selectedRegion\(selectedRegion)") //OK
-            print("selectedMounts\(selectedMounts)") //OK
+            //print("selectedMounts\(selectedMounts)") //OK　いまのところ、すべての山のデータを表示している
             
         } else {
-            if (picker.tag == 2){ //ここで、地域名に応じた山名を表示するようにする？？？？
+            if (picker.tag == 2){ //ここで、地域名に応じた山名を表示するようにする？？？？ここには進んでこない
                 let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
                 choice = row2 // 選択した項目の番号
                 let item2 = self.pickerView(mountPickerView, titleForRow: row2, forComponent: 1)//山名
                 print("row2:\(row2)")
                 print("item2!\(item2!)")
+                print("selectedMounts\(selectedMounts)")
             }
         }
         //・・決定ボタンを押したら保存するようにすればよい？　保存はこの場所でなくても良い？
