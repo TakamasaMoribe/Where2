@@ -133,8 +133,10 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         } else {
             if (picker.tag == 2){// row行目の山名 [areaName]の内容によってここを更新する？
                 
-                
-                return mountsName[row] // row行目の山名 [areaName]の内容によってここを更新する？
+                selectedMountsName = setmountsName(mountData: selectedMounts) // 地域名に応じた山名の配列を得る
+                print(selectedMountsName[row])
+                return selectedMountsName[row]
+                //return mountsName[row] // row行目の山名 [areaName]の内容によってここを更新する？
             } else {
                 return "該当なし"  //必要ないが
             }
