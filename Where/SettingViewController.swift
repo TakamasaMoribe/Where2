@@ -101,7 +101,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             return 1 //地域名用は１個
         }else{
             if (picker.tag == 2){
-            return 1 // 山名用も１個
+                return 1 // 山名用も１個
             }else{
                 return 1 //必要ないが
         }
@@ -116,8 +116,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             return areaName.count // 地域名の個数
         } else {
             if (picker.tag == 2){ //山名を表示するドラムロール
-            print("mountName.count:\(mountName.count)")
-            return mountName.count // 山名の個数
+                print("mountName.count:\(mountName.count)")
+                return mountName.count // 山名の個数
             } else {
                 return 1 //必要ないが
             }
@@ -171,7 +171,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     }
  
     // 二重配列から、特定の要素を含む配列を取り出して、新しい二重配列をつくる ----------------------
-    // 地域名に応じた山のデータ配列を抜き出す　word:地域名、Array:元のデータ配列
+    // 地域名に応じた山のデータ配列を抜き出す　word:検索する地域名、Array:検索対象の配列
     func extract(_ word:String ,_ Array:[[String]]) -> [[String]] {
         var filtered:[[String]] = []//　ドラムロールで選択した"地域名"を含む。抽出した配列
         var j = 0 // ループカウンタ
