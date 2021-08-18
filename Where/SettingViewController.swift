@@ -59,7 +59,6 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         mountPickerView.tag = 2
         
         mountLoc = dataLoad()//山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
-        
         mountsName = setmountsName(mountData: mountLoc)//山名だけ　を取り出して配列にする
         selectedMounts = dataLoad()//山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
         selectedMountsName = setmountsName(mountData: selectedMounts)//山名だけ　を取り出して配列にする selectedMountsにしてみた
@@ -111,17 +110,17 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         
  //    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     }
-    // コンポーネントの行数（配列の要素数＝選択肢の個数）を得る
+    // コンポーネントの行数（配列の要素数＝選択肢の個数）を得る。ここを７回繰り返す。
     func pickerView(_ picker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if (picker.tag == 1){ //地域名を表示するドラムロール
-            print("areaName.count:\(areaName.count)")
+            print("areaName.count①:\(areaName.count)") // ここを７回繰り返す。＊＊＊＊＊＊＊＊＊＊＊＊
             return areaName.count // 地域名の個数
         } else {
             if (picker.tag == 2){ //山名を表示するドラムロール
-                print("mountsName.count:\(mountsName.count)")
+                print("mountsName.count①:\(mountsName.count)") // 次に、ここを７回繰り返す。＊＊＊＊＊＊＊＊＊＊＊＊
                 return mountsName.count // 山名の個数
             } else {
-                return 1 //必要ないが
+                return 0 //必要ないが 0にしてみる
             }
         }
     }
@@ -136,10 +135,11 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                 
                 if (flag == true) { //地域名の選択ボタンを押した時
                     selectedMountsName = setmountsName(mountData: selectedMounts) // 地域名に応じた山名の配列を得る
-                    print("selectedMountsName:\(selectedMountsName[row])")
+                    print("selectedMountsName:\(selectedMountsName)")// ドラムロール２を回すと、表示される
+                    print("selectedMountsName[row]:\(selectedMountsName[row])")
                     return selectedMountsName[row]
                 }
-                print(mountsName[row])
+                print("mountsName[row]\(mountsName[row])") // countを７回繰り返した後、次にここに来る
                 return mountsName[row]
                 //return mountsName[row] // row行目の山名 [areaName]の内容によってここを更新する？
             } else {
@@ -175,10 +175,13 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                 print("selectedMounts\(selectedMounts)")
             }
         }
-        //・・決定ボタンを押したら保存するようにすればよい？　保存はこの場所でなくても良い？
-        UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtName") //[2]山名
-        UserDefaults.standard.set(mountLoc[choice][3], forKey: "mtLatitude") //[3]緯度保存
-        UserDefaults.standard.set(mountLoc[choice][4], forKey: "mtLongitude") //[4]経度保存
+        //・・決定ボタンを押したら保存するようにすればよい？　保存はこの場所でなくても良い？mountLocをselectedMountsに変えてみる
+//        UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtName") //[2]山名
+//        UserDefaults.standard.set(mountLoc[choice][3], forKey: "mtLatitude") //[3]緯度保存
+//        UserDefaults.standard.set(mountLoc[choice][4], forKey: "mtLongitude") //[4]経度保存
+        UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName") //[2]山名
+        UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude") //[3]緯度保存
+        UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude") //[4]経度保存
     }
  
     // 二重配列から、特定の要素を含む配列を取り出して、新しい二重配列をつくる ----------------------
