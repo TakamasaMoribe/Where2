@@ -111,12 +111,20 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
  //    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     }
     // コンポーネントの行数（配列の要素数＝選択肢の個数）を得る。ここを７回繰り返す。
+    // 地域選択後ドラム２で、flag を使って、mountsName.count を selectedMountsName.count に変えてみる
     func pickerView(_ picker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if (picker.tag == 1){ //地域名を表示するドラムロール
             print("areaName.count①:\(areaName.count)") // ここを７回繰り返す。＊＊＊＊＊＊＊＊＊＊＊＊
             return areaName.count // 地域名の個数
         } else {
             if (picker.tag == 2){ //山名を表示するドラムロール
+                if (flag == true) { //？？？？？？？？？？？　地域名の選択ボタンを押した時 ここにこない？？？？？？？？
+                    //selectedMountsName = setmountsName(mountData: selectedMounts) // 地域名に応じた山名の配列を得る
+                    //print("selectedMountsName:\(selectedMountsName)")// ドラムロール２を回すと、表示される
+                    //print("selectedMountsName[row]:\(selectedMountsName[row])")
+                    print("ここ　selectedMountsName.count①:\(selectedMountsName.count)") // ここに来ない＊＊＊＊＊＊＊
+                    return selectedMountsName.count
+                }
                 print("mountsName.count①:\(mountsName.count)") // 次に、ここを７回繰り返す。＊＊＊＊＊＊＊＊＊＊＊＊
                 return mountsName.count // 山名の個数
             } else {
@@ -135,11 +143,13 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                 
                 if (flag == true) { //地域名の選択ボタンを押した時
                     selectedMountsName = setmountsName(mountData: selectedMounts) // 地域名に応じた山名の配列を得る
-                    print("selectedMountsName:\(selectedMountsName)")// ドラムロール２を回すと、表示される
-                    print("selectedMountsName[row]:\(selectedMountsName[row])")
+                    print("selectedMountsName②:\(selectedMountsName)")// ドラムロール２を回すと、表示される
+                    print("selectedMountsName.count②:\(selectedMountsName.count)")//
+                    print("row:\(row)")//rowの値が範囲を超える
+                    print("selectedMountsName[row]②:\(selectedMountsName[row])") //rowの値が範囲を超えるとエラー
                     return selectedMountsName[row]
                 }
-                print("mountsName[row]\(mountsName[row])") // countを７回繰り返した後、次にここに来る
+                print("mountsName[row]②\(mountsName[row])") // countを７回繰り返した後、次にここに来る
                 return mountsName[row]
                 //return mountsName[row] // row行目の山名 [areaName]の内容によってここを更新する？
             } else {
@@ -155,25 +165,26 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         if (picker.tag == 1){ //tagで分岐
             let row1 = areaPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
             let item1 = self.pickerView(areaPickerView, titleForRow: row1, forComponent: 0)//地域名
-            print("row1:\(row1)")
-            print("item1!\(item1!)")
+            print("ドラム１のrow1③:\(row1)")
+            print("ドラム１のitem1!③:\(item1!)")
             
-         //選んだ地域に応じて、山のデータ配列をつくる　mountsNameも地域に応じたものに変更する必要がある？？？
+         //選んだ地域に応じて、山のデータ配列をつくる　mountsNameも地域に応じたものに変更する
             selectedRegion = item1!
-            selectedMounts = extract(selectedRegion,mountLoc)// これを使えば良い？？？ちょっと違う？
+            selectedMounts = extract(selectedRegion,mountLoc)// 地域に応じた山のデータ・・・ここの戻り値 filterd は正しい
             
-            print("selectedRegion\(selectedRegion)") //OK
-            //print("selectedMounts\(selectedMounts)") //OK　いまのところ、すべての山のデータを表示している
+            print("selectedRegion③:\(selectedRegion)") //OK
+            print("selectedMounts③:\(selectedMounts)") //OK
+            //print("selectedMounts\(selectedMounts)") //　いまのところ、すべての山のデータを表示している
             
         } else {
-            if (picker.tag == 2){ //ここで、地域名に応じた山名を表示するようにする？？？？ここには進んでこない
+            if (picker.tag == 2){ //ここで、地域名に応じた山名を表示するようにする
                 let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
                 choice = row2 // 選択した項目の番号
-                let item2 = self.pickerView(mountPickerView, titleForRow: row2, forComponent: 1)//山名
+                let item2 = self.pickerView(mountPickerView, titleForRow: row2, forComponent: 1)//山名？？？不明
                 
-                print("selectedMounts\(selectedMounts)")
-                print("row2:\(row2)")
-                print("item2!\(item2!)")
+                print("selectedMounts③\(selectedMounts)")
+                print("row2③:\(row2)")
+                print("item2③!\(item2!)")
 
             }
         }
