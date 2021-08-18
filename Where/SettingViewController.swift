@@ -170,9 +170,11 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                 let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
                 choice = row2 // 選択した項目の番号
                 let item2 = self.pickerView(mountPickerView, titleForRow: row2, forComponent: 1)//山名
+                
+                print("selectedMounts\(selectedMounts)")
                 print("row2:\(row2)")
                 print("item2!\(item2!)")
-                print("selectedMounts\(selectedMounts)")
+
             }
         }
         //mountLocをselectedMountsに変えてみた・・・良い結果が得られたが、ドラムロール２への表示がでない
