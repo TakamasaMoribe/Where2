@@ -175,7 +175,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                 print("selectedMounts\(selectedMounts)")
             }
         }
-        //・・決定ボタンを押したら保存するようにすればよい？　保存はこの場所でなくても良い？mountLocをselectedMountsに変えてみる
+        //mountLocをselectedMountsに変えてみた・・・良い結果が得られたが、ドラムロール２への表示がでない
 //        UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtName") //[2]山名
 //        UserDefaults.standard.set(mountLoc[choice][3], forKey: "mtLatitude") //[3]緯度保存
 //        UserDefaults.standard.set(mountLoc[choice][4], forKey: "mtLongitude") //[4]経度保存
