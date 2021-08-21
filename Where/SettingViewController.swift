@@ -129,7 +129,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                     //selectedMountsName = setmountsName(mountData: selectedMounts) // 地域名に応じた山名の配列を得る
                     //print("selectedMountsName:\(selectedMountsName)")// ドラムロール２を回すと、表示される
                     //print("selectedMountsName[row]:\(selectedMountsName[row])")
-                    print("ここ　selectedMountsName.count①:\(selectedMountsName.count)") // ここに来ない＊＊＊＊＊＊＊
+                    print("ここ　selectedMountsName.count①:\(selectedMountsName.count)") // ここに来るようになった０８２１
                     return selectedMountsName.count
                 }
                 print("mountsName.count①:\(mountsName.count)") // 次に、ここを７回繰り返す。＊＊＊＊＊＊＊＊＊＊＊＊
@@ -154,8 +154,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                     print("selectedMountsName②:\(selectedMountsName)")// ドラムロール２を回すと、表示される
                     print("selectedMountsName.count②:\(selectedMountsName.count)")//
                     print("row:\(row)")//rowの値が範囲を超える
-                    print("selectedMountsName[row]②:\(selectedMountsName[row])")
-                    return selectedMountsName[row] 
+//                    print("selectedMountsName[row]②:\(selectedMountsName[row])")
+                    return selectedMountsName[row]
                 }
                 print("mountsName[row]②\(mountsName[row])") // countを７回繰り返した後、次にここに来る
                 return mountsName[row]
