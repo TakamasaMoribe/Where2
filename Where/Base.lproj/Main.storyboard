@@ -16,27 +16,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTj-0o-9vM">
-                                <rect key="frame" x="48" y="25" width="279" height="89"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzc-dC-e4T">
+                                <rect key="frame" x="109" y="41" width="135" height="57.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QTj-0o-9vM">
+                                <rect key="frame" x="40" y="118.5" width="273" height="101"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="101" id="Q7J-4T-QET"/>
+                                </constraints>
                                 <string key="text">現在地から線を引きます
 富士山へは、赤線
 スカイツリーへは、青線</string>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="d8I-J1-LDU">
-                                <rect key="frame" x="48" y="44" width="66" height="51"/>
-                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="線を引く地点の追加" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXH-C0-J3n">
-                                <rect key="frame" x="92" y="456" width="156" height="20.5"/>
+                                <rect key="frame" x="109" y="545" width="156" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4Q-S0-bxE">
-                                <rect key="frame" x="92" y="497" width="156" height="41"/>
+                                <rect key="frame" x="114" y="574" width="156" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="設定"/>
                                 <connections>
@@ -44,7 +50,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7IO-1g-5ZF">
-                                <rect key="frame" x="137" y="162" width="66" height="51"/>
+                                <rect key="frame" x="126" y="242" width="118" height="51"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
@@ -55,23 +61,21 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="7IO-1g-5ZF" firstAttribute="top" secondItem="QTj-0o-9vM" secondAttribute="bottom" constant="48" id="56n-CC-HQY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d8I-J1-LDU" secondAttribute="trailing" constant="261" id="AN3-Eb-Rid"/>
-                            <constraint firstItem="7IO-1g-5ZF" firstAttribute="centerX" secondItem="b4Q-S0-bxE" secondAttribute="centerX" id="ApV-na-DPZ"/>
-                            <constraint firstItem="xXH-C0-J3n" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="b4Q-S0-bxE" secondAttribute="trailing" id="BE0-0Y-ITs"/>
-                            <constraint firstItem="QTj-0o-9vM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="Bci-Zb-XXl"/>
-                            <constraint firstItem="b4Q-S0-bxE" firstAttribute="top" secondItem="xXH-C0-J3n" secondAttribute="bottom" constant="20.5" id="Bpj-cC-JfD"/>
-                            <constraint firstItem="QTj-0o-9vM" firstAttribute="centerY" secondItem="d8I-J1-LDU" secondAttribute="centerY" id="ERB-Vc-mab"/>
-                            <constraint firstItem="d8I-J1-LDU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="In5-o4-qM2"/>
-                            <constraint firstItem="7IO-1g-5ZF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="162" id="NPT-8q-GYb"/>
-                            <constraint firstItem="QTj-0o-9vM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RpT-fl-eP6"/>
-                            <constraint firstAttribute="bottom" secondItem="xXH-C0-J3n" secondAttribute="bottom" constant="190.5" id="VE9-8d-x12"/>
-                            <constraint firstItem="QTj-0o-9vM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="gwE-d1-BaF"/>
-                            <constraint firstItem="xXH-C0-J3n" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="b4Q-S0-bxE" secondAttribute="leading" id="lhh-q8-Czf"/>
-                            <constraint firstItem="xXH-C0-J3n" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sdC-ws-zLP"/>
-                            <constraint firstItem="7IO-1g-5ZF" firstAttribute="centerX" secondItem="xXH-C0-J3n" secondAttribute="centerX" id="tq4-I7-7ph"/>
-                            <constraint firstItem="QTj-0o-9vM" firstAttribute="leading" secondItem="d8I-J1-LDU" secondAttribute="leading" id="vVv-pc-8GY"/>
-                            <constraint firstItem="7IO-1g-5ZF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="137" id="vys-EZ-kNL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7IO-1g-5ZF" secondAttribute="trailing" constant="131" id="2uC-cw-rvV"/>
+                            <constraint firstItem="7IO-1g-5ZF" firstAttribute="trailing" secondItem="Wzc-dC-e4T" secondAttribute="trailing" id="5Yy-hy-GaT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="b4Q-S0-bxE" secondAttribute="bottom" constant="52" id="9yU-wC-9O0"/>
+                            <constraint firstItem="b4Q-S0-bxE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="114" id="IMA-7H-Vgo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xXH-C0-J3n" secondAttribute="trailing" symbolic="YES" id="OyL-xd-0VJ"/>
+                            <constraint firstItem="QTj-0o-9vM" firstAttribute="top" secondItem="Wzc-dC-e4T" secondAttribute="bottom" constant="20" id="PIN-L1-Un3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b4Q-S0-bxE" secondAttribute="trailing" constant="105" id="cn9-SU-mMz"/>
+                            <constraint firstItem="Wzc-dC-e4T" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="41" id="hOM-2H-esX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Wzc-dC-e4T" secondAttribute="trailing" symbolic="YES" id="iML-F3-QJo"/>
+                            <constraint firstItem="7IO-1g-5ZF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="126" id="jLl-HY-zAL"/>
+                            <constraint firstItem="QTj-0o-9vM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="u8K-gk-Kzd"/>
+                            <constraint firstItem="xXH-C0-J3n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="109" id="uBF-0t-HEi"/>
+                            <constraint firstItem="b4Q-S0-bxE" firstAttribute="top" secondItem="xXH-C0-J3n" secondAttribute="bottom" constant="8.5" id="v0o-Cm-BhJ"/>
+                            <constraint firstItem="7IO-1g-5ZF" firstAttribute="top" secondItem="QTj-0o-9vM" secondAttribute="bottom" constant="22.5" id="wWY-UJ-yhD"/>
+                            <constraint firstItem="QTj-0o-9vM" firstAttribute="centerX" secondItem="Wzc-dC-e4T" secondAttribute="centerX" id="yvL-Od-MhX"/>
                         </constraints>
                     </view>
                     <connections>
