@@ -29,9 +29,14 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var mountPickerView: UIPickerView! // 山名
     
     @IBAction func selectButton(_ sender: Any) { //地域名の選択終了ボタン
-        flag = true // // ２番めのドラムロールに山名の表示を地域名に応じたものにする
-        
+        flag = true // 選択ボタンを押したフラグ
+        // mountPickerView に表示する山名を、areaPickerView　で選んだ地域のものにする
+        // mountLoc:[[String]] から抜き出して、新しく配列を作る
         // reload()する
+        // 地域名に応じた山のデータ配列を抜き出す　word:検索する地域名、Array:検索対象の配列
+        selectedMounts = extract(selectedRegion,mountLoc)// 地域に応じた山のデータ・・・ここの戻り値 filterd は正しい
+        mountPickerView.reloadAllComponents() //山名を表示する方のPickerView を初期化する
+        
     }
     
     @IBAction func returnButton(_ sender: Any) { //設定を終了して、地図へ画面遷移する
@@ -149,8 +154,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                     print("selectedMountsName②:\(selectedMountsName)")// ドラムロール２を回すと、表示される
                     print("selectedMountsName.count②:\(selectedMountsName.count)")//
                     print("row:\(row)")//rowの値が範囲を超える
-                    print("selectedMountsName[row]②:\(selectedMountsName[row - 1])") //rowの値を１減らしてみた
-                    return selectedMountsName[row - 1] //rowの値を１減らしてみた
+                    print("selectedMountsName[row]②:\(selectedMountsName[row])")
+                    return selectedMountsName[row] 
                 }
                 print("mountsName[row]②\(mountsName[row])") // countを７回繰り返した後、次にここに来る
                 return mountsName[row]
@@ -214,7 +219,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         }
         print("filterd:\(filtered)")
         return filtered
-    } //---------------------------------------------------------------------------------
+    }
+    //---------------------------------------------------------------------------------
     
 }
 
