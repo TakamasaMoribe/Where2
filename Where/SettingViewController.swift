@@ -30,6 +30,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBAction func selectButton(_ sender: Any) { //地域名の選択終了ボタン
         flag = true // // ２番めのドラムロールに山名の表示を地域名に応じたものにする
+        
+        // reload()する
     }
     
     @IBAction func returnButton(_ sender: Any) { //設定を終了して、地図へ画面遷移する
