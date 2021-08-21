@@ -9,45 +9,40 @@ import UIKit
 
 var mountLoc:[[String]] = [] //山の基本データ。二重配列にして、空配列にしておく
 let areaName = ["北海道","東北","関東甲信越","中部","近畿中国","四国九州"] // 地域名
+var mountsName:[String] = [] //["ダミー","11111","22222"] // 山名を入れる配列　地域選択前は、ダミーにしておく　いらない？？
 var selectedRegion:String = "" // ドラムロールで選んだ地域名
 var selectedMounts:[[String]] = [] //地域に応じた山の基本データ [[mountLoc]]から取り出す func extract
-var mountsName:[String] = ["ダミー","11111","22222"] // 山名を入れる配列　地域選択前は、ダミーにしておく
 var selectedMountsName:[String] = [] // 地域に応じた山名を入れる配列
+
 var choice:Int = 0 // ドラムロールで選択した項目の番号
 var flag:Bool = false //地域名の選択ボタンを押したかどうか。山名の絞り込み開始に利用する
 
-
-//地域名を選び、その中の山を選ぶ。地域名と山名で構成される二重配列を作っておく・・・・不要になる？？？
+//地域名を選び、その中の山を選ぶ。地域名と山名で構成される二重配列を作っておく・・・・不要になる？？？？？？
 let compos = [areaName,mountsName] //コンポーネントに表示する配列
 
 
-class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var areaPickerView: UIPickerView! // 地域名
     @IBOutlet weak var mountPickerView: UIPickerView! // 山名
     
     @IBAction func selectButton(_ sender: Any) { //地域名の選択終了ボタン
         flag = true // 選択ボタンを押したフラグ
-        // mountPickerView に表示する山名を、areaPickerView　で選んだ地域のものにする
-        // mountLoc:[[String]] から抜き出して、新しく配列を作る
-        // reload()する
         // 地域名に応じた山のデータ配列を抜き出す　word:検索する地域名、Array:検索対象の配列
-        selectedMounts = extract(selectedRegion,mountLoc)// 地域に応じた山のデータ・・・ここの戻り値 filterd は正しい
-        selectedMountsName = setmountsName(mountData: selectedMounts) // 地域名に応じた山名の配列を得る
+        selectedMounts = extract(selectedRegion,mountLoc) // 地域に応じた山のデータ  func extract()
+        selectedMountsName = setMountsName(mountData: selectedMounts) // 地域に応じた山名配列を得る  func setMountsName()
         mountPickerView.reloadAllComponents() //山名を表示する方のPickerView を初期化する
-        
     }
     
     @IBAction func returnButton(_ sender: Any) { //設定を終了して、地図へ画面遷移する
         // 追加した山名と緯度経度の保存
-        let mtName = UserDefaults.standard.string(forKey: "mtName")//山名をmtNameへ読み込み
-        let mtLatitude = UserDefaults.standard.double(forKey: "mtLatitude")//緯度をmtLatitude
-        let mtLongitude = UserDefaults.standard.double(forKey: "mtLongitude")//経度をmtLongitude
-        UserDefaults.standard.set(mtName, forKey: "mtName")//山名保存
-        UserDefaults.standard.set(mtLatitude, forKey: "mtLatitude")//緯度保存
-        UserDefaults.standard.set(mtLongitude, forKey: "mtLongitude")//経度保存
-
+        let mtName = UserDefaults.standard.string(forKey: "mtName") // 山名をmtNameへ読み込み
+        let mtLatitude = UserDefaults.standard.double(forKey: "mtLatitude") // 緯度をmtLatitude
+        let mtLongitude = UserDefaults.standard.double(forKey: "mtLongitude") // 経度をmtLongitude
+        UserDefaults.standard.set(mtName, forKey: "mtName") // 山名保存
+        UserDefaults.standard.set(mtLatitude, forKey: "mtLatitude") // 緯度保存
+        UserDefaults.standard.set(mtLongitude, forKey: "mtLongitude") // 経度保存
         // 地図表示へ画面遷移
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "CurrentViewController") as! CurrentViewController
@@ -64,11 +59,10 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         mountPickerView.dataSource = self
         areaPickerView.tag = 1
         mountPickerView.tag = 2
-        
-        mountLoc = dataLoad()//山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
- //       mountsName = setmountsName(mountData: mountLoc)//山名だけ　を取り出して配列にする 地域名の選択ボタンを押した時に実行するようにしてみる
-        selectedMounts = dataLoad()//山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
- //       selectedMountsName = setmountsName(mountData: selectedMounts)//山名だけを取り出す地域名の選択ボタンを押した時に実行するように
+// 下の２行は見直す必要がある。同じことを２回やって、使い方はどうなっているか。？？？？？？？？？？？？？？？？
+        mountLoc = dataLoad() //山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
+        selectedMounts = dataLoad() //山の配列データをファイルから読み込む
+
     }
 //-------------------------------
     //csvファイルから、山のデータを読み込む
@@ -92,14 +86,14 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     
-// 山名だけ取り出した配列をつくる。（ドラムロールに山名だけを表示するため）地域選択前は、空(ダミー)の配列にしておくのはどうか
-    func setmountsName(mountData:[[String]]) -> [String]{
+// 山名だけ取り出した配列をつくる。（ドラムロールに山名だけを表示するため）
+    func setMountsName(mountData:[[String]]) -> [String]{
         let mountCount = mountData.count // 山の数
         var mountsName:[String] = [] // 山名を取り出す配列
             for i in 0...mountCount-1 {
                 mountsName.append(mountData[i][2]) //山名は、配列内の３番目の要素
             }
-        return mountsName // 山名の配列  地域選択前は、空(ダミー)の配列にしておくのはどうか ["ダミー","11111","22222"]
+        return mountsName // 山名の配列
     }
     
 //-------------------------------------------------------------------------------
@@ -115,44 +109,30 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         }
     }
         
- //    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { // あやしい
     }
-    // コンポーネントの行数（配列の要素数＝選択肢の個数）を得る。ここを７回繰り返す。
+    
+    // コンポーネントの行数（配列の要素数＝選択肢の個数）を得る。
     // 地域選択後ドラム２で、flag を使って、mountsName.count を selectedMountsName.count に変えてみる
     func pickerView(_ picker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if (picker.tag == 1){ //地域名を表示するドラムロール
-            return areaName.count // 地域名の個数
+            return areaName.count // 地域名の個数＝６　"北海道","東北","関東甲信越","中部","近畿中国","四国九州"
         } else {
             if (picker.tag == 2){ //山名を表示するドラムロール
-                
-//                if (flag == true) { //　下の行は、地域名の選択ボタンを押した時に実行するようにしてみる
-//selectedMountsName = setmountsName(mountData: selectedMounts) // 地域名に応じた山名の配列を得る
-//                    print("ここ　selectedMountsName.count①:\(selectedMountsName.count)") // ここに来るようになった０８２１
-//                    return selectedMountsName.count
-//                }
-//                return mountsName.count // 山名の個数
-                
-                return selectedMountsName.count // 山名の個数
+                return selectedMountsName.count // 選択した地域に属する山名の個数
             } else {
                 return 0 //必要ないが 0にしてみる
             }
         }
     }
 
-    // 選択中のコンポーネントの番号と行から、指定した配列[areaName]と[mountsName]から項目名を返す row行目・・out of range
+    // 選択中のコンポーネントの番号と行から、指定した配列[areaName]と[mountsName]から項目名を返す
     func pickerView(_ picker: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         //指定のコンポーネントから指定中の項目名を取り出す。
         if (picker.tag == 1){ //tagで分岐
             return areaName[row] // row行目の地域名
         } else {
-            if (picker.tag == 2){// row行目の山名 [areaName]の内容によってここを更新する？
-                
-//                if (flag == true) { //地域名の選択ボタンを押した時　下の行を実行するようにしてみる
-// //                   selectedMountsName = setmountsName(mountData: selectedMounts) // 地域名に応じた山名の配列を得る
-//                    return selectedMountsName[row]
-//                }
-//                return mountsName[row]
-                
+            if (picker.tag == 2){// row行目の山名 [areaName]の内容によってここを更新する
                 return selectedMountsName[row]
             } else {
                 return "該当なし"  //必要ないが
@@ -175,8 +155,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         } else {
             if (picker.tag == 2){ //ここで、地域名に応じた山名を表示するようにする
                 let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
-                choice = row2 // 選択した項目の番号
-                let item2 = self.pickerView(mountPickerView, titleForRow: row2, forComponent: 0)//山名？？？不明
+                choice = row2 // 選択した項目の番号 → 選択した山名
+//                let item2 = self.pickerView(mountPickerView, titleForRow: row2, forComponent: 0)//山名？？？不明
             }
         }
         //mountLocをselectedMountsに変えてみた・・・良い結果が得られたが、ドラムロール２への表示がでない
@@ -197,7 +177,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             }
             j = j + 1
         }
-        print("filterd:\(filtered)")
+//        print("filterd:\(filtered)")
         return filtered
     }
     //---------------------------------------------------------------------------------
