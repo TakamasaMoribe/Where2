@@ -178,7 +178,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             
          //選んだ地域に応じて、山のデータ配列をつくる　mountsNameも地域に応じたものに変更する
             selectedRegion = item1!
-            selectedMounts = extract(selectedRegion,mountLoc)// 地域に応じた山のデータ・・・ここの戻り値 filterd は正しい
+            selectedMounts = extract(selectedRegion,mountLoc)// 地域に応じた山のデータを得る・・ここの戻り値 filterd は正しい
             
             print("selectedRegion③:\(selectedRegion)") //OK
             print("selectedMounts③:\(selectedMounts)") //OK
