@@ -2,7 +2,7 @@
 //  SettingViewController.swift
 //  Where
 //
-//  Created by 森部高昌 on 2021/08/18
+//  Created by 森部高昌 on 2021/08/21
 //
 
 import UIKit
@@ -121,7 +121,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     // 地域選択後ドラム２で、flag を使って、mountsName.count を selectedMountsName.count に変えてみる
     func pickerView(_ picker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if (picker.tag == 1){ //地域名を表示するドラムロール
-            print("areaName.count①:\(areaName.count)") // ここを７回繰り返す。＊＊＊＊＊＊＊＊＊＊＊＊
+ //           print("areaName.count①:\(areaName.count)") // ここを７回繰り返す。＊＊＊＊＊＊＊＊＊＊＊＊
             return areaName.count // 地域名の個数
         } else {
             if (picker.tag == 2){ //山名を表示するドラムロール
@@ -132,7 +132,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                     print("ここ　selectedMountsName.count①:\(selectedMountsName.count)") // ここに来るようになった０８２１
                     return selectedMountsName.count
                 }
-                print("mountsName.count①:\(mountsName.count)") // 次に、ここを７回繰り返す。＊＊＊＊＊＊＊＊＊＊＊＊
+ //               print("mountsName.count①:\(mountsName.count)") // 次に、ここを７回繰り返す。＊＊＊＊＊＊＊＊＊＊＊＊
                 return mountsName.count // 山名の個数
             } else {
                 return 0 //必要ないが 0にしてみる
@@ -151,13 +151,13 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                 if (flag == true) { //地域名の選択ボタンを押した時
                     selectedMountsName = setmountsName(mountData: selectedMounts) // 地域名に応じた山名の配列を得る
                     //row = selectedMountsName.count - 1
-                    print("selectedMountsName②:\(selectedMountsName)")// ドラムロール２を回すと、表示される
-                    print("selectedMountsName.count②:\(selectedMountsName.count)")//
-                    print("row:\(row)")//rowの値が範囲を超える
+//                   print("selectedMountsName②:\(selectedMountsName)")// ドラムロール２を回すと、表示される
+//                    print("selectedMountsName.count②:\(selectedMountsName.count)")//
+//                    print("row:\(row)")//rowの値が範囲を超える
 //                    print("selectedMountsName[row]②:\(selectedMountsName[row])")
                     return selectedMountsName[row]
                 }
-                print("mountsName[row]②\(mountsName[row])") // countを７回繰り返した後、次にここに来る
+//                print("mountsName[row]②\(mountsName[row])") // countを７回繰り返した後、次にここに来る
                 return mountsName[row]
                 //return mountsName[row] // row行目の山名 [areaName]の内容によってここを更新する？
             } else {
@@ -173,15 +173,15 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         if (picker.tag == 1){ //tagで分岐
             let row1 = areaPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
             let item1 = self.pickerView(areaPickerView, titleForRow: row1, forComponent: 0)//地域名
-            print("ドラム１のrow1③:\(row1)")
-            print("ドラム１のitem1!③:\(item1!)")
+//            print("ドラム１のrow1③:\(row1)")
+//            print("ドラム１のitem1!③:\(item1!)")
             
          //選んだ地域に応じて、山のデータ配列をつくる　mountsNameも地域に応じたものに変更する
             selectedRegion = item1!
             selectedMounts = extract(selectedRegion,mountLoc)// 地域に応じた山のデータを得る・・ここの戻り値 filterd は正しい
             
-            print("selectedRegion③:\(selectedRegion)") //OK
-            print("selectedMounts③:\(selectedMounts)") //OK
+//            print("selectedRegion③:\(selectedRegion)") //OK
+//            print("selectedMounts③:\(selectedMounts)") //OK
             //print("selectedMounts\(selectedMounts)") //　いまのところ、すべての山のデータを表示している
             
         } else {
@@ -190,9 +190,9 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                 choice = row2 // 選択した項目の番号
                 let item2 = self.pickerView(mountPickerView, titleForRow: row2, forComponent: 0)//山名？？？不明
                 
-                print("selectedMounts③\(selectedMounts)")
-                print("row2③:\(row2)")
-                print("item2③!\(item2!)")
+//                print("selectedMounts③\(selectedMounts)")
+//                print("row2③:\(row2)")
+//                print("item2③!\(item2!)")
 
             }
         }
