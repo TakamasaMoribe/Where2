@@ -11,11 +11,10 @@ var mountLoc:[[String]] = [] //山の基本データ。二重配列にして、�
 let areaName = ["北海道","東北","関東甲信越","中部","近畿中国","四国九州"] // 地域名
 var selectedRegion:String = "" // ドラムロールで選んだ地域名
 var selectedMounts:[[String]] = [] //地域に応じた山の基本データ [[mountLoc]]から取り出す func extract
-var mountsName:[String] = [] // 山名を入れる配列
+var mountsName:[String] = ["ダミー","11111","22222"] // 山名を入れる配列　地域選択前は、ダミーにしておく
 var selectedMountsName:[String] = [] // 地域に応じた山名を入れる配列
 var choice:Int = 0 // ドラムロールで選択した項目の番号
 var flag:Bool = false //地域名の選択ボタンを押したかどうか。山名の絞り込み開始に利用する
-
 
 
 //地域名を選び、その中の山を選ぶ。地域名と山名で構成される二重配列を作っておく・・・・不要になる？？？
@@ -35,6 +34,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         // reload()する
         // 地域名に応じた山のデータ配列を抜き出す　word:検索する地域名、Array:検索対象の配列
         selectedMounts = extract(selectedRegion,mountLoc)// 地域に応じた山のデータ・・・ここの戻り値 filterd は正しい
+        selectedMountsName = setmountsName(mountData: selectedMounts) // 地域名に応じた山名の配列を得る
         mountPickerView.reloadAllComponents() //山名を表示する方のPickerView を初期化する
         
     }
@@ -66,9 +66,9 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         mountPickerView.tag = 2
         
         mountLoc = dataLoad()//山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
-        mountsName = setmountsName(mountData: mountLoc)//山名だけ　を取り出して配列にする
+ //       mountsName = setmountsName(mountData: mountLoc)//山名だけ　を取り出して配列にする 地域名の選択ボタンを押した時に実行するようにしてみる
         selectedMounts = dataLoad()//山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
-        selectedMountsName = setmountsName(mountData: selectedMounts)//山名だけ　を取り出して配列にする selectedMountsにしてみた
+ //       selectedMountsName = setmountsName(mountData: selectedMounts)//山名だけを取り出す地域名の選択ボタンを押した時に実行するように
     }
 //-------------------------------
     //csvファイルから、山のデータを読み込む
@@ -92,14 +92,14 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     
-// 山名だけ取り出した配列をつくる。（ドラムロールに山名だけを表示するため）
+// 山名だけ取り出した配列をつくる。（ドラムロールに山名だけを表示するため）地域選択前は、空(ダミー)の配列にしておくのはどうか
     func setmountsName(mountData:[[String]]) -> [String]{
         let mountCount = mountData.count // 山の数
         var mountsName:[String] = [] // 山名を取り出す配列
             for i in 0...mountCount-1 {
                 mountsName.append(mountData[i][2]) //山名は、配列内の３番目の要素
             }
-        return mountsName // 山名の配列
+        return mountsName // 山名の配列  地域選択前は、空(ダミー)の配列にしておくのはどうか ["ダミー","11111","22222"]
     }
     
 //-------------------------------------------------------------------------------
@@ -121,19 +121,18 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     // 地域選択後ドラム２で、flag を使って、mountsName.count を selectedMountsName.count に変えてみる
     func pickerView(_ picker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if (picker.tag == 1){ //地域名を表示するドラムロール
- //           print("areaName.count①:\(areaName.count)") // ここを７回繰り返す。＊＊＊＊＊＊＊＊＊＊＊＊
             return areaName.count // 地域名の個数
         } else {
             if (picker.tag == 2){ //山名を表示するドラムロール
-                if (flag == true) { //？？？？？？？？？？？　地域名の選択ボタンを押した時 ここにこない？？？？？？？？
-                    //selectedMountsName = setmountsName(mountData: selectedMounts) // 地域名に応じた山名の配列を得る
-                    //print("selectedMountsName:\(selectedMountsName)")// ドラムロール２を回すと、表示される
-                    //print("selectedMountsName[row]:\(selectedMountsName[row])")
-                    print("ここ　selectedMountsName.count①:\(selectedMountsName.count)") // ここに来るようになった０８２１
-                    return selectedMountsName.count
-                }
- //               print("mountsName.count①:\(mountsName.count)") // 次に、ここを７回繰り返す。＊＊＊＊＊＊＊＊＊＊＊＊
-                return mountsName.count // 山名の個数
+                
+//                if (flag == true) { //　下の行は、地域名の選択ボタンを押した時に実行するようにしてみる
+//selectedMountsName = setmountsName(mountData: selectedMounts) // 地域名に応じた山名の配列を得る
+//                    print("ここ　selectedMountsName.count①:\(selectedMountsName.count)") // ここに来るようになった０８２１
+//                    return selectedMountsName.count
+//                }
+//                return mountsName.count // 山名の個数
+                
+                return selectedMountsName.count // 山名の個数
             } else {
                 return 0 //必要ないが 0にしてみる
             }
@@ -148,18 +147,13 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         } else {
             if (picker.tag == 2){// row行目の山名 [areaName]の内容によってここを更新する？
                 
-                if (flag == true) { //地域名の選択ボタンを押した時
-                    selectedMountsName = setmountsName(mountData: selectedMounts) // 地域名に応じた山名の配列を得る
-                    //row = selectedMountsName.count - 1
-//                   print("selectedMountsName②:\(selectedMountsName)")// ドラムロール２を回すと、表示される
-//                    print("selectedMountsName.count②:\(selectedMountsName.count)")//
-//                    print("row:\(row)")//rowの値が範囲を超える
-//                    print("selectedMountsName[row]②:\(selectedMountsName[row])")
-                    return selectedMountsName[row]
-                }
-//                print("mountsName[row]②\(mountsName[row])") // countを７回繰り返した後、次にここに来る
-                return mountsName[row]
-                //return mountsName[row] // row行目の山名 [areaName]の内容によってここを更新する？
+//                if (flag == true) { //地域名の選択ボタンを押した時　下の行を実行するようにしてみる
+// //                   selectedMountsName = setmountsName(mountData: selectedMounts) // 地域名に応じた山名の配列を得る
+//                    return selectedMountsName[row]
+//                }
+//                return mountsName[row]
+                
+                return selectedMountsName[row]
             } else {
                 return "該当なし"  //必要ないが
             }
@@ -173,33 +167,19 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         if (picker.tag == 1){ //tagで分岐
             let row1 = areaPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
             let item1 = self.pickerView(areaPickerView, titleForRow: row1, forComponent: 0)//地域名
-//            print("ドラム１のrow1③:\(row1)")
-//            print("ドラム１のitem1!③:\(item1!)")
             
          //選んだ地域に応じて、山のデータ配列をつくる　mountsNameも地域に応じたものに変更する
             selectedRegion = item1!
             selectedMounts = extract(selectedRegion,mountLoc)// 地域に応じた山のデータを得る・・ここの戻り値 filterd は正しい
-            
-//            print("selectedRegion③:\(selectedRegion)") //OK
-//            print("selectedMounts③:\(selectedMounts)") //OK
-            //print("selectedMounts\(selectedMounts)") //　いまのところ、すべての山のデータを表示している
             
         } else {
             if (picker.tag == 2){ //ここで、地域名に応じた山名を表示するようにする
                 let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
                 choice = row2 // 選択した項目の番号
                 let item2 = self.pickerView(mountPickerView, titleForRow: row2, forComponent: 0)//山名？？？不明
-                
-//                print("selectedMounts③\(selectedMounts)")
-//                print("row2③:\(row2)")
-//                print("item2③!\(item2!)")
-
             }
         }
         //mountLocをselectedMountsに変えてみた・・・良い結果が得られたが、ドラムロール２への表示がでない
-//        UserDefaults.standard.set(mountLoc[choice][2], forKey: "mtName") //[2]山名
-//        UserDefaults.standard.set(mountLoc[choice][3], forKey: "mtLatitude") //[3]緯度保存
-//        UserDefaults.standard.set(mountLoc[choice][4], forKey: "mtLongitude") //[4]経度保存
         UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName") //[2]山名
         UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude") //[3]緯度保存
         UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude") //[4]経度保存
