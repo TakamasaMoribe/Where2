@@ -9,7 +9,6 @@ import UIKit
 
 var originalMountDatas:[[String]] = [] //山の基本データ。二重配列にして、空配列にしておく
 let areaName = ["北海道","東北","関東甲信越","中部","近畿中国","四国九州"] // 地域名
-//var mountsName:[String] = [] //["ダミー","11111","22222"] // 山名を入れる配列　地域選択前は、ダミーにしておく　ダミーはいらない？？
 var selectedRegion:String = "" // ドラムロールで選んだ地域名
 var selectedMounts:[[String]] = [] //地域に応じた山の基本データ originalMountDatasから取り出す func extract
 var selectedMountsName:[String] = [] // 地域に応じた山名を入れる配列
@@ -62,6 +61,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         
         //山の配列データをcsvファイルから読み込む。[番号、地域名、山名、緯度、経度]
         originalMountDatas = dataLoad()
+        
+ //       areaPickerView.selectRow(0, inComponent: 0, animated: false)
     }
 //-------------------------------
     // csvファイルから、山のデータを読み込む
@@ -88,7 +89,9 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
 // 山名だけ取り出した配列をつくる。（ドラムロールに山名だけを表示するため）
     func setMountsName(mountData:[[String]]) -> [String]{
         let mountCount = mountData.count // 山の数
-        var mountsName:[String] = [] // 山名を取り出す配列　最初の宣言はいらない？？？？？？
+        print("mountData:\(mountData)")
+        print("mountData.count:\(mountData.count)")
+        var mountsName:[String] = [] // 山名を取り出す配列　最初の宣言はいらない
             for i in 0...mountCount-1 {
                 mountsName.append(mountData[i][2]) //山名は、配列内の３番目[番号、地域名、山名、緯度、経度]
             }
@@ -140,7 +143,10 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     // ドラムが回転して、どの項目が選ばれたか。情報を得る。？？？？選択画面で北海道を選ぶとエラーが起こる out of range
     //row1,row2でコンポーネント内の行番号。item1,item2でその内容。 ここでもtagで分岐する
     func pickerView(_ picker: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        //areaPickerView.selectRow(0, inComponent: 0, animated: false) //直接北海道にしてみた
         //現在選択されている行番号とその内容
+        
         if (picker.tag == 1){ //tagで分岐　　　北海道を選んだ時は？？？？？？？？？？？？
             // 選択した行番号を得る
             let row1 = areaPickerView.selectedRow(inComponent: 0)
@@ -149,7 +155,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             
             // 選んだ地域に応じて、山のデータ配列をつくる
             selectedRegion = item1!
-            selectedMounts = extract(selectedRegion,originalMountDatas)// 地域に応じた山のデータを得る
+            selectedMounts = extract(selectedRegion,originalMountDatas)// 地域名に応じた山のデータを得る
             // あとで、選択ボタンを押したならば、mountsNameも地域に応じたものに変更し、山名の配列をつくる。
         } else {
             if (picker.tag == 2){ //ここで、地域名に応じた山名を表示するようにする
