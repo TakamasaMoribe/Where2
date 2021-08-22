@@ -38,6 +38,24 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     @IBAction func returnButton(_ sender: Any) { //設定を終了して、地図へ画面遷移する
+        //山名を選択せずに、決定ボタンを押した場合の処理。前回の山のデータが残っていて、それを表示している
+            if selectedMounts == [] {
+                // ０行目（最初の山）を選択したことにする
+                print("selectedMounts:\(selectedMounts)")
+                selectedMounts = extract(selectedRegion,originalMountDatas)// 地域名に応じた山のデータを得る
+                print("selectedMounts2:\(selectedMounts)")
+                let mtName = selectedMounts[0][2] //[2]山名
+                let mtLatitude = selectedMounts[0][3] //[3]緯度
+                let mtLongitude = selectedMounts[0][4] //[4]経度
+                
+                UserDefaults.standard.set(mtName, forKey: "mtName") // 山名保存
+                UserDefaults.standard.set(mtLatitude, forKey: "mtLatitude") // 緯度保存
+                UserDefaults.standard.set(mtLongitude, forKey: "mtLongitude") // 経度保存
+                
+                //let region = self.pickerView(areaPickerView, titleForRow:0, forComponent: 0)
+                //selectedRegion = region!
+            } else {
+                
         // 追加した山名と緯度経度の保存
         let mtName = UserDefaults.standard.string(forKey: "mtName") // 山名をmtNameへ読み込み
         let mtLatitude = UserDefaults.standard.double(forKey: "mtLatitude") // 緯度をmtLatitude
@@ -45,6 +63,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         UserDefaults.standard.set(mtName, forKey: "mtName") // 山名保存
         UserDefaults.standard.set(mtLatitude, forKey: "mtLatitude") // 緯度保存
         UserDefaults.standard.set(mtLongitude, forKey: "mtLongitude") // 経度保存
+            }
         
         // 地図表示へ画面遷移
         let storyboard: UIStoryboard = self.storyboard!
@@ -155,7 +174,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             // 選んだ地域に応じて、山のデータ配列をつくる
             selectedRegion = item1!
             selectedMounts = extract(selectedRegion,originalMountDatas)// 地域名に応じた山のデータを得る
-            // あとで、選択ボタンを押したならば、mountsNameも地域に応じたものに変更し、山名の配列をつくる。
+            
         } else {
             if (picker.tag == 2){ //ここで、地域名に応じた山名を表示するようにする
                 let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号

@@ -66,10 +66,10 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
         let ido = location.coordinate.latitude
         let keido = location.coordinate.longitude
 
-        //"mapView"に地図を表示する　範囲設定をしてみた
+        //"mapView"に地図を表示する　よくある範囲設定をしてみた
         var region:MKCoordinateRegion = mapView.region
-        region.span.latitudeDelta = 0.02
-        region.span.longitudeDelta = 0.02
+        region.span.latitudeDelta = 0.01
+        region.span.longitudeDelta = 0.01
         
         let compass = MKCompassButton(mapView: mapView) // コンパス
         compass.frame = CGRect(x:300,y:15,width:5,height:5) // 位置と大きさ
