@@ -14,7 +14,6 @@ var selectedMounts:[[String]] = [] //地域に応じた山の基本データ ori
 var selectedMountsName:[String] = [] // 地域に応じた山名を入れる配列
 
 var choice:Int = 0 // ドラムロールで選択した項目の番号
-//var flag:Bool = false //地域名の選択ボタンを押したかどうか。山名の絞り込み開始に利用する
 
 
 
@@ -24,12 +23,9 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var mountPickerView: UIPickerView! // 山名
     
     @IBAction func selectButton(_ sender: Any) { //地域名の選択終了ボタン
-//        flag = true // 選択ボタンを押したフラグ　？？？？？？？？？？？？？？？？？不要？？？？
-//        print(selectedRegion)
-            if selectedRegion == "" { // 選択されていない時
+        //地域名を選択せずに、選択ボタンを押した場合の処理。北海道を選択したことにする
+            if selectedRegion == "" {
                 selectedRegion = "北海道"
-                selectedMounts = extract(selectedRegion,originalMountDatas)
- //               print("selectedMounts:\(selectedMounts)")
             }
         // 選択した地域名に応じた山のデータ配列を抜き出す　word:検索する地域名、Array:検索対象の配列
         selectedMounts = extract(selectedRegion,originalMountDatas) // func extract()
@@ -95,8 +91,6 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
 // 山名だけ取り出した配列をつくる。（ドラムロールに山名だけを表示するため）
     func setMountsName(mountData:[[String]]) -> [String]{
         let mountCount = mountData.count // 山の数
-//        print("mountData:\(mountData)")
-//        print("mountData.count:\(mountData.count)")
         var mountsName:[String] = [] // 山名を取り出す配列　最初の宣言はいらない
             for i in 0...mountCount-1 {
                 mountsName.append(mountData[i][2]) //山名は、配列内の３番目[番号、地域名、山名、緯度、経度]
