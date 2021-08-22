@@ -7,11 +7,11 @@
 
 import UIKit
 
-var originalMountDataArray:[[String]] = [] //山の基本データ。二重配列にして、空配列にしておく
+var originalMountDatas:[[String]] = [] //山の基本データ。二重配列にして、空配列にしておく
 let areaName = ["北海道","東北","関東甲信越","中部","近畿中国","四国九州"] // 地域名
 var mountsName:[String] = [] //["ダミー","11111","22222"] // 山名を入れる配列　地域選択前は、ダミーにしておく　ダミーはいらない？？
 var selectedRegion:String = "" // ドラムロールで選んだ地域名
-var selectedMounts:[[String]] = [] //地域に応じた山の基本データ [[originalMountDataArray]]から取り出す func extract
+var selectedMounts:[[String]] = [] //地域に応じた山の基本データ originalMountDatasから取り出す func extract
 var selectedMountsName:[String] = [] // 地域に応じた山名を入れる配列
 
 var choice:Int = 0 // ドラムロールで選択した項目の番号
@@ -27,7 +27,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBAction func selectButton(_ sender: Any) { //地域名の選択終了ボタン
         flag = true // 選択ボタンを押したフラグ
         // 地域名に応じた山のデータ配列を抜き出す　word:検索する地域名、Array:検索対象の配列
-        selectedMounts = extract(selectedRegion,originalMountDataArray) // 地域に応じた山のデータ  func extract()
+        selectedMounts = extract(selectedRegion,originalMountDatas) // 地域に応じた山のデータ  func extract()
         selectedMountsName = setMountsName(mountData: selectedMounts) // 地域に応じた山名配列を得る  func setMountsName()
         mountPickerView.reloadAllComponents() //山名を表示する方のPickerView を初期化する
     }
@@ -40,6 +40,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         UserDefaults.standard.set(mtName, forKey: "mtName") // 山名保存
         UserDefaults.standard.set(mtLatitude, forKey: "mtLatitude") // 緯度保存
         UserDefaults.standard.set(mtLongitude, forKey: "mtLongitude") // 経度保存
+        
         // 地図表示へ画面遷移
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "CurrentViewController") as! CurrentViewController
@@ -57,8 +58,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         areaPickerView.tag = 1
         mountPickerView.tag = 2
 // 下の２行は見直す必要がある。同じことを２回やって、使い方はどうなっているか。？？？？？？？？？？？？？？？？
-        originalMountDataArray = dataLoad() //山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
-        selectedMounts = dataLoad() //山の配列データをファイルから読み込む
+        originalMountDatas = dataLoad() //山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
+     //   selectedMounts = dataLoad() //山の配列データをファイルから読み込む 必要ない模様
 
     }
 //-------------------------------
@@ -147,7 +148,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             
          //選んだ地域に応じて、山のデータ配列をつくる　mountsNameも地域に応じたものに変更する
             selectedRegion = item1!
-            selectedMounts = extract(selectedRegion,originalMountDataArray)// 地域に応じた山のデータを得る・・ここの戻り値 filterd は正しい
+            selectedMounts = extract(selectedRegion,originalMountDatas)// 地域に応じた山のデータを得る・・ここの戻り値 filterd は正しい
             
         } else {
             if (picker.tag == 2){ //ここで、地域名に応じた山名を表示するようにする
@@ -166,7 +167,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     func extract(_ word:String ,_ Array:[[String]]) -> [[String]] {
         var filtered:[[String]] = []//　ドラムロールで選択した"地域名"を含む。抽出した配列
         var j = 0 // ループカウンタ
-        for array in originalMountDataArray { //山のデータ配列[番号、地域名、山名、緯度、経度]
+        for array in originalMountDatas { //山のデータ配列[番号、地域名、山名、緯度、経度]
             // array[1]:２番目の要素（地域名）だけ調べる
             if array[1] == selectedRegion { //取り出した要素が、検索値に等しい時
                 filtered.append(array)
