@@ -141,24 +141,26 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     //row1,row2でコンポーネント内の行番号。item1,item2でその内容。 ここでもtagで分岐する
     func pickerView(_ picker: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         //現在選択されている行番号とその内容
-        if (picker.tag == 1){ //tagで分岐
-            let row1 = areaPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
-            let item1 = self.pickerView(areaPickerView, titleForRow: row1, forComponent: 0)//地域名
-          //北海道を選んだ時は？？？？
-         //選んだ地域に応じて、山のデータ配列をつくる　mountsNameも地域に応じたものに変更する？？　選択ボタンのところで？
+        if (picker.tag == 1){ //tagで分岐　　　北海道を選んだ時は？？？？？？？？？？？？
+            // 選択した行番号を得る
+            let row1 = areaPickerView.selectedRow(inComponent: 0)
+            // 選択した行番号から、タイトル名（地域名）を得る
+            let item1 = self.pickerView(areaPickerView, titleForRow: row1, forComponent: 0)
+            
+            // 選んだ地域に応じて、山のデータ配列をつくる
             selectedRegion = item1!
             selectedMounts = extract(selectedRegion,originalMountDatas)// 地域に応じた山のデータを得る
-            
+            // あとで、選択ボタンを押したならば、mountsNameも地域に応じたものに変更し、山名の配列をつくる。
         } else {
             if (picker.tag == 2){ //ここで、地域名に応じた山名を表示するようにする
                 let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
                 choice = row2 // 選択した項目の番号から選択した山名を得る
             }
         }
-        //mountLocをselectedMountsに変えた・・・良い結果が得られた。
-        UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName") //[2]山名
-        UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude") //[3]緯度保存
-        UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude") //[4]経度保存
+//        //mountLocをselectedMountsに変えた・・・良い結果が得られた。あとで、選択ボタンを押したならば実行？？？
+//        UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName") //[2]山名
+//        UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude") //[3]緯度保存
+//        UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude") //[4]経度保存
     }
  
     // 二重配列から、特定の要素を含む配列を取り出して、新しい二重配列をつくる ----------------------
