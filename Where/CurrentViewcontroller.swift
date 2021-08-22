@@ -66,7 +66,11 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
         let ido = location.coordinate.latitude
         let keido = location.coordinate.longitude
 
-        //"mapView"に地図を表示する
+        //"mapView"に地図を表示する　範囲設定をしてみた
+        var region:MKCoordinateRegion = mapView.region
+        region.span.latitudeDelta = 0.02
+        region.span.longitudeDelta = 0.02
+        
         let compass = MKCompassButton(mapView: mapView) // コンパス
         compass.frame = CGRect(x:300,y:15,width:5,height:5) // 位置と大きさ
         self.view.addSubview(compass)// コンパスを地図に表示する
@@ -100,8 +104,6 @@ print(mtLongitude)
         if mtLatitude != 0 { //値がないと北緯０度、東経０度の位置に線を引く
             mapView.addOverlays([addLine])// 地図上に描く 現在地ー追加した山
         }
-        
-        
     }
 
     // ポリライン(オーバーレイ)がどちらのクラスのものか、switch-case文で３つに分ける

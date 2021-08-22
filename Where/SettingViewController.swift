@@ -7,7 +7,7 @@
 
 import UIKit
 
-var originalMountDatas:[[String]] = [] //山の基本データ。二重配列にして、空配列にしておく
+var originalMountDatas:[[String]] = [] //山の基本データ。二重配列にして、空にしておく
 let areaName = ["北海道","東北","関東甲信越","中部","近畿中国","四国九州"] // 地域名
 var selectedRegion:String = "" // ドラムロールで選んだ地域名
 var selectedMounts:[[String]] = [] //地域に応じた山の基本データ originalMountDatasから取り出す func extract
@@ -19,8 +19,8 @@ var choice:Int = 0 // ドラムロールで選択した項目の番号
 
 class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet weak var areaPickerView: UIPickerView! // 地域名
-    @IBOutlet weak var mountPickerView: UIPickerView! // 山名
+    @IBOutlet weak var areaPickerView: UIPickerView! // 地域名用のドラムロール
+    @IBOutlet weak var mountPickerView: UIPickerView! // 山名用のドラムロール
     
     @IBAction func selectButton(_ sender: Any) { //地域名の選択終了ボタン
         //地域名を選択せずに、選択ボタンを押した場合の処理。
@@ -35,7 +35,6 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         selectedMountsName = setMountsName(mountData: selectedMounts) // func setMountsName()
         //mountPickerView を初期化して、選択した山名　selectedMountsName を表示する
         mountPickerView.reloadAllComponents()
-        
     }
     
     @IBAction func returnButton(_ sender: Any) { //設定を終了して、地図へ画面遷移する
