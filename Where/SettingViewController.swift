@@ -26,10 +26,12 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBAction func selectButton(_ sender: Any) { //地域名の選択終了ボタン
         flag = true // 選択ボタンを押したフラグ
-        // 地域名に応じた山のデータ配列を抜き出す　word:検索する地域名、Array:検索対象の配列
-        selectedMounts = extract(selectedRegion,originalMountDatas) // 地域に応じた山のデータ  func extract()
-        selectedMountsName = setMountsName(mountData: selectedMounts) // 地域に応じた山名配列を得る  func setMountsName()
-        mountPickerView.reloadAllComponents() //山名を表示する方のPickerView を初期化する
+        // 選択した地域名に応じた山のデータ配列を抜き出す　word:検索する地域名、Array:検索対象の配列
+        selectedMounts = extract(selectedRegion,originalMountDatas) // func extract()
+        // 選択した地域名に応じた山名の配列を得る
+        selectedMountsName = setMountsName(mountData: selectedMounts) // func setMountsName()
+        //mountPickerView を初期化して、選択した山名　selectedMountsName を表示する
+        mountPickerView.reloadAllComponents()
     }
     
     @IBAction func returnButton(_ sender: Any) { //設定を終了して、地図へ画面遷移する
@@ -57,17 +59,16 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         mountPickerView.dataSource = self
         areaPickerView.tag = 1
         mountPickerView.tag = 2
-// 下の２行は見直す必要がある。同じことを２回やって、使い方はどうなっているか。？？？？？？？？？？？？？？？？
-        originalMountDatas = dataLoad() //山の配列データをファイルから読み込む[番号、地域名、山名、緯度、経度]
-     //   selectedMounts = dataLoad() //山の配列データをファイルから読み込む 必要ない模様
-
+        
+        //山の配列データをcsvファイルから読み込む。[番号、地域名、山名、緯度、経度]
+        originalMountDatas = dataLoad()
     }
 //-------------------------------
-    //csvファイルから、山のデータを読み込む
+    // csvファイルから、山のデータを読み込む
     func dataLoad() -> [[String]] {
-        //データを格納するための配列を準備する
-        var dataArray :[[String]] = [] //二重配列にして、空配列にしておく
-        //データの読み込み準備 ファイルが見つからないときは実行しない
+        // データを格納するための配列を準備する
+        var dataArray :[[String]] = [] // 二重配列にして、空配列にしておく
+        // データの読み込み準備 ファイルが見つからないときは実行しない
         guard let thePath = Bundle.main.path(forResource: "mtDataAll", ofType: "csv") else {
             return [["null"]]
         }
@@ -75,11 +76,11 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             let csvStringData = try String(contentsOfFile: thePath, encoding: String.Encoding.utf8)
             csvStringData.enumerateLines(invoking: {(line,stop) in //改行されるごとに分割する
                 let data = line.components(separatedBy: ",") //１行を","で分割して配列に入れる
-                dataArray.append(data) //格納用の配列に、１行ずつ追加していく
-                }) //invokingからのクロージャここまで
+                dataArray.append(data) // 格納用の配列に、１行ずつ追加していく
+                }) // invokingからのクロージャここまで
             }catch let error as NSError {
              print("ファイル読み込みに失敗。\n \(error)")
-         } //Do節ここまで
+         } // Do節ここまで
         return dataArray // dataArray = [[番号、地域名、山名、緯度、経度]] 二重配列
     }
     
@@ -89,9 +90,9 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         let mountCount = mountData.count // 山の数
         var mountsName:[String] = [] // 山名を取り出す配列
             for i in 0...mountCount-1 {
-                mountsName.append(mountData[i][2]) //山名は、配列内の３番目の要素
+                mountsName.append(mountData[i][2]) //山名は、配列内の３番目[番号、地域名、山名、緯度、経度]
             }
-        return mountsName // 山名の配列
+        return mountsName // 山名の配列を返す
     }
     
 //-------------------------------------------------------------------------------
@@ -109,9 +110,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         
 //func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { // あやしい
     }
-    
     // コンポーネントの行数（配列の要素数＝選択肢の個数）を得る。
-    // 地域選択後ドラム２で、flag を使って、mountsName.count を selectedMountsName.count に変えてみる
     func pickerView(_ picker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if (picker.tag == 1){ //地域名を表示するドラムロール
             return areaName.count // 地域名の個数＝６　"北海道","東北","関東甲信越","中部","近畿中国","四国九州"
@@ -126,8 +125,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
 
     // 選択中のコンポーネントの番号と行から、指定した配列[areaName]と[mountsName]から項目名を返す
     func pickerView(_ picker: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        //指定のコンポーネントから指定中の項目名を取り出す。
-        if (picker.tag == 1){ //tagで分岐
+        // 指定のコンポーネントから 選択中の項目名を取り出す。
+        if (picker.tag == 1){ // tagで分岐
             return areaName[row] // row行目の地域名
         } else {
             if (picker.tag == 2){// row行目の山名 [areaName]の内容によってここを更新する
@@ -138,17 +137,17 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         }
     }
 
-    // ドラムが回転して、どの項目が選ばれたか。情報を得る。
+    // ドラムが回転して、どの項目が選ばれたか。情報を得る。？？？？選択画面で北海道を選ぶとエラーが起こる out of range
     //row1,row2でコンポーネント内の行番号。item1,item2でその内容。 ここでもtagで分岐する
     func pickerView(_ picker: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         //現在選択されている行番号とその内容
         if (picker.tag == 1){ //tagで分岐
             let row1 = areaPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
             let item1 = self.pickerView(areaPickerView, titleForRow: row1, forComponent: 0)//地域名
-            
-         //選んだ地域に応じて、山のデータ配列をつくる　mountsNameも地域に応じたものに変更する
+          //北海道を選んだ時は？？？？
+         //選んだ地域に応じて、山のデータ配列をつくる　mountsNameも地域に応じたものに変更する？？　選択ボタンのところで？
             selectedRegion = item1!
-            selectedMounts = extract(selectedRegion,originalMountDatas)// 地域に応じた山のデータを得る・・ここの戻り値 filterd は正しい
+            selectedMounts = extract(selectedRegion,originalMountDatas)// 地域に応じた山のデータを得る
             
         } else {
             if (picker.tag == 2){ //ここで、地域名に応じた山名を表示するようにする
