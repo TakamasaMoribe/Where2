@@ -157,10 +157,10 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                 choice = row2 // 選択した項目の番号から選択した山名を得る
             }
         }
-//        //mountLocをselectedMountsに変えた・・・良い結果が得られた。あとで、選択ボタンを押したならば実行？？？
-//        UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName") //[2]山名
-//        UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude") //[3]緯度保存
-//        UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude") //[4]経度保存
+        // 前回使ったときのデータを更新するために必要
+        UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName") //[2]山名
+        UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude") //[3]緯度保存
+        UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude") //[4]経度保存
     }
  
     // 二重配列から、特定の要素を含む配列を取り出して、新しい二重配列をつくる ----------------------
