@@ -23,9 +23,11 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var mountPickerView: UIPickerView! // 山名
     
     @IBAction func selectButton(_ sender: Any) { //地域名の選択終了ボタン
-        //地域名を選択せずに、選択ボタンを押した場合の処理。北海道を選択したことにする
+        //地域名を選択せずに、選択ボタンを押した場合の処理。
             if selectedRegion == "" {
-                selectedRegion = "北海道"
+                // ０行目（最初の行の地域名）を選択したことする
+                let region = self.pickerView(areaPickerView, titleForRow:0, forComponent: 0)
+                selectedRegion = region!
             }
         // 選択した地域名に応じた山のデータ配列を抜き出す　word:検索する地域名、Array:検索対象の配列
         selectedMounts = extract(selectedRegion,originalMountDatas) // func extract()
