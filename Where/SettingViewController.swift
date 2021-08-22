@@ -9,7 +9,7 @@ import UIKit
 
 var originalMountDatas:[[String]] = [] //山の基本データ。二重配列にして、空配列にしておく
 let areaName = ["北海道","東北","関東甲信越","中部","近畿中国","四国九州"] // 地域名
-var mountsName:[String] = [] //["ダミー","11111","22222"] // 山名を入れる配列　地域選択前は、ダミーにしておく　ダミーはいらない？？
+//var mountsName:[String] = [] //["ダミー","11111","22222"] // 山名を入れる配列　地域選択前は、ダミーにしておく　ダミーはいらない？？
 var selectedRegion:String = "" // ドラムロールで選んだ地域名
 var selectedMounts:[[String]] = [] //地域に応じた山の基本データ originalMountDatasから取り出す func extract
 var selectedMountsName:[String] = [] // 地域に応じた山名を入れる配列
@@ -88,7 +88,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
 // 山名だけ取り出した配列をつくる。（ドラムロールに山名だけを表示するため）
     func setMountsName(mountData:[[String]]) -> [String]{
         let mountCount = mountData.count // 山の数
-        var mountsName:[String] = [] // 山名を取り出す配列
+        var mountsName:[String] = [] // 山名を取り出す配列　最初の宣言はいらない？？？？？？
             for i in 0...mountCount-1 {
                 mountsName.append(mountData[i][2]) //山名は、配列内の３番目[番号、地域名、山名、緯度、経度]
             }
@@ -157,7 +157,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                 choice = row2 // 選択した項目の番号から選択した山名を得る
             }
         }
-        // 前回使ったときのデータを更新するために必要
+        // 前回使ったときのデータに上書きするために必要
         UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName") //[2]山名
         UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude") //[3]緯度保存
         UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude") //[4]経度保存
