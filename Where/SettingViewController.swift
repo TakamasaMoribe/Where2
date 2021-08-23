@@ -9,11 +9,10 @@ import UIKit
 
 var originalMountDatas:[[String]] = [] //山の基本データ。二重配列にして、空にしておく
 let areaName = ["北海道","東北","関東甲信越","中部","近畿中国","四国九州"] // 地域名
-var selectedRegion:String = "" // ドラムロールで選んだ地域名
+var selectedRegion:String = "" // ドラムロール１で選んだ地域名
 var selectedMounts:[[String]] = [] //地域に応じた山の基本データ originalMountDatasから取り出す func extract
 var selectedMountsName:[String] = [] // 地域に応じた山名を入れる配列
-
-var choice:Int = 0 // ドラムロールで選択した項目の番号
+var choice:Int = 0 // ドラムロール２で選択した項目の番号（山の名前）
 
 
 
