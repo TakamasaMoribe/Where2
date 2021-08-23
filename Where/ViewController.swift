@@ -22,7 +22,6 @@ class ViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "mtName") // [2]山名
         UserDefaults.standard.removeObject(forKey: "mtLatitude")
         UserDefaults.standard.removeObject(forKey: "mtLongitude")
-
         
         // ①storyboardのインスタンス取得
         let storyboard: UIStoryboard = self.storyboard!

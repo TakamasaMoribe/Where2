@@ -38,10 +38,16 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     @IBAction func returnButton(_ sender: Any) { //設定を終了して、地図へ画面遷移する
-        //山名を選択せずに、決定ボタンを押した場合の処理。前回の山のデータが残っていて、それを表示している
-            if selectedMounts == [] {
+        //山名を選択せずに、決定ボタンを押した場合の処理。
+        
+  //          if selectedMounts == [] { // ここに来ない　？？？？？？？？？？？？？？？？？？？
                 // ０行目（最初の山）を選択したことにする
-                print("selectedMounts:\(selectedMounts)")
+        if selectedMountsName == [] {
+                // ０行目（最初の行の地域名）を選択したことする
+                let region = self.pickerView(areaPickerView, titleForRow:0, forComponent: 0)
+                selectedRegion = region!
+                
+                print("selectedRegion:\(selectedRegion)")
                 selectedMounts = extract(selectedRegion,originalMountDatas)// 地域名に応じた山のデータを得る
                 print("selectedMounts2:\(selectedMounts)")
                 let mtName = selectedMounts[0][2] //[2]山名
@@ -107,8 +113,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         return dataArray // dataArray = [[番号、地域名、山名、緯度、経度]] 二重配列
     }
     
-    
-// 山名だけ取り出した配列をつくる。（ドラムロールに山名だけを表示するため）
+//-------------------------------
+    // 山名だけ取り出した配列をつくる。（ドラムロールに山名だけを表示するため）
     func setMountsName(mountData:[[String]]) -> [String]{
         let mountCount = mountData.count // 山の数
         var mountsName:[String] = [] // 山名を取り出す配列　最初の宣言はいらない
@@ -118,7 +124,22 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         return mountsName // 山名の配列を返す
     }
     
-//-------------------------------------------------------------------------------
+//-------------------------------
+    // 二重配列から、特定の要素を含む配列を取り出して、新しい二重配列をつくる
+    func extract(_ word:String ,_ Array:[[String]]) -> [[String]] {
+        var filtered:[[String]] = []//　ドラムロールで選択した"地域名"を含む。抽出した配列
+        var j = 0 // ループカウンタ
+        for array in originalMountDatas { //山のデータ配列[番号、地域名、山名、緯度、経度]
+            // array[1]:２番目の要素（地域名）だけ調べる
+            if array[1] == selectedRegion { //取り出した要素が、検索値に等しい時
+                filtered.append(array)
+            }
+            j = j + 1
+        }
+        return filtered
+    }
+
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
     // コンポーネントの数（ホイールの数）
     func numberOfComponents(in picker: UIPickerView) -> Int {
         if (picker.tag == 1){  //tagで分岐
@@ -186,23 +207,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude") //[3]緯度保存
         UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude") //[4]経度保存
     }
- 
-    // 二重配列から、特定の要素を含む配列を取り出して、新しい二重配列をつくる ----------------------
-    // 地域名に応じた山のデータ配列を抜き出す　word:検索する地域名、Array:検索対象の配列
-    func extract(_ word:String ,_ Array:[[String]]) -> [[String]] {
-        var filtered:[[String]] = []//　ドラムロールで選択した"地域名"を含む。抽出した配列
-        var j = 0 // ループカウンタ
-        for array in originalMountDatas { //山のデータ配列[番号、地域名、山名、緯度、経度]
-            // array[1]:２番目の要素（地域名）だけ調べる
-            if array[1] == selectedRegion { //取り出した要素が、検索値に等しい時
-                filtered.append(array)
-            }
-            j = j + 1
-        }
-        return filtered
-    }
-    //---------------------------------------------------------------------------------
-    
+//---------------------------------------------------------------------------------
+
 }
 
 
