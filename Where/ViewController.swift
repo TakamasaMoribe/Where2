@@ -18,10 +18,11 @@ class ViewController: UIViewController {
     
     // Startボタン押下時の処理
     @IBAction func startButton(_ sender: Any) {
-//前回のデータを消去する
+        //前回のデータを消去する
+        UserDefaults.standard.removeObject(forKey: "mtName") // [2]山名
         UserDefaults.standard.removeObject(forKey: "mtLatitude")
         UserDefaults.standard.removeObject(forKey: "mtLongitude")
-        UserDefaults.standard.removeObject(forKey: "mtName") // [2]山名
+
         
         // ①storyboardのインスタンス取得
         let storyboard: UIStoryboard = self.storyboard!
@@ -34,6 +35,11 @@ class ViewController: UIViewController {
     
     // 設定ボタン押下時の処理
     @IBAction func goSetting(_ sender: Any) {
+        //前回のデータを消去する
+        UserDefaults.standard.removeObject(forKey: "mtName") // [2]山名
+        UserDefaults.standard.removeObject(forKey: "mtLatitude")
+        UserDefaults.standard.removeObject(forKey: "mtLongitude")
+        
          // ①storyboardのインスタンス取得
          let storyboard: UIStoryboard = self.storyboard!
          // ②遷移先ViewControllerのインスタンス取得
