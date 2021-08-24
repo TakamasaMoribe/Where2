@@ -95,28 +95,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xc5-e2-bsb">
-                                <rect key="frame" x="-12.5" y="131" width="400" height="315"/>
+                                <rect key="frame" x="15" y="40" width="345" height="315"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目的地の追加" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajA-9D-ini">
-                                        <rect key="frame" x="0.0" y="0.0" width="400" height="38.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="38.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="紫色の線を引きます" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOu-8T-mYF">
-                                        <rect key="frame" x="0.0" y="58.5" width="400" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="58.5" width="345" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="400" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iyw-HK-y1K">
-                                        <rect key="frame" x="0.0" y="99" width="400" height="216"/>
+                                        <rect key="frame" x="0.0" y="99" width="345" height="216"/>
                                         <subviews>
                                             <pickerView contentMode="scaleToFill" horizontalHuggingPriority="120" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="400" translatesAutoresizingMaskIntoConstraints="NO" id="7cs-BQ-oK5">
-                                                <rect key="frame" x="0.0" y="0.0" width="195" height="216"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="167.5" height="216"/>
                                             </pickerView>
                                             <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="400" verticalCompressionResistancePriority="400" translatesAutoresizingMaskIntoConstraints="NO" id="oMM-KY-wEa">
-                                                <rect key="frame" x="205" y="0.0" width="195" height="216"/>
+                                                <rect key="frame" x="177.5" y="0.0" width="167.5" height="216"/>
                                             </pickerView>
                                         </subviews>
                                         <constraints>
@@ -125,18 +125,17 @@
                                             <constraint firstItem="7cs-BQ-oK5" firstAttribute="top" secondItem="iyw-HK-y1K" secondAttribute="top" id="hPy-W9-VVr"/>
                                             <constraint firstItem="oMM-KY-wEa" firstAttribute="width" secondItem="7cs-BQ-oK5" secondAttribute="width" id="kGx-LQ-RCk"/>
                                             <constraint firstAttribute="bottom" secondItem="7cs-BQ-oK5" secondAttribute="bottom" id="lmQ-Qa-Uhf"/>
-                                            <constraint firstAttribute="width" constant="400" id="wr2-Bu-jQW"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="iyw-HK-y1K" secondAttribute="bottom" id="6Yb-Ko-xQk"/>
                                     <constraint firstItem="iyw-HK-y1K" firstAttribute="top" secondItem="EOu-8T-mYF" secondAttribute="bottom" constant="20" id="DrI-QX-QVJ"/>
+                                    <constraint firstAttribute="width" priority="250" constant="380" id="Ro1-C1-6DQ"/>
                                     <constraint firstItem="EOu-8T-mYF" firstAttribute="centerX" secondItem="ajA-9D-ini" secondAttribute="centerX" id="VoC-YA-VFX"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1FM-pp-3BE">
-                                <rect key="frame" x="60" y="471" width="41" height="36"/>
+                                <rect key="frame" x="60" y="380" width="41" height="127"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="選択"/>
                                 <connections>
@@ -156,14 +155,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="1FM-pp-3BE" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="60" id="BA3-Oy-NrJ"/>
-                            <constraint firstItem="m6K-qa-Sqa" firstAttribute="top" secondItem="xc5-e2-bsb" secondAttribute="bottom" constant="120" id="Cbw-0S-iMD"/>
+                            <constraint firstItem="xc5-e2-bsb" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="40" id="Cx6-mR-mFD"/>
+                            <constraint firstItem="1FM-pp-3BE" firstAttribute="top" secondItem="xc5-e2-bsb" secondAttribute="bottom" constant="25" id="DkY-fv-FPv"/>
+                            <constraint firstAttribute="trailing" secondItem="xc5-e2-bsb" secondAttribute="trailing" constant="15" id="Lez-Uh-0Vj"/>
                             <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1FM-pp-3BE" secondAttribute="trailing" symbolic="YES" id="OPy-DN-chW"/>
                             <constraint firstItem="3g2-uh-Tjw" firstAttribute="bottom" secondItem="m6K-qa-Sqa" secondAttribute="bottom" constant="60" id="Prn-za-UJV"/>
-                            <constraint firstItem="1FM-pp-3BE" firstAttribute="top" secondItem="xc5-e2-bsb" secondAttribute="bottom" constant="25" id="gku-r1-FEo"/>
                             <constraint firstItem="3g2-uh-Tjw" firstAttribute="bottom" secondItem="1FM-pp-3BE" secondAttribute="bottom" constant="160" id="hau-CQ-Cgn"/>
                             <constraint firstItem="m6K-qa-Sqa" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="160" id="hfC-Ks-Cs1"/>
-                            <constraint firstItem="xc5-e2-bsb" firstAttribute="centerX" secondItem="nco-HY-yU2" secondAttribute="centerX" id="lsa-Dc-fJ3"/>
                             <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="m6K-qa-Sqa" secondAttribute="trailing" symbolic="YES" id="vme-aV-bNa"/>
+                            <constraint firstItem="xc5-e2-bsb" firstAttribute="leading" secondItem="nco-HY-yU2" secondAttribute="leading" constant="15" id="wnn-J3-4bM"/>
                         </constraints>
                     </view>
                     <connections>
