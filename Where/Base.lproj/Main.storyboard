@@ -94,55 +94,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目的地の追加" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajA-9D-ini">
-                                <rect key="frame" x="71" y="45" width="194" height="38.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="紫色の線を引きます" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YkB-6w-JVK">
-                                <rect key="frame" x="36" y="92" width="249" height="25.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7cs-BQ-oK5">
-                                <rect key="frame" x="20" y="100" width="160" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oMM-KY-wEa">
-                                <rect key="frame" x="195" y="100" width="160" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1FM-pp-3BE">
-                                <rect key="frame" x="90" y="442" width="41" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="選択"/>
-                                <connections>
-                                    <action selector="selectButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="wqZ-qP-XEI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6K-qa-Sqa">
-                                <rect key="frame" x="163" y="512" width="49" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="決定"/>
-                                <connections>
-                                    <action selector="returnButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="Atq-il-tle"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xc5-e2-bsb">
+                                <rect key="frame" x="15" y="20" width="320" height="627"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目的地の追加" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajA-9D-ini">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="紫色の線を引きます" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOu-8T-mYF">
+                                        <rect key="frame" x="0.0" y="58.5" width="320" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="iyw-HK-y1K">
+                                        <rect key="frame" x="0.0" y="99" width="320" height="216"/>
+                                        <subviews>
+                                            <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="7cs-BQ-oK5">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="216"/>
+                                            </pickerView>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oMM-KY-wEa">
+                                                <rect key="frame" x="10" y="0.0" width="310" height="216"/>
+                                            </pickerView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="of3-Va-4E5"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1FM-pp-3BE">
+                                        <rect key="frame" x="0.0" y="335" width="320" height="231"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="選択"/>
+                                        <connections>
+                                            <action selector="selectButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="wqZ-qP-XEI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6K-qa-Sqa">
+                                        <rect key="frame" x="0.0" y="586" width="320" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="決定"/>
+                                        <connections>
+                                            <action selector="returnButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="Atq-il-tle"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="1FM-pp-3BE" firstAttribute="top" secondItem="iyw-HK-y1K" secondAttribute="bottom" constant="20" id="5ro-J8-z3Q"/>
+                                    <constraint firstAttribute="width" constant="320" id="ZQL-Fm-Q7h"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3g2-uh-Tjw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="3g2-uh-Tjw" firstAttribute="bottom" secondItem="m6K-qa-Sqa" secondAttribute="bottom" constant="114" id="7Nm-4U-Kzu"/>
-                            <constraint firstItem="ajA-9D-ini" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="45" id="9XI-Mn-KdM"/>
-                            <constraint firstItem="ajA-9D-ini" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="71" id="Fsl-a5-pTm"/>
-                            <constraint firstItem="1FM-pp-3BE" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="90" id="HJO-kw-OXK"/>
-                            <constraint firstItem="YkB-6w-JVK" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="36" id="Htx-Il-dMH"/>
-                            <constraint firstItem="3g2-uh-Tjw" firstAttribute="bottom" secondItem="1FM-pp-3BE" secondAttribute="bottom" constant="189" id="YtX-J8-sxp"/>
-                            <constraint firstItem="YkB-6w-JVK" firstAttribute="top" secondItem="ajA-9D-ini" secondAttribute="bottom" constant="8.5" id="cVF-XM-ISr"/>
-                            <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ajA-9D-ini" secondAttribute="trailing" symbolic="YES" id="hXm-Zc-Kpt"/>
-                            <constraint firstItem="m6K-qa-Sqa" firstAttribute="centerX" secondItem="nco-HY-yU2" secondAttribute="centerX" id="p6S-gH-GlE"/>
-                            <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" secondItem="YkB-6w-JVK" secondAttribute="trailing" constant="90" id="s9y-Ko-qHx"/>
+                            <constraint firstItem="xc5-e2-bsb" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="20" id="Fmf-aA-EXY"/>
+                            <constraint firstItem="xc5-e2-bsb" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="15" id="Kmn-7q-3Eq"/>
+                            <constraint firstItem="3g2-uh-Tjw" firstAttribute="bottom" secondItem="xc5-e2-bsb" secondAttribute="bottom" constant="20" id="dTn-yh-2k4"/>
                         </constraints>
                     </view>
                     <connections>
