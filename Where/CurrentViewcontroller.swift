@@ -85,11 +85,12 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
         
         // 追加した山名、緯度経度を読み込む
         let mtName = UserDefaults.standard.string(forKey: "mtName")//山名読み込み
-print(mtName!)
-        let mtLatitude = UserDefaults.standard.double(forKey: "mtLatitude")//緯度読み込み
-print(mtLatitude)
-        let mtLongitude = UserDefaults.standard.double(forKey: "mtLongitude")//経度読み込み
-print(mtLongitude)
+        var mtLatitude = UserDefaults.standard.double(forKey: "mtLatitude")//緯度読み込み
+        var mtLongitude = UserDefaults.standard.double(forKey: "mtLongitude")//経度読み込み
+            if (mtName == nil) { // 目的地が２つだけの時　メッカの方角を示す
+                mtLatitude = 21.417 //北緯21.417度
+                mtLongitude = 39.817 //東経39.817度﻿
+            }
         let locAdd = CLLocationCoordinate2D(latitude: mtLatitude , longitude: mtLongitude )
         
         let arrFuji = [locNow,locFuji]// 現在地と富士山を入れた配列
