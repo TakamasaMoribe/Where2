@@ -95,58 +95,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xc5-e2-bsb">
-                                <rect key="frame" x="15" y="40" width="345" height="323"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目的地の選択" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajA-9D-ini">
+                                <rect key="frame" x="75" y="35" width="218" height="43"/>
+                                <color key="backgroundColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="　　　地域　　　　　　目的地" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBX-PS-dhM">
+                                <rect key="frame" x="20" y="120" width="285.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="400" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="iyw-HK-y1K">
+                                <rect key="frame" x="0.0" y="100" width="365" height="216"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目的地の選択" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajA-9D-ini">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="43"/>
-                                        <color key="backgroundColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="　　　地域　　　　　　目的地" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBX-PS-dhM">
-                                        <rect key="frame" x="0.0" y="63" width="345" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="400" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="iyw-HK-y1K">
-                                        <rect key="frame" x="0.0" y="107" width="345" height="216"/>
-                                        <subviews>
-                                            <pickerView contentMode="scaleToFill" horizontalHuggingPriority="120" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="400" translatesAutoresizingMaskIntoConstraints="NO" id="7cs-BQ-oK5">
-                                                <rect key="frame" x="0.0" y="0.0" width="170" height="216"/>
-                                            </pickerView>
-                                            <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="400" verticalCompressionResistancePriority="400" translatesAutoresizingMaskIntoConstraints="NO" id="oMM-KY-wEa">
-                                                <rect key="frame" x="175" y="0.0" width="170" height="216"/>
-                                            </pickerView>
-                                        </subviews>
+                                    <pickerView contentMode="scaleToFill" horizontalHuggingPriority="120" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="400" translatesAutoresizingMaskIntoConstraints="NO" id="7cs-BQ-oK5">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="216"/>
                                         <constraints>
-                                            <constraint firstItem="oMM-KY-wEa" firstAttribute="width" secondItem="7cs-BQ-oK5" secondAttribute="width" id="kGx-LQ-RCk"/>
+                                            <constraint firstAttribute="width" constant="180" id="K7H-00-gIt"/>
                                         </constraints>
-                                    </stackView>
+                                    </pickerView>
+                                    <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="400" verticalCompressionResistancePriority="400" translatesAutoresizingMaskIntoConstraints="NO" id="oMM-KY-wEa">
+                                        <rect key="frame" x="185" y="0.0" width="180" height="216"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="UPE-Qh-o9V"/>
+                                        </constraints>
+                                    </pickerView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" priority="250" constant="380" id="Ro1-C1-6DQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="oMM-KY-wEa" secondAttribute="bottom" id="A51-2K-4dH"/>
+                                    <constraint firstItem="oMM-KY-wEa" firstAttribute="leading" secondItem="7cs-BQ-oK5" secondAttribute="trailing" constant="5" id="Si5-g0-4ov"/>
+                                    <constraint firstItem="oMM-KY-wEa" firstAttribute="top" secondItem="iyw-HK-y1K" secondAttribute="top" id="W0p-K9-G2s"/>
+                                    <constraint firstAttribute="trailing" secondItem="oMM-KY-wEa" secondAttribute="trailing" id="dHQ-rF-75N"/>
+                                    <constraint firstAttribute="bottom" secondItem="7cs-BQ-oK5" secondAttribute="bottom" id="dXr-gk-fru"/>
+                                    <constraint firstItem="7cs-BQ-oK5" firstAttribute="top" secondItem="iyw-HK-y1K" secondAttribute="top" id="eXv-tS-T1S"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1FM-pp-3BE">
-                                <rect key="frame" x="70" y="373" width="41" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="ylb-U9-SNP"/>
-                                </constraints>
+                                <rect key="frame" x="75" y="336" width="41" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="選択"/>
                                 <connections>
                                     <action selector="selectButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="wqZ-qP-XEI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6K-qa-Sqa">
-                                <rect key="frame" x="260" y="576" width="65" height="51"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <state key="normal" title="実行"/>
-                                <connections>
-                                    <action selector="returnButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="Atq-il-tle"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="紫色の線を引きます" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOu-8T-mYF">
@@ -155,22 +147,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6K-qa-Sqa">
+                                <rect key="frame" x="260" y="576" width="65" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="実行"/>
+                                <connections>
+                                    <action selector="returnButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="Atq-il-tle"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3g2-uh-Tjw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="HBX-PS-dhM" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="120" id="3NX-m0-gK0"/>
+                            <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ajA-9D-ini" secondAttribute="trailing" symbolic="YES" id="4P1-Ad-VF5"/>
                             <constraint firstItem="m6K-qa-Sqa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3g2-uh-Tjw" secondAttribute="leading" symbolic="YES" id="9Al-Gl-P6C"/>
-                            <constraint firstItem="xc5-e2-bsb" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="40" id="Cx6-mR-mFD"/>
-                            <constraint firstAttribute="trailing" secondItem="xc5-e2-bsb" secondAttribute="trailing" constant="15" id="Lez-Uh-0Vj"/>
-                            <constraint firstItem="1FM-pp-3BE" firstAttribute="top" secondItem="xc5-e2-bsb" secondAttribute="bottom" constant="10" id="RcR-bO-rIn"/>
+                            <constraint firstItem="iyw-HK-y1K" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="100" id="GGf-3l-VMV"/>
+                            <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1FM-pp-3BE" secondAttribute="trailing" symbolic="YES" id="I7k-y6-IJc"/>
+                            <constraint firstItem="HBX-PS-dhM" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="20" id="NYc-mq-QKf"/>
                             <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" secondItem="m6K-qa-Sqa" secondAttribute="trailing" constant="50" id="RyE-k3-Gwk"/>
                             <constraint firstItem="3g2-uh-Tjw" firstAttribute="bottom" secondItem="m6K-qa-Sqa" secondAttribute="bottom" constant="40" id="SXy-NA-jJS"/>
-                            <constraint firstItem="1FM-pp-3BE" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="70" id="TGd-yI-1fu"/>
+                            <constraint firstItem="1FM-pp-3BE" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="75" id="UcY-w0-V5z"/>
+                            <constraint firstItem="iyw-HK-y1K" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" id="Uz3-mp-Y1X"/>
                             <constraint firstItem="EOu-8T-mYF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3g2-uh-Tjw" secondAttribute="leading" symbolic="YES" id="XEa-ZC-X0u"/>
+                            <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HBX-PS-dhM" secondAttribute="trailing" symbolic="YES" id="ZNJ-zf-gQH"/>
                             <constraint firstItem="3g2-uh-Tjw" firstAttribute="bottom" secondItem="EOu-8T-mYF" secondAttribute="bottom" constant="100" id="afO-s0-2U9"/>
+                            <constraint firstItem="ajA-9D-ini" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="35" id="beb-9w-Wfg"/>
                             <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" secondItem="EOu-8T-mYF" secondAttribute="trailing" constant="30" id="eVo-Q8-00a"/>
-                            <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1FM-pp-3BE" secondAttribute="trailing" symbolic="YES" id="fFC-4v-4zK"/>
-                            <constraint firstItem="xc5-e2-bsb" firstAttribute="leading" secondItem="nco-HY-yU2" secondAttribute="leading" constant="15" id="wnn-J3-4bM"/>
+                            <constraint firstItem="1FM-pp-3BE" firstAttribute="top" secondItem="iyw-HK-y1K" secondAttribute="bottom" constant="20" id="jWJ-wk-1zl"/>
+                            <constraint firstItem="ajA-9D-ini" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="75" id="uK0-q2-5FD"/>
                         </constraints>
                     </view>
                     <connections>
