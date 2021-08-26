@@ -17,8 +17,6 @@
 		7F467C3326B533E4008B641E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F467C3226B533E4008B641E /* CoreLocation.framework */; };
 		7F56416B26B9365000D5F62E /* CurrentViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56416A26B9365000D5F62E /* CurrentViewcontroller.swift */; };
 		7F56416D26B93A6300D5F62E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56416C26B93A6300D5F62E /* SettingViewController.swift */; };
-		7F84783E26C668760090EB80 /* mtDataAll.csv in Resources */ = {isa = PBXBuildFile; fileRef = 7F84783D26C668760090EB80 /* mtDataAll.csv */; };
-		7FF20E6A26C5F029009916AC /* locationData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 7FF20E6926C5F029009916AC /* locationData.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +32,7 @@
 		7F467C3226B533E4008B641E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7F56416A26B9365000D5F62E /* CurrentViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentViewcontroller.swift; sourceTree = "<group>"; };
 		7F56416C26B93A6300D5F62E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		7F84783D26C668760090EB80 /* mtDataAll.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mtDataAll.csv; sourceTree = "<group>"; };
-		7FF20E6926C5F029009916AC /* locationData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = locationData.csv; path = ../../../../Desktop/locationData.csv; sourceTree = "<group>"; };
+		7F78A68026D779680026B645 /* mtDataAll.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = mtDataAll.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +77,7 @@
 				7F467C2426B53370008B641E /* Assets.xcassets */,
 				7F467C2626B53370008B641E /* LaunchScreen.storyboard */,
 				7F467C2926B53370008B641E /* Info.plist */,
-				7F84783D26C668760090EB80 /* mtDataAll.csv */,
-				7FF20E6926C5F029009916AC /* locationData.csv */,
+				7F78A68026D779680026B645 /* mtDataAll.csv */,
 			);
 			path = Where;
 			sourceTree = "<group>";
@@ -153,8 +149,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F467C2826B53370008B641E /* LaunchScreen.storyboard in Resources */,
-				7F84783E26C668760090EB80 /* mtDataAll.csv in Resources */,
-				7FF20E6A26C5F029009916AC /* locationData.csv in Resources */,
 				7F467C2526B53370008B641E /* Assets.xcassets in Resources */,
 				7F467C2326B5336F008B641E /* Main.storyboard in Resources */,
 			);
