@@ -8,7 +8,7 @@
 import UIKit
 
 var originalMountDatas:[[String]] = [] //山の基本データ。二重配列にして、空にしておく
-let areaName = ["北海道","東北","関東甲信越","中部","近畿中国","四国九州"] // 地域名
+let areaName = ["北海道","東北","関東甲信越","中部","近畿中国","四国九州","海外"] // 地域名
 var selectedRegion:String = "" // ドラムロール１で選んだ地域名
 var selectedMounts:[[String]] = [] //地域に応じた山の基本データ originalMountDatasから取り出す func extract
 var selectedMountsName:[String] = [] // 地域に応じた山名を入れる配列
@@ -40,14 +40,13 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBAction func returnButton(_ sender: Any) { //設定を終了して、地図へ画面遷移する
         //山名を選択せずに、決定ボタンを押した場合の処理。
             if choice == 0 {
-                // ドラムロール１の、０行目（最初の行の地域名）を選択したことにする
-                let region = self.pickerView(areaPickerView, titleForRow:0, forComponent: 0)
-                selectedRegion = region!
+                // ドラムロール１の地域名は選択すみである
                 selectedMounts = extract(selectedRegion,originalMountDatas)// 地域名に応じた山のデータを得る
                 // ドラムロール２の、０行目（最初の行の山名）を選択したことにする
                 let mtName = selectedMounts[0][2] //[2]山名
                 let mtLatitude = selectedMounts[0][3] //[3]緯度
                 let mtLongitude = selectedMounts[0][4] //[4]経度
+
                 UserDefaults.standard.set(mtName, forKey: "mtName") // 山名保存
                 UserDefaults.standard.set(mtLatitude, forKey: "mtLatitude") // 緯度保存
                 UserDefaults.standard.set(mtLongitude, forKey: "mtLongitude") // 経度保存
@@ -79,7 +78,6 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         
         //山の配列データをcsvファイルから読み込む。[番号、地域名、山名、緯度、経度]
         originalMountDatas = dataLoad()
-        
     }
 //-------------------------------
     // csvファイルから、山のデータを読み込む
