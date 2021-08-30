@@ -24,7 +24,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QTj-0o-9vM">
-                                <rect key="frame" x="20" y="122" width="335" height="85.5"/>
+                                <rect key="frame" x="20" y="122" width="335" height="108"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">現在地から線を引きます
 富士山へは、赤線
@@ -74,7 +74,7 @@
                             <constraint firstItem="QTj-0o-9vM" firstAttribute="top" secondItem="Wzc-dC-e4T" secondAttribute="bottom" constant="32.5" id="XTb-4u-1Kn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xt4-ap-nf3" secondAttribute="bottom" constant="83" id="XZw-o6-4Y0"/>
                             <constraint firstItem="Wzc-dC-e4T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zw5-vA-IMH"/>
-                            <constraint firstItem="7IO-1g-5ZF" firstAttribute="top" secondItem="QTj-0o-9vM" secondAttribute="bottom" constant="30.5" id="gM1-PY-FIO"/>
+                            <constraint firstItem="7IO-1g-5ZF" firstAttribute="top" secondItem="QTj-0o-9vM" secondAttribute="bottom" constant="8" id="gM1-PY-FIO"/>
                             <constraint firstItem="QTj-0o-9vM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="lSD-yv-kB9"/>
                             <constraint firstItem="7IO-1g-5ZF" firstAttribute="centerX" secondItem="QTj-0o-9vM" secondAttribute="centerX" id="lcP-T7-AMQ"/>
                             <constraint firstItem="xt4-ap-nf3" firstAttribute="centerX" secondItem="QTj-0o-9vM" secondAttribute="centerX" id="tvS-xQ-Ulr"/>
