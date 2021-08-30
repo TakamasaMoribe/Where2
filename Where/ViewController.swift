@@ -47,5 +47,17 @@ class ViewController: UIViewController {
          self.present(nextView, animated: true, completion: nil)
      }
 
+    
+    // 前回と同じ　ボタンを押した時　UserDefaultsを消去しない
+    @IBAction func lastTimeButton(_ sender: Any) {
+        //前回のデータを消去しないで、地図の描画に入る
+        // ①storyboardのインスタンス取得
+        let storyboard: UIStoryboard = self.storyboard!
+        // ②遷移先ViewControllerのインスタンス取得
+        let nextView = storyboard.instantiateViewController(withIdentifier: "CurrentViewController") as! CurrentViewController
+        // ③画面遷移
+        self.present(nextView, animated: true, completion: nil)
+        
+    }
 }
 

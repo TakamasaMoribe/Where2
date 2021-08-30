@@ -20,18 +20,15 @@
                                 <rect key="frame" x="20" y="40" width="335" height="607"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Where" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzc-dC-e4T">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="57.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="53.5"/>
                                         <color key="backgroundColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QTj-0o-9vM">
-                                        <rect key="frame" x="0.0" y="97.5" width="335" height="101"/>
+                                        <rect key="frame" x="0.0" y="93.5" width="335" height="101"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="101" id="Q7J-4T-QET"/>
-                                        </constraints>
                                         <string key="text">現在地から線を引きます
 富士山へは、赤線
 スカイツリーへは、青線</string>
@@ -40,31 +37,39 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7IO-1g-5ZF">
-                                        <rect key="frame" x="0.0" y="238.5" width="335" height="142"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                        <rect key="frame" x="0.0" y="234.5" width="335" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Start"/>
                                         <connections>
                                             <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Nj-7s-B6W"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bV6-Lw-IVm">
-                                        <rect key="frame" x="0.0" y="420.5" width="335" height="50"/>
+                                        <rect key="frame" x="0.0" y="334.5" width="335" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目的地の追加" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXH-C0-J3n">
-                                        <rect key="frame" x="0.0" y="510.5" width="335" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="424.5" width="335" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4Q-S0-bxE">
-                                        <rect key="frame" x="0.0" y="571" width="335" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <rect key="frame" x="0.0" y="485" width="335" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="設定"/>
                                         <connections>
                                             <action selector="goSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zvm-Bz-9Vd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xt4-ap-nf3">
+                                        <rect key="frame" x="0.0" y="566" width="335" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="前回と同じ地点"/>
+                                        <connections>
+                                            <action selector="lastTimeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N4z-W2-xO4"/>
                                         </connections>
                                     </button>
                                 </subviews>
