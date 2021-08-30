@@ -18,7 +18,7 @@
 		7F467C3326B533E4008B641E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F467C3226B533E4008B641E /* CoreLocation.framework */; };
 		7F56416B26B9365000D5F62E /* CurrentViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56416A26B9365000D5F62E /* CurrentViewcontroller.swift */; };
 		7F56416D26B93A6300D5F62E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56416C26B93A6300D5F62E /* SettingViewController.swift */; };
-		7FBF0FC626DCD18A004D880A /* background.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF0FC526DCD189004D880A /* background.PNG */; };
+		7FBF0FC826DCD38B004D880A /* background.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF0FC726DCD38B004D880A /* background.PNG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 		7F467C3226B533E4008B641E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7F56416A26B9365000D5F62E /* CurrentViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentViewcontroller.swift; sourceTree = "<group>"; };
 		7F56416C26B93A6300D5F62E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		7FBF0FC526DCD189004D880A /* background.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.PNG; sourceTree = "<group>"; };
+		7FBF0FC726DCD38B004D880A /* background.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.PNG; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +81,7 @@
 				7F467C2626B53370008B641E /* LaunchScreen.storyboard */,
 				7F467C2926B53370008B641E /* Info.plist */,
 				7F1A282D26DB21CF0041819C /* mtDataAll.csv */,
-				7FBF0FC526DCD189004D880A /* background.PNG */,
+				7FBF0FC726DCD38B004D880A /* background.PNG */,
 			);
 			path = Where;
 			sourceTree = "<group>";
@@ -153,7 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F467C2826B53370008B641E /* LaunchScreen.storyboard in Resources */,
-				7FBF0FC626DCD18A004D880A /* background.PNG in Resources */,
+				7FBF0FC826DCD38B004D880A /* background.PNG in Resources */,
 				7F467C2526B53370008B641E /* Assets.xcassets in Resources */,
 				7F467C2326B5336F008B641E /* Main.storyboard in Resources */,
 				7F1A282E26DB21D00041819C /* mtDataAll.csv in Resources */,
