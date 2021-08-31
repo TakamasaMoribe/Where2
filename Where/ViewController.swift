@@ -20,6 +20,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // ボタンの装飾
+            let rgba = UIColor(red: 255/255, green: 128/255, blue: 168/255, alpha: 1.0) // ボタン背景色設定
+            startButton.backgroundColor = rgba                                               // 背景色
+            startButton.layer.borderWidth = 0.5                                              // 枠線の幅
+            startButton.layer.borderColor = UIColor.black.cgColor                            // 枠線の色
+            startButton.layer.cornerRadius = 5.0                                             // 角丸のサイズ
+            startButton.setTitleColor(UIColor.white, for: UIControl.State.normal)             // タイトルの色
+        
     }
     
     // Startボタン押下時の処理
