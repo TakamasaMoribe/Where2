@@ -14,6 +14,8 @@ class Custombutton: UIButton {
      // 枠
      @IBInspectable var borderColor: UIColor = UIColor.clear
      @IBInspectable var borderWidth: CGFloat = 0.0
+    // 背景色
+    @IBInspectable var backColor: UIColor = UIColor.clear
 
      override func draw(_ rect: CGRect) {
          // 角丸
@@ -22,6 +24,9 @@ class Custombutton: UIButton {
         // 枠線
          self.layer.borderColor = borderColor.cgColor
          self.layer.borderWidth = borderWidth
+        // 背景色
+        self.layer.backgroundColor = backColor.cgColor
+        
          super.draw(rect)
          }
 }
