@@ -48,7 +48,7 @@ class ViewController: UIViewController {
      }
 
     
-    // 前回と同じ　ボタンを押した時　UserDefaultsを消去しない
+    // 「前回と同じ地点」ボタンを押した時　UserDefaultsを消去しない
     @IBAction func lastTimeButton(_ sender: Any) {
         //前回のデータを消去しないで、地図の描画に入る
         // ①storyboardのインスタンス取得
