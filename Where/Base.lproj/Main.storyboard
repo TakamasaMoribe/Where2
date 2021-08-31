@@ -139,9 +139,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="goSettingButton" destination="b4Q-S0-bxE" id="NyH-Sj-xdY"/>
-                        <outlet property="lastTimeButton" destination="xt4-ap-nf3" id="NVp-mj-WIF"/>
-                        <outlet property="startButton" destination="7IO-1g-5ZF" id="Chq-kA-EbB"/>
                         <outlet property="textView" destination="QTj-0o-9vM" id="Bvw-d3-9Ub"/>
                     </connections>
                 </viewController>
