@@ -27,7 +27,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QTj-0o-9vM">
-                                <rect key="frame" x="20" y="89.5" width="335" height="98.5"/>
+                                <rect key="frame" x="40" y="89.5" width="295" height="98.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">現在地から線を引きます
 富士山へは、赤線
@@ -64,8 +64,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4Q-S0-bxE" customClass="Custombutton" customModule="Where" customModuleProvider="target">
-                                <rect key="frame" x="106.5" y="471" width="162" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <rect key="frame" x="100" y="525" width="175" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title=" 目的地の追加  ">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -88,8 +88,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xt4-ap-nf3" customClass="Custombutton" customModule="Where" customModuleProvider="target">
-                                <rect key="frame" x="97" y="543" width="181" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <rect key="frame" x="90" y="591" width="195" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title=" 前回と同じ地点 ">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -116,27 +116,26 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="7IO-1g-5ZF" firstAttribute="top" secondItem="QTj-0o-9vM" secondAttribute="bottom" constant="50" id="0k3-Vh-yWO"/>
+                            <constraint firstItem="xt4-ap-nf3" firstAttribute="top" secondItem="b4Q-S0-bxE" secondAttribute="bottom" constant="30" id="1kH-Wx-miB"/>
                             <constraint firstItem="7IO-1g-5ZF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="238" id="2IR-7q-pDk"/>
-                            <constraint firstItem="QTj-0o-9vM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2QC-14-roH"/>
+                            <constraint firstItem="QTj-0o-9vM" firstAttribute="top" secondItem="Wzc-dC-e4T" secondAttribute="bottom" id="2Wl-Dt-k0a"/>
                             <constraint firstItem="M2Q-f0-3kx" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="38d-W6-gcB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xt4-ap-nf3" secondAttribute="trailing" constant="90" id="85M-ND-ZcK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b4Q-S0-bxE" secondAttribute="trailing" constant="100" id="9BP-jr-el0"/>
                             <constraint firstItem="Wzc-dC-e4T" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="AeH-mT-Gfr"/>
                             <constraint firstItem="M2Q-f0-3kx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IIO-XJ-VOw"/>
-                            <constraint firstItem="QTj-0o-9vM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="JI0-iK-4q0"/>
                             <constraint firstItem="QTj-0o-9vM" firstAttribute="top" secondItem="Wzc-dC-e4T" secondAttribute="bottom" id="MB8-fZ-fd4"/>
-                            <constraint firstItem="xt4-ap-nf3" firstAttribute="top" secondItem="b4Q-S0-bxE" secondAttribute="bottom" constant="31" id="Rrc-Eh-Ck9"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QTj-0o-9vM" secondAttribute="trailing" constant="20" id="SWP-pj-CQI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xt4-ap-nf3" secondAttribute="bottom" constant="40" id="Nh8-aY-Mxg"/>
                             <constraint firstItem="QTj-0o-9vM" firstAttribute="centerX" secondItem="M2Q-f0-3kx" secondAttribute="centerX" id="Upi-vT-yrL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xt4-ap-nf3" secondAttribute="bottom" constant="83" id="XZw-o6-4Y0"/>
+                            <constraint firstItem="b4Q-S0-bxE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="XPu-g0-pAd"/>
                             <constraint firstItem="Wzc-dC-e4T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zw5-vA-IMH"/>
-                            <constraint firstItem="QTj-0o-9vM" firstAttribute="centerX" secondItem="b4Q-S0-bxE" secondAttribute="centerX" id="arE-Kw-E4g"/>
                             <constraint firstItem="QTj-0o-9vM" firstAttribute="top" secondItem="Wzc-dC-e4T" secondAttribute="bottom" id="dvb-0X-Fwz"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QTj-0o-9vM" secondAttribute="trailing" constant="20" id="gOS-QZ-8we"/>
                             <constraint firstItem="QTj-0o-9vM" firstAttribute="top" secondItem="Wzc-dC-e4T" secondAttribute="bottom" id="mLZ-1W-TZu"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QTj-0o-9vM" secondAttribute="trailing" constant="20" id="nKm-dh-Rco"/>
-                            <constraint firstItem="QTj-0o-9vM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="sYB-vE-cXU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QTj-0o-9vM" secondAttribute="trailing" constant="40" id="syA-Ep-H1b"/>
+                            <constraint firstItem="xt4-ap-nf3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="uJJ-lw-RQv"/>
                             <constraint firstItem="QTj-0o-9vM" firstAttribute="centerX" secondItem="7IO-1g-5ZF" secondAttribute="centerX" id="w5X-SS-iUF"/>
+                            <constraint firstItem="QTj-0o-9vM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="wG0-7r-3LM"/>
                             <constraint firstItem="M2Q-f0-3kx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xvP-05-kcH"/>
-                            <constraint firstItem="QTj-0o-9vM" firstAttribute="centerX" secondItem="xt4-ap-nf3" secondAttribute="centerX" id="y0A-Gu-JyW"/>
                         </constraints>
                     </view>
                     <connections>
