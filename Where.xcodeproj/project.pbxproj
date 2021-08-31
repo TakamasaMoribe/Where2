@@ -18,6 +18,7 @@
 		7F467C3326B533E4008B641E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F467C3226B533E4008B641E /* CoreLocation.framework */; };
 		7F56416B26B9365000D5F62E /* CurrentViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56416A26B9365000D5F62E /* CurrentViewcontroller.swift */; };
 		7F56416D26B93A6300D5F62E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56416C26B93A6300D5F62E /* SettingViewController.swift */; };
+		7F87951426DE20E500BC1112 /* Custombutton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87951326DE20E500BC1112 /* Custombutton.swift */; };
 		7FBF0FC626DCD18A004D880A /* background.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 7FBF0FC526DCD189004D880A /* background.PNG */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		7F467C3226B533E4008B641E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7F56416A26B9365000D5F62E /* CurrentViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentViewcontroller.swift; sourceTree = "<group>"; };
 		7F56416C26B93A6300D5F62E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		7F87951326DE20E500BC1112 /* Custombutton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custombutton.swift; sourceTree = "<group>"; };
 		7FBF0FC526DCD189004D880A /* background.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.PNG; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +77,7 @@
 				7F467C1D26B5336F008B641E /* SceneDelegate.swift */,
 				7F467C1F26B5336F008B641E /* ViewController.swift */,
 				7F467C2126B5336F008B641E /* Main.storyboard */,
+				7F87951326DE20E500BC1112 /* Custombutton.swift */,
 				7F56416C26B93A6300D5F62E /* SettingViewController.swift */,
 				7F56416A26B9365000D5F62E /* CurrentViewcontroller.swift */,
 				7F467C2426B53370008B641E /* Assets.xcassets */,
@@ -171,6 +174,7 @@
 				7F56416B26B9365000D5F62E /* CurrentViewcontroller.swift in Sources */,
 				7F467C2026B5336F008B641E /* ViewController.swift in Sources */,
 				7F467C1C26B5336F008B641E /* AppDelegate.swift in Sources */,
+				7F87951426DE20E500BC1112 /* Custombutton.swift in Sources */,
 				7F467C1E26B5336F008B641E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
