@@ -10,6 +10,12 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
+
+    @IBOutlet weak var startButton: UIButton!
+
+    @IBOutlet weak var goSettingButton: UIButton!
+
+    @IBOutlet weak var lastTimeButton: UIButton!
     
 
     override func viewDidLoad() {
