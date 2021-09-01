@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.PNG" translatesAutoresizingMaskIntoConstraints="NO" id="M2Q-f0-3kx">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="M2Q-f0-3kx">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Where" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzc-dC-e4T">
@@ -183,8 +183,8 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1FM-pp-3BE">
-                                <rect key="frame" x="75" y="451" width="41" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="75" y="446" width="49" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="選択"/>
                                 <connections>
                                     <action selector="selectButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="wqZ-qP-XEI"/>
@@ -197,8 +197,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6K-qa-Sqa">
-                                <rect key="frame" x="259" y="576" width="66" height="51"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <rect key="frame" x="243" y="567" width="82" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="returnButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="Atq-il-tle"/>
@@ -263,7 +263,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background.PNG" width="640" height="1136"/>
+        <image name="background.png" width="639" height="1056"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
