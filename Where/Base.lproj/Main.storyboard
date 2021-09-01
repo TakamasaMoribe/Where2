@@ -182,10 +182,26 @@
                                     <constraint firstAttribute="bottom" secondItem="oMM-KY-wEa" secondAttribute="bottom" id="zK3-0b-TCT"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1FM-pp-3BE">
-                                <rect key="frame" x="75" y="446" width="49" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1FM-pp-3BE" customClass="Custombutton" customModule="Where" customModuleProvider="target">
+                                <rect key="frame" x="66" y="446" width="69" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="選択"/>
+                                <state key="normal" title=" 選択 ">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backColor">
+                                        <color key="value" red="0.26052441240000002" green="0.78785113900000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="selectButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="wqZ-qP-XEI"/>
                                 </connections>
@@ -196,10 +212,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6K-qa-Sqa">
-                                <rect key="frame" x="243" y="567" width="82" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6K-qa-Sqa" customClass="Custombutton" customModule="Where" customModuleProvider="target">
+                                <rect key="frame" x="226" y="567" width="108" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="Start"/>
+                                <state key="normal" title=" Start ">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backColor">
+                                        <color key="value" red="0.26052441240000002" green="0.78785113900000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="returnButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="Atq-il-tle"/>
                                 </connections>
@@ -214,13 +246,13 @@
                             <constraint firstItem="m6K-qa-Sqa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3g2-uh-Tjw" secondAttribute="leading" symbolic="YES" id="9Al-Gl-P6C"/>
                             <constraint firstItem="iyw-HK-y1K" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="100" id="Hi8-FG-dif"/>
                             <constraint firstItem="HBX-PS-dhM" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="20" id="NYc-mq-QKf"/>
-                            <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" secondItem="m6K-qa-Sqa" secondAttribute="trailing" constant="50" id="RyE-k3-Gwk"/>
+                            <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" secondItem="m6K-qa-Sqa" secondAttribute="trailing" constant="41" id="RyE-k3-Gwk"/>
                             <constraint firstItem="3g2-uh-Tjw" firstAttribute="bottom" secondItem="m6K-qa-Sqa" secondAttribute="bottom" constant="40" id="SXy-NA-jJS"/>
                             <constraint firstItem="EOu-8T-mYF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3g2-uh-Tjw" secondAttribute="leading" symbolic="YES" id="XEa-ZC-X0u"/>
                             <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HBX-PS-dhM" secondAttribute="trailing" symbolic="YES" id="ZNJ-zf-gQH"/>
                             <constraint firstItem="3g2-uh-Tjw" firstAttribute="bottom" secondItem="EOu-8T-mYF" secondAttribute="bottom" constant="100" id="afO-s0-2U9"/>
                             <constraint firstItem="ajA-9D-ini" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="35" id="beb-9w-Wfg"/>
-                            <constraint firstItem="1FM-pp-3BE" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="75" id="dBs-Kv-eiL"/>
+                            <constraint firstItem="1FM-pp-3BE" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="66" id="dBs-Kv-eiL"/>
                             <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" secondItem="EOu-8T-mYF" secondAttribute="trailing" constant="30" id="eVo-Q8-00a"/>
                             <constraint firstItem="iyw-HK-y1K" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" id="n5A-f0-jBT"/>
                             <constraint firstItem="ajA-9D-ini" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="75" id="uK0-q2-5FD"/>
