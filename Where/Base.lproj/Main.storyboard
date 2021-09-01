@@ -98,6 +98,12 @@
                                     <action selector="lastTimeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N4z-W2-xO4"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="どっちに見える？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72b-su-HZJ">
+                                <rect key="frame" x="139" y="89" width="146" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -108,16 +114,19 @@
                             <constraint firstItem="M2Q-f0-3kx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7Pb-qR-BeR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xt4-ap-nf3" secondAttribute="trailing" constant="90" id="85M-ND-ZcK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b4Q-S0-bxE" secondAttribute="trailing" constant="100" id="9BP-jr-el0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="72b-su-HZJ" secondAttribute="trailing" constant="90" id="AKp-jz-l6S"/>
                             <constraint firstItem="Wzc-dC-e4T" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="AeH-mT-Gfr"/>
                             <constraint firstAttribute="trailing" secondItem="M2Q-f0-3kx" secondAttribute="trailing" id="Gb5-hO-Ezr"/>
                             <constraint firstItem="M2Q-f0-3kx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="II6-sP-hXD"/>
                             <constraint firstItem="M2Q-f0-3kx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IIO-XJ-VOw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7IO-1g-5ZF" secondAttribute="trailing" symbolic="YES" id="Krk-sJ-UxH"/>
+                            <constraint firstItem="72b-su-HZJ" firstAttribute="leading" secondItem="Wzc-dC-e4T" secondAttribute="leading" constant="19" id="L7r-PF-O3g"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xt4-ap-nf3" secondAttribute="bottom" constant="40" id="Nh8-aY-Mxg"/>
                             <constraint firstItem="b4Q-S0-bxE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="XPu-g0-pAd"/>
                             <constraint firstItem="Wzc-dC-e4T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zw5-vA-IMH"/>
                             <constraint firstItem="M2Q-f0-3kx" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="gE0-To-uUp"/>
                             <constraint firstItem="xt4-ap-nf3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="uJJ-lw-RQv"/>
+                            <constraint firstItem="72b-su-HZJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="89" id="uZS-WC-KUl"/>
                             <constraint firstItem="M2Q-f0-3kx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xvP-05-kcH"/>
                             <constraint firstItem="7IO-1g-5ZF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="229.5" id="yUO-2f-9Ub"/>
                         </constraints>
