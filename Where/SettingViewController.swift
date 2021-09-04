@@ -196,14 +196,18 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     }
 
     
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-
+    func pickerView(_ picker: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         // 表示するラベルを生成する
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 50))
         label.textAlignment = .center
-        label.text = areaName[row] //dataArray[row]
-        label.font = UIFont(name: "Helvetica",size:14)
+        label.font = UIFont(name: "Helvetica",size:18)
         label.textColor = .black
+        
+        if (picker.tag == 1){
+            label.text = areaName[row] //dataArray[row]
+        } else {
+            label.text = selectedMountsName[row] //dataArray[row]
+        }
         return label
     }
     
