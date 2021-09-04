@@ -2,7 +2,7 @@
 //  SettingViewController.swift
 //  Where
 //
-//  Created by 森部高昌 on 2021/08/23
+//  Created by 森部高昌 on 2021/09/04
 //
 
 import UIKit
