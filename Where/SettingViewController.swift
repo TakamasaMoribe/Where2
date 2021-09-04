@@ -195,7 +195,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude") //[4]経度保存
     }
 
-    
+    // ドラムロールに表示するテキストの属性を設定する
     func pickerView(_ picker: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         // 表示するラベルを生成する
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 50))
