@@ -315,10 +315,10 @@
                     </view>
                     <connections>
                         <outlet property="areaPickerView" destination="7cs-BQ-oK5" id="ocb-Uf-WBs"/>
-                        <outlet property="firstRedButton" destination="d4k-da-KNL" id="wPg-um-e5z"/>
+                        <outlet property="firstRedLabel" destination="d4k-da-KNL" id="8gn-Ct-Deh"/>
                         <outlet property="mountPickerView" destination="oMM-KY-wEa" id="pkX-t8-LBp"/>
-                        <outlet property="secondBlueButton" destination="gm4-v3-jO3" id="NYF-7b-NUc"/>
-                        <outlet property="thirdGreenButton" destination="aK5-Zt-ezZ" id="yuY-DB-1ep"/>
+                        <outlet property="secondBlueLabel" destination="gm4-v3-jO3" id="lBU-UD-0Ro"/>
+                        <outlet property="thirdGreenLabel" destination="aK5-Zt-ezZ" id="2Y3-nA-rt3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3b3-XF-KEg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
