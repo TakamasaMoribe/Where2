@@ -22,6 +22,12 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var secondBlueLabel: UILabel! // ２番青色
     @IBOutlet weak var thirdGreenLabel: UILabel! // ３番緑色
     
+
+    @IBAction func checkView(_ sender: CheckBox) {
+
+         print(sender.isChecked)
+
+     }
     
     @IBOutlet weak var areaPickerView: UIPickerView! // 地域名用のドラムロール
     @IBOutlet weak var mountPickerView: UIPickerView! // 山名用のドラムロール
@@ -221,5 +227,4 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
 //---------------------------------------------------------------------------------
 
 }
-
 
