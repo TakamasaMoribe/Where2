@@ -18,6 +18,11 @@ var choice:Int = 0 // ドラムロール２で選択した項目の番号（山�
 
 class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    @IBOutlet weak var firstRedButton: UILabel! // １番赤色
+    @IBOutlet weak var secondBlueButton: UILabel! // ２番青色
+    @IBOutlet weak var thirdGreenButton: UILabel! // ３番緑色
+    
+    
     @IBOutlet weak var areaPickerView: UIPickerView! // 地域名用のドラムロール
     @IBOutlet weak var mountPickerView: UIPickerView! // 山名用のドラムロール
     
