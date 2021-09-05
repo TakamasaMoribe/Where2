@@ -18,9 +18,9 @@ var choice:Int = 0 // ドラムロール２で選択した項目の番号（山�
 
 class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet weak var firstRedButton: UILabel! // １番赤色
-    @IBOutlet weak var secondBlueButton: UILabel! // ２番青色
-    @IBOutlet weak var thirdGreenButton: UILabel! // ３番緑色
+    @IBOutlet weak var firstRedLabel: UILabel! // １番赤色
+    @IBOutlet weak var secondBlueLabel: UILabel! // ２番青色
+    @IBOutlet weak var thirdGreenLabel: UILabel! // ３番緑色
     
     
     @IBOutlet weak var areaPickerView: UIPickerView! // 地域名用のドラムロール
@@ -191,8 +191,9 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         } else {
             if (picker.tag == 2){ //ここで、地域名に応じた山名を表示するようにする
                 let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
-                choice = row2 // ドラムロール２で選択した項目の番号・山名を得る下行
-                firstRedButton.text = selectedMounts[choice][2]
+                choice = row2 // ドラムロール２で選択した項目の番号
+                firstRedLabel.text = selectedMounts[choice][2] // 山名を表示する
+
             }
         }
         // 前回使ったときのデータに上書きするために必要
