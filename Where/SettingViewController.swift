@@ -191,11 +191,12 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         } else {
             if (picker.tag == 2){ //ここで、地域名に応じた山名を表示するようにする
                 let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
-                choice = row2 // ドラムロール２で選択した項目の番号・・・山名を得る
+                choice = row2 // ドラムロール２で選択した項目の番号・山名を得る下行
+                firstRedButton.text = selectedMounts[choice][2]
             }
         }
         // 前回使ったときのデータに上書きするために必要
-        UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName") //[2]山名
+        UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName") //[2]山名保存
         UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude") //[3]緯度保存
         UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude") //[4]経度保存
     }
@@ -205,7 +206,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         // 表示するラベルを生成する
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 50))
         label.textAlignment = .center
-        label.font = UIFont(name: "Helvetica",size:18)
+        label.font = UIFont(name: "System",size:18)
         label.textColor = .black
         
         if (picker.tag == 1){
