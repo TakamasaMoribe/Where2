@@ -188,6 +188,97 @@
                                     </pickerView>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="or2-s6-1Vq">
+                                <rect key="frame" x="20" y="304" width="335" height="104"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nSs-h8-FxL">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="22"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="１本目赤色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0N-ej-WHL">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="87" id="5qN-JJ-qnw"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OF1-3N-4X8" customClass="CheckBox" customModule="Where" customModuleProvider="target">
+                                                <rect key="frame" x="100" y="0.0" width="30" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="yOp-LM-RdV"/>
+                                                </constraints>
+                                                <state key="normal" title="redButton" image="ico_check_off.png"/>
+                                                <connections>
+                                                    <action selector="checkView:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="zkt-Tk-BdM"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赤色" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4k-da-KNL">
+                                                <rect key="frame" x="130" y="0.0" width="205" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="jyf-ee-5VM"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="OF1-3N-4X8" firstAttribute="leading" secondItem="nSs-h8-FxL" secondAttribute="leading" constant="100" id="6j1-Wp-o0t"/>
+                                            <constraint firstItem="OF1-3N-4X8" firstAttribute="top" secondItem="nSs-h8-FxL" secondAttribute="top" id="9cV-Je-paz"/>
+                                            <constraint firstItem="n0N-ej-WHL" firstAttribute="leading" secondItem="nSs-h8-FxL" secondAttribute="leading" id="Bqi-n8-uhw"/>
+                                            <constraint firstItem="d4k-da-KNL" firstAttribute="leading" secondItem="nSs-h8-FxL" secondAttribute="leading" constant="130" id="E17-JR-B6X"/>
+                                            <constraint firstItem="d4k-da-KNL" firstAttribute="top" secondItem="nSs-h8-FxL" secondAttribute="top" id="Nvh-cC-LjM"/>
+                                            <constraint firstItem="n0N-ej-WHL" firstAttribute="top" secondItem="nSs-h8-FxL" secondAttribute="top" id="jmW-I7-oFv"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84l-JK-cj8">
+                                        <rect key="frame" x="0.0" y="41" width="335" height="22"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="２本目青色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDs-HX-B0S">
+                                                <rect key="frame" x="0.0" y="0.0" width="87" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="青色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gm4-v3-jO3">
+                                                <rect key="frame" x="87" y="0.0" width="35" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eyh-JA-uLL" customClass="CheckBox" customModule="Where" customModuleProvider="target">
+                                                <rect key="frame" x="122" y="0.0" width="213" height="22"/>
+                                                <state key="normal" title="blueButton" image="ico_check_off.png"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gO-gd-sxF">
+                                        <rect key="frame" x="0.0" y="82" width="335" height="22"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="３本目緑色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgO-kG-y34">
+                                                <rect key="frame" x="0.0" y="0.0" width="87" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="緑色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aK5-Zt-ezZ">
+                                                <rect key="frame" x="87" y="0.0" width="35" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaj-mH-7Ob" customClass="CheckBox" customModule="Where" customModuleProvider="target">
+                                                <rect key="frame" x="122" y="0.0" width="213" height="22"/>
+                                                <state key="normal" title="greenButton" image="ico_check_off.png"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="8gO-gd-sxF" firstAttribute="top" secondItem="84l-JK-cj8" secondAttribute="bottom" constant="19" id="tPR-4W-30n"/>
+                                </constraints>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="m6K-qa-Sqa" customClass="Custombutton" customModule="Where" customModuleProvider="target">
                                 <rect key="frame" x="150" y="454" width="75" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -243,86 +334,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="or2-s6-1Vq">
-                                <rect key="frame" x="45" y="304" width="232" height="104"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nSs-h8-FxL">
-                                        <rect key="frame" x="0.0" y="0.0" width="232" height="22"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="１本目赤色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0N-ej-WHL">
-                                                <rect key="frame" x="0.0" y="0.0" width="87" height="22"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赤色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4k-da-KNL">
-                                                <rect key="frame" x="87" y="0.0" width="35" height="22"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OF1-3N-4X8" customClass="CheckBox" customModule="Where" customModuleProvider="target">
-                                                <rect key="frame" x="122" y="0.0" width="110" height="22"/>
-                                                <state key="normal" title="redButton" image="ico_check_off.png"/>
-                                                <connections>
-                                                    <action selector="checkView:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="zkt-Tk-BdM"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84l-JK-cj8">
-                                        <rect key="frame" x="0.0" y="41" width="232" height="22"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="２本目青色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDs-HX-B0S">
-                                                <rect key="frame" x="0.0" y="0.0" width="87" height="22"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="青色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gm4-v3-jO3">
-                                                <rect key="frame" x="87" y="0.0" width="35" height="22"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eyh-JA-uLL" customClass="CheckBox" customModule="Where" customModuleProvider="target">
-                                                <rect key="frame" x="122" y="0.0" width="110" height="22"/>
-                                                <state key="normal" title="blueButton" image="ico_check_off.png"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gO-gd-sxF">
-                                        <rect key="frame" x="0.0" y="82" width="232" height="22"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="３本目緑色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgO-kG-y34">
-                                                <rect key="frame" x="0.0" y="0.0" width="87" height="22"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="緑色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aK5-Zt-ezZ">
-                                                <rect key="frame" x="87" y="0.0" width="35" height="22"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaj-mH-7Ob" customClass="CheckBox" customModule="Where" customModuleProvider="target">
-                                                <rect key="frame" x="122" y="0.0" width="110" height="22"/>
-                                                <state key="normal" title="greenButton" image="ico_check_off.png"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3g2-uh-Tjw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="or2-s6-1Vq" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="304" id="7Li-Ps-GVU"/>
                             <constraint firstAttribute="trailing" secondItem="iyw-HK-y1K" secondAttribute="trailing" id="7kR-uR-67F"/>
                             <constraint firstItem="AId-97-LNx" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="20" id="BfY-R0-YI3"/>
                             <constraint firstItem="kH0-WQ-Km4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Hb9-Wz-Xjs" secondAttribute="trailing" constant="8" symbolic="YES" id="FOA-nq-M2f"/>
-                            <constraint firstItem="or2-s6-1Vq" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="45" id="Iip-D5-AFD"/>
                             <constraint firstItem="1FM-pp-3BE" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="40" id="O6Z-MT-Z2d"/>
                             <constraint firstItem="Hb9-Wz-Xjs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1FM-pp-3BE" secondAttribute="trailing" constant="8" symbolic="YES" id="QbA-eJ-n8z"/>
                             <constraint firstItem="iyw-HK-y1K" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="80" id="TfV-7v-eo8"/>
@@ -331,11 +349,13 @@
                             <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kH0-WQ-Km4" secondAttribute="trailing" symbolic="YES" id="YPx-I7-j0E"/>
                             <constraint firstItem="Hb9-Wz-Xjs" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="20" id="YQr-y2-U5d"/>
                             <constraint firstItem="iyw-HK-y1K" firstAttribute="leading" secondItem="nco-HY-yU2" secondAttribute="leading" id="eT9-d4-8XM"/>
-                            <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" secondItem="or2-s6-1Vq" secondAttribute="trailing" constant="98" id="idr-lG-m6U"/>
                             <constraint firstItem="Hb9-Wz-Xjs" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="180" id="lSk-jn-aex"/>
                             <constraint firstItem="kH0-WQ-Km4" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="40" id="mMa-L2-IaM"/>
+                            <constraint firstItem="or2-s6-1Vq" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="20" id="nBB-cM-jf2"/>
+                            <constraint firstItem="or2-s6-1Vq" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="304" id="na2-IZ-aNd"/>
                             <constraint firstItem="AId-97-LNx" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="20" id="twd-6R-UNx"/>
                             <constraint firstItem="1FM-pp-3BE" firstAttribute="leading" secondItem="AId-97-LNx" secondAttribute="trailing" constant="8" symbolic="YES" id="x48-cR-npa"/>
+                            <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" secondItem="or2-s6-1Vq" secondAttribute="trailing" constant="20" id="xcp-Vy-1mG"/>
                         </constraints>
                     </view>
                     <connections>
