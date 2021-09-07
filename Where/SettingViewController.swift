@@ -22,11 +22,12 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var secondBlueLabel: UILabel! // ２番青色
     @IBOutlet weak var thirdGreenLabel: UILabel! // ３番緑色
     
-
+    @IBOutlet weak var redButton: CheckBox!
+    
+    
+    
     @IBAction func checkView(_ sender: CheckBox) {
-
          print(sender.isChecked)
-
      }
     
     @IBOutlet weak var areaPickerView: UIPickerView! // 地域名用のドラムロール
@@ -192,13 +193,15 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             
             // 選んだ地域に応じて、山のデータ配列をつくる
             selectedRegion = item1!
-            selectedMounts = extract(selectedRegion,originalMountDatas)// 地域名に応じた山のデータを得る
+            selectedMounts = extract(selectedRegion,originalMountDatas)// 山のデータ配列を取り出す
             
         } else {
             if (picker.tag == 2){ //ここで、地域名に応じた山名を表示するようにする
-                let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
-                choice = row2 // ドラムロール２で選択した項目の番号
-                firstRedLabel.text = selectedMounts[choice][2] // 山名を表示する
+                // メソッドを作って、処理する
+                targetMountain()
+//                let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
+//                choice = row2 // ドラムロール２で選択した項目の番号
+//                firstRedLabel.text = selectedMounts[choice][2] // 山名を表示する
 
             }
         }
@@ -207,6 +210,17 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude") //[3]緯度保存
         UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude") //[4]経度保存
     }
+    
+    // 山名選択に応じて、赤、青、緑の線を引く山の名前を決める
+    func targetMountain()   {
+        let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
+        choice = row2 // ドラムロール２で選択した項目の番号
+        if redButton.isChecked == false {
+            firstRedLabel.text = selectedMounts[choice][2] // 赤線で引く山名を表示する
+        }else {
+            //この後、次の山の選択を行う
+    }
+    
 
     // ドラムロールに表示するテキストの属性を設定する
     func pickerView(_ picker: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
