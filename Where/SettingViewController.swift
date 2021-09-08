@@ -20,7 +20,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBOutlet weak var firstRedLabel: UILabel! // １番赤色
     @IBOutlet weak var secondBlueLabel: UILabel! // ２番青色
-    @IBOutlet weak var thirdGreenLabel: UILabel! // ３番緑色
+    @IBOutlet weak var thirdGreenLabel: UILabel! // ３番緑色 紫色にした
     
     @IBOutlet weak var redButton: CheckBox!
     @IBOutlet weak var blueButton: CheckBox!

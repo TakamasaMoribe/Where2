@@ -13,7 +13,7 @@ import CoreLocation
 //最初に、MKPolylineクラスを拡張する2つのクラスを作成する
 fileprivate class RedOverlay:MKPolyline{}
 fileprivate class BlueOverlay:MKPolyline{}
-fileprivate class GreenOverlay:MKPolyline{} // 追加した山への線を紫色で引く
+fileprivate class PurpleOverlay:MKPolyline{}
 
 
 class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewDelegate {
@@ -108,8 +108,8 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
         mapView.addOverlays([redLine])// 地図上に描く
         let blueLine = BlueOverlay(coordinates: arrMount2, count: 2)
         mapView.addOverlays([blueLine])
-        let greenLine = GreenOverlay(coordinates: arrMount3, count: 2)
-        mapView.addOverlays([greenLine])
+        let purpleLine = PurpleOverlay(coordinates: arrMount3, count: 2)
+        mapView.addOverlays([purpleLine])
     }
 
     // ポリライン(オーバーレイ)がどちらのクラスのものか、switch-case文で３つに分ける
@@ -121,10 +121,10 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
                     renderer.strokeColor = UIColor.red// 赤い線
                     renderer.lineWidth = 2
                 case is BlueOverlay:
-                    renderer.strokeColor = UIColor.blue//青い線　スカイツリー
+                    renderer.strokeColor = UIColor.blue// 青い線
                     renderer.lineWidth = 2
-                case is GreenOverlay:
-                    renderer.strokeColor = UIColor.purple//紫の線　追加した山
+                case is PurpleOverlay:
+                    renderer.strokeColor = UIColor.purple// 紫の線
                     renderer.lineWidth = 2
                 default:
                     break
