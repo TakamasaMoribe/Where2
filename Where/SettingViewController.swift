@@ -198,12 +198,11 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             selectedMounts = extract(selectedRegion,originalMountDatas)// 山のデータ配列を取り出す
             
         } else {
-            if (picker.tag == 2){ //ここで、地域名に応じた山名を表示するようにする
-                // メソッドで、場合分けして処理する
-                targetMountain()
+            if (picker.tag == 2){ // 地域名に応じた山名を表示する
+                targetMountain() // メソッドで、場合分けして処理する
             }
         }
-        // 前回使ったときのデータに上書きするために必要
+        // 前回使ったときのデータに上書きするために必要？？？？？？？
         UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName") //[2]山名保存
         UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude") //[3]緯度保存
         UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude") //[4]経度保存
@@ -215,14 +214,24 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         choice = row2 // ドラムロール２で選択した項目の番号
         if redButton.isChecked == false {
             firstRedLabel.text = selectedMounts[choice][2] // 赤線で引く山名を表示する
+            UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName1") //[2]山名保存
+            UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude1") //[3]緯度保存
+            UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude1") //[4]経度保存
+            
         }else {
             if blueButton.isChecked == false {
                 secondBlueLabel.text = selectedMounts[choice][2] // 青線で引く山名を表示する
+                UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName2") //[2]山名保存
+                UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude2") //[3]緯度保存
+                UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude2") //[4]経度保存
             }else {
                 if greenButton.isChecked == false {
                     thirdGreenLabel.text = selectedMounts[choice][2] // 緑線で引く山名を表示する
+                    UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName3") //[2]山名保存
+                    UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude3") //[3]緯度保存
+                    UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude3") //[4]経度保存
                 }else {
-                //この後、次の山の選択を行う
+                //
                 }
             }
         }

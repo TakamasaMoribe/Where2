@@ -11,9 +11,9 @@ import CoreLocation
 
 // MKPolylineクラスの拡張　３色の線を引くため
 //最初に、MKPolylineクラスを拡張する2つのクラスを作成する
-fileprivate class FujiOverlay:MKPolyline{}
-fileprivate class TreeOverlay:MKPolyline{}
-fileprivate class AddOverlay:MKPolyline{} // 追加した山への線を紫色で引く
+fileprivate class RedOverlay:MKPolyline{}
+fileprivate class BlueOverlay:MKPolyline{}
+fileprivate class GreenOverlay:MKPolyline{} // 追加した山への線を紫色で引く
 
 
 class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewDelegate {
@@ -78,33 +78,38 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
         mapView.delegate = self
         
         // ここから線を引く部分。
-        // 現在地と富士山と東京スカイツリーの座標を指定する
+        // 現在地の座標を指定する
         let locNow = CLLocationCoordinate2D(latitude: ido, longitude: keido)
-        let locFuji = CLLocationCoordinate2D(latitude: 35.3625, longitude: 138.7306)
-        let locTree = CLLocationCoordinate2D(latitude: 35.710139, longitude: 139.810833)
+        //let locFuji = CLLocationCoordinate2D(latitude: 35.3625, longitude: 138.7306)
+        //let locTree = CLLocationCoordinate2D(latitude: 35.710139, longitude: 139.810833)
         
-        // 追加した山名、緯度経度を読み込む
-//        let mtName = UserDefaults.standard.string(forKey: "mtName")//山名読み込み
-        let mtLatitude = UserDefaults.standard.double(forKey: "mtLatitude")//緯度読み込み
-        let mtLongitude = UserDefaults.standard.double(forKey: "mtLongitude")//経度読み込み
-//            if (mtName == nil) { // 目的地が２つだけの時　メッカの方角を示す
-//                mtLatitude = 21.417 //北緯21.417度
-//                mtLongitude = 39.817 //東経39.817度﻿
+        // 追加した山名１〜３について、緯度経度を読み込む・・・・メソッドにする？？
+//        let mtName1 = UserDefaults.standard.string(forKey: "mtName1")//山名読み込み
+        let mtLatitude1 = UserDefaults.standard.double(forKey: "mtLatitude1")//緯度読み込み
+        let mtLongitude1 = UserDefaults.standard.double(forKey: "mtLongitude1")//経度読み込み
+//        let mtName2 = UserDefaults.standard.string(forKey: "mtName2")
+        let mtLatitude2 = UserDefaults.standard.double(forKey: "mtLatitude2")
+        let mtLongitude2 = UserDefaults.standard.double(forKey: "mtLongitude2")
+//        let mtName3 = UserDefaults.standard.string(forKey: "mtName3")
+        let mtLatitude3 = UserDefaults.standard.double(forKey: "mtLatitude3")
+        let mtLongitude3 = UserDefaults.standard.double(forKey: "mtLongitude3")
+        
+        
 //            }
-        let locAdd = CLLocationCoordinate2D(latitude: mtLatitude , longitude: mtLongitude )
+        let locMount1 = CLLocationCoordinate2D(latitude: mtLatitude1 , longitude: mtLongitude1 )
+        let locMount2 = CLLocationCoordinate2D(latitude: mtLatitude2 , longitude: mtLongitude2 )
+        let locMount3 = CLLocationCoordinate2D(latitude: mtLatitude3 , longitude: mtLongitude3 )
         
-        let arrFuji = [locNow,locFuji]// 現在地と富士山を入れた配列
-        let arrTree = [locNow,locTree]// 現在地とスカイツリーを入れた配列
-        let arrAdd = [locNow,locAdd]// 現在地と追加した山を入れた配列
+        let arrMount1 = [locNow,locMount1]// 現在地と目的地１を入れた配列
+        let arrMount2 = [locNow,locMount2]// 現在地と目的地２を入れた配列
+        let arrMount3 = [locNow,locMount3]// 現在地と目的地３を入れた配列
         
-        let fujiLine = FujiOverlay(coordinates: arrFuji, count: 2)// ２点を結ぶ
-        mapView.addOverlays([fujiLine])// 地図上に描く 現在地ー富士山
-        let treeLine = TreeOverlay(coordinates: arrTree, count: 2)// ２点を結ぶ
-        mapView.addOverlays([treeLine])// 地図上に描く 現在地ースカイツリー
-        let addLine = AddOverlay(coordinates: arrAdd, count: 2)// ２点を結ぶ
-        if mtLatitude != 0 { //値がないと北緯０度、東経０度の位置に線を引く
-            mapView.addOverlays([addLine])// 地図上に描く 現在地ー追加した山
-        }
+        let redLine = RedOverlay(coordinates: arrMount1, count: 2)// ２点を結ぶ
+        mapView.addOverlays([redLine])// 地図上に描く
+        let blueLine = BlueOverlay(coordinates: arrMount2, count: 2)
+        mapView.addOverlays([blueLine])
+        let greenLine = GreenOverlay(coordinates: arrMount3, count: 2)
+        mapView.addOverlays([greenLine])
     }
 
     // ポリライン(オーバーレイ)がどちらのクラスのものか、switch-case文で３つに分ける
@@ -112,13 +117,13 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
         let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
         
             switch overlay {
-                case is FujiOverlay:
-                    renderer.strokeColor = UIColor.red// 赤い線　富士山
+                case is RedOverlay:
+                    renderer.strokeColor = UIColor.red// 赤い線
                     renderer.lineWidth = 2
-                case is TreeOverlay:
+                case is BlueOverlay:
                     renderer.strokeColor = UIColor.blue//青い線　スカイツリー
                     renderer.lineWidth = 2
-                case is AddOverlay:
+                case is GreenOverlay:
                     renderer.strokeColor = UIColor.purple//紫の線　追加した山
                     renderer.lineWidth = 2
                 default:
