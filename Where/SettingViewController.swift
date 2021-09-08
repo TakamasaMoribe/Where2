@@ -35,6 +35,11 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var areaPickerView: UIPickerView! // 地域名用のドラムロール
     @IBOutlet weak var mountPickerView: UIPickerView! // 山名用のドラムロール
     
+    @IBOutlet weak var selectMtButton: Custombutton! // 目的地を選択後に押すボタン
+    @IBAction func selectMtButton(_ sender: Any) {
+    }
+    
+    @IBOutlet weak var selectButton: Custombutton! // 地域名を選択後に押すボタン
     @IBAction func selectButton(_ sender: Any) { //地域名の選択終了ボタン
         //地域名を選択せずに、選択ボタンを押した場合の処理。
         if selectedRegion == "" {
@@ -48,11 +53,16 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         selectedMountsName = setMountsName(mountData: selectedMounts) // func setMountsName()
         //mountPickerView を初期化して、選択した山名　selectedMountsName を表示する
         mountPickerView.reloadAllComponents()
+        // 「目的地選択」ボタンを表示して有効化する
+        selectMtButton.isHidden = false // 「目的地選択」ボタンを表示する
+        selectMtButton.isEnabled = true // 有効にする
+        selectButton.isHidden = true // 「地域選択」ボタンを隠す
+        selectButton.isEnabled = false // 無効にする
         
     }
     
     @IBAction func returnButton(_ sender: Any) { //設定を終了して、地図へ画面遷移する
-        //山名を選択せずに、決定ボタンを押した場合の処理。
+        //山名を選択せずに、Startボタンを押した場合の処理。
             if choice == 0 {
                 // ドラムロール１の地域名は選択すみである
                 selectedMounts = extract(selectedRegion,originalMountDatas)// 地域名に応じた山のデータを得る

@@ -168,13 +168,13 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="or2-s6-1Vq">
-                                <rect key="frame" x="20" y="304" width="335" height="104"/>
+                                <rect key="frame" x="20" y="304" width="335" height="99.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nSs-h8-FxL">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="22"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="１本目赤色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0N-ej-WHL">
-                                                <rect key="frame" x="0.0" y="0.0" width="90" height="22"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="90" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="87" id="5qN-JJ-qnw"/>
                                                 </constraints>
@@ -183,17 +183,18 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OF1-3N-4X8" customClass="CheckBox" customModule="Where" customModuleProvider="target">
-                                                <rect key="frame" x="90" y="0.0" width="40" height="22"/>
+                                                <rect key="frame" x="90" y="0.0" width="40" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="lPq-Dk-SI0"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="redButton" image="ico_check_off.png"/>
                                                 <connections>
                                                     <action selector="checkView:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="zkt-Tk-BdM"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赤色で線を引く山名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4k-da-KNL">
-                                                <rect key="frame" x="130" y="0.0" width="205" height="22"/>
+                                                <rect key="frame" x="130" y="0.0" width="205" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="jyf-ee-5VM"/>
                                                 </constraints>
@@ -212,23 +213,24 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84l-JK-cj8">
-                                        <rect key="frame" x="0.0" y="41" width="335" height="22"/>
+                                        <rect key="frame" x="0.0" y="39.5" width="335" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="２本目青色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDs-HX-B0S">
-                                                <rect key="frame" x="0.0" y="0.0" width="90" height="22"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="90" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eyh-JA-uLL" customClass="CheckBox" customModule="Where" customModuleProvider="target">
-                                                <rect key="frame" x="90" y="0.0" width="40" height="22"/>
+                                                <rect key="frame" x="90" y="0.0" width="40" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="KoW-93-Ssg"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <state key="normal" title="blueButton" image="ico_check_off.png"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="青色で線を引く山名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gm4-v3-jO3">
-                                                <rect key="frame" x="130" y="0.0" width="205" height="22"/>
+                                                <rect key="frame" x="130" y="0.0" width="205" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -240,23 +242,24 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gO-gd-sxF">
-                                        <rect key="frame" x="0.0" y="82" width="335" height="22"/>
+                                        <rect key="frame" x="0.0" y="79" width="335" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="３本目緑色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgO-kG-y34">
-                                                <rect key="frame" x="0.0" y="0.0" width="90" height="22"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="90" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaj-mH-7Ob" customClass="CheckBox" customModule="Where" customModuleProvider="target">
-                                                <rect key="frame" x="90" y="0.0" width="40" height="22"/>
+                                                <rect key="frame" x="90" y="0.0" width="40" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="rLR-XM-dyR"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <state key="normal" title="greenButton" image="ico_check_off.png"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="緑色で線を引く山名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aK5-Zt-ezZ">
-                                                <rect key="frame" x="130" y="0.0" width="205" height="22"/>
+                                                <rect key="frame" x="130" y="0.0" width="205" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -326,16 +329,43 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="selectButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="wqZ-qP-XEI"/>
+                                    <action selector="selectButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="wS3-vj-zcx"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slK-Za-OWn" userLabel="選択" customClass="Custombutton" customModule="Where" customModuleProvider="target">
+                                <rect key="frame" x="212" y="207" width="90" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title=" 目的地選択 ">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backColor">
+                                        <color key="value" red="0.26052441240000002" green="0.78785113900000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="selectMtButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="rPO-Cx-NK2"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3g2-uh-Tjw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="slK-Za-OWn" secondAttribute="trailing" symbolic="YES" id="2wp-KL-o58"/>
                             <constraint firstAttribute="trailing" secondItem="iyw-HK-y1K" secondAttribute="trailing" id="7kR-uR-67F"/>
                             <constraint firstItem="AId-97-LNx" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="20" id="BfY-R0-YI3"/>
+                            <constraint firstItem="slK-Za-OWn" firstAttribute="leading" secondItem="1FM-pp-3BE" secondAttribute="trailing" constant="83" id="DQk-M5-Q18"/>
                             <constraint firstItem="Hb9-Wz-Xjs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1FM-pp-3BE" secondAttribute="trailing" constant="8" symbolic="YES" id="EAs-T4-kxq"/>
+                            <constraint firstItem="slK-Za-OWn" firstAttribute="baseline" secondItem="1FM-pp-3BE" secondAttribute="baseline" constant="-1" id="J74-Ad-QWE"/>
                             <constraint firstItem="1FM-pp-3BE" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="208" id="O6Z-MT-Z2d"/>
                             <constraint firstItem="Hb9-Wz-Xjs" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="20" id="QT0-b4-0yU"/>
                             <constraint firstItem="iyw-HK-y1K" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="20" id="TfV-7v-eo8"/>
@@ -358,6 +388,8 @@
                         <outlet property="mountPickerView" destination="oMM-KY-wEa" id="pkX-t8-LBp"/>
                         <outlet property="redButton" destination="OF1-3N-4X8" id="4tb-JV-8rK"/>
                         <outlet property="secondBlueLabel" destination="gm4-v3-jO3" id="lBU-UD-0Ro"/>
+                        <outlet property="selectButton" destination="1FM-pp-3BE" id="XBY-4i-MkV"/>
+                        <outlet property="selectMtButton" destination="slK-Za-OWn" id="BGn-Ov-ZKX"/>
                         <outlet property="thirdGreenLabel" destination="aK5-Zt-ezZ" id="2Y3-nA-rt3"/>
                     </connections>
                 </viewController>
@@ -393,7 +425,7 @@
     </scenes>
     <resources>
         <image name="background.png" width="639" height="1056"/>
-        <image name="ico_check_off.png" width="10" height="10"/>
+        <image name="ico_check_off.png" width="16" height="16"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
