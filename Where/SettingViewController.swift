@@ -23,6 +23,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var thirdGreenLabel: UILabel! // ３番緑色
     
     @IBOutlet weak var redButton: CheckBox!
+    @IBOutlet weak var blueButton: CheckBox!
+    @IBOutlet weak var greenButton: CheckBox!
     
     
     
@@ -197,12 +199,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             
         } else {
             if (picker.tag == 2){ //ここで、地域名に応じた山名を表示するようにする
-                // メソッドを作って、処理する
+                // メソッドで、場合分けして処理する
                 targetMountain()
-//                let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
-//                choice = row2 // ドラムロール２で選択した項目の番号
-//                firstRedLabel.text = selectedMounts[choice][2] // 山名を表示する
-
             }
         }
         // 前回使ったときのデータに上書きするために必要
@@ -218,7 +216,15 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         if redButton.isChecked == false {
             firstRedLabel.text = selectedMounts[choice][2] // 赤線で引く山名を表示する
         }else {
-            //この後、次の山の選択を行う
+            if blueButton.isChecked == false {
+                secondBlueLabel.text = selectedMounts[choice][2] // 青線で引く山名を表示する
+            }else {
+                if greenButton.isChecked == false {
+                    thirdGreenLabel.text = selectedMounts[choice][2] // 緑線で引く山名を表示する
+                }else {
+                //この後、次の山の選択を行う
+                }
+            }
         }
     }
 

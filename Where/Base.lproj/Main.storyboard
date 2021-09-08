@@ -349,7 +349,9 @@
                     </view>
                     <connections>
                         <outlet property="areaPickerView" destination="7cs-BQ-oK5" id="ocb-Uf-WBs"/>
+                        <outlet property="blueButton" destination="Eyh-JA-uLL" id="aln-yg-Eli"/>
                         <outlet property="firstRedLabel" destination="d4k-da-KNL" id="8gn-Ct-Deh"/>
+                        <outlet property="greenButton" destination="gaj-mH-7Ob" id="Xq6-Rc-fyD"/>
                         <outlet property="mountPickerView" destination="oMM-KY-wEa" id="pkX-t8-LBp"/>
                         <outlet property="redButton" destination="OF1-3N-4X8" id="4tb-JV-8rK"/>
                         <outlet property="secondBlueLabel" destination="gm4-v3-jO3" id="lBU-UD-0Ro"/>
