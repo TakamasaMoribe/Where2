@@ -219,8 +219,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             firstRedLabel.text = selectedMounts[choice][2] // 赤線で引く山名を表示する
         }else {
             //この後、次の山の選択を行う
+        }
     }
-    
 
     // ドラムロールに表示するテキストの属性を設定する
     func pickerView(_ picker: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
