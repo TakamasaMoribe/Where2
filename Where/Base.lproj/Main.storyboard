@@ -26,34 +26,10 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7IO-1g-5ZF" customClass="Custombutton" customModule="Where" customModuleProvider="target">
-                                <rect key="frame" x="110" y="229.5" width="99" height="60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title=" Start ">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="backColor">
-                                        <color key="value" red="0.26052441240000002" green="0.78629619572438347" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Nj-7s-B6W"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4Q-S0-bxE" customClass="Custombutton" customModule="Where" customModuleProvider="target">
-                                <rect key="frame" x="100" y="525" width="175" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title=" 目的地の追加  ">
+                                <rect key="frame" x="100" y="501" width="175" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Start">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -71,7 +47,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="goSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zvm-Bz-9Vd"/>
+                                    <action selector="goSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tSM-vE-m1b"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xt4-ap-nf3" customClass="Custombutton" customModule="Where" customModuleProvider="target">
@@ -110,7 +86,6 @@
                         <constraints>
                             <constraint firstItem="xt4-ap-nf3" firstAttribute="top" secondItem="b4Q-S0-bxE" secondAttribute="bottom" constant="30" id="1kH-Wx-miB"/>
                             <constraint firstItem="M2Q-f0-3kx" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="38d-W6-gcB"/>
-                            <constraint firstItem="7IO-1g-5ZF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="110" id="4c1-Ur-Vey"/>
                             <constraint firstItem="M2Q-f0-3kx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7Pb-qR-BeR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xt4-ap-nf3" secondAttribute="trailing" constant="90" id="85M-ND-ZcK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b4Q-S0-bxE" secondAttribute="trailing" constant="100" id="9BP-jr-el0"/>
@@ -119,7 +94,6 @@
                             <constraint firstAttribute="trailing" secondItem="M2Q-f0-3kx" secondAttribute="trailing" id="Gb5-hO-Ezr"/>
                             <constraint firstItem="M2Q-f0-3kx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="II6-sP-hXD"/>
                             <constraint firstItem="M2Q-f0-3kx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IIO-XJ-VOw"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7IO-1g-5ZF" secondAttribute="trailing" symbolic="YES" id="Krk-sJ-UxH"/>
                             <constraint firstItem="72b-su-HZJ" firstAttribute="leading" secondItem="Wzc-dC-e4T" secondAttribute="leading" constant="19" id="L7r-PF-O3g"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xt4-ap-nf3" secondAttribute="bottom" constant="40" id="Nh8-aY-Mxg"/>
                             <constraint firstItem="b4Q-S0-bxE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="XPu-g0-pAd"/>
@@ -128,7 +102,6 @@
                             <constraint firstItem="xt4-ap-nf3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="uJJ-lw-RQv"/>
                             <constraint firstItem="72b-su-HZJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="89" id="uZS-WC-KUl"/>
                             <constraint firstItem="M2Q-f0-3kx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xvP-05-kcH"/>
-                            <constraint firstItem="7IO-1g-5ZF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="229.5" id="yUO-2f-9Ub"/>
                         </constraints>
                     </view>
                 </viewController>
