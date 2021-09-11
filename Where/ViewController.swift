@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var textView: UITextView!
+//    @IBOutlet weak var textView: UITextView!
  
     
     override func viewDidLoad() {
@@ -19,11 +19,16 @@ class ViewController: UIViewController {
     
     // Startボタン押下時の処理
     @IBAction func goSetting(_ sender: Any) {
-        //前回のデータを消去する
-        UserDefaults.standard.removeObject(forKey: "mtName") // [2]山名
-        UserDefaults.standard.removeObject(forKey: "mtLatitude")
-        UserDefaults.standard.removeObject(forKey: "mtLongitude")
-        
+        //前回のデータを消去する。３ヶ所分
+        UserDefaults.standard.removeObject(forKey: "mtName1") // 山名
+        UserDefaults.standard.removeObject(forKey: "mtLatitude1") //緯度
+        UserDefaults.standard.removeObject(forKey: "mtLongitude1") //経度
+        UserDefaults.standard.removeObject(forKey: "mtName2")
+        UserDefaults.standard.removeObject(forKey: "mtLatitude2")
+        UserDefaults.standard.removeObject(forKey: "mtLongitude2")
+        UserDefaults.standard.removeObject(forKey: "mtName3")
+        UserDefaults.standard.removeObject(forKey: "mtLatitude3")
+        UserDefaults.standard.removeObject(forKey: "mtLongitude3")
          // ①storyboardのインスタンス取得
          let storyboard: UIStoryboard = self.storyboard!
          // ②遷移先ViewControllerのインスタンス取得
