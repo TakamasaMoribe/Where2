@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F1A282E26DB21D00041819C /* mtDataAll.csv in Resources */ = {isa = PBXBuildFile; fileRef = 7F1A282D26DB21CF0041819C /* mtDataAll.csv */; };
 		7F467C1C26B5336F008B641E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F467C1B26B5336F008B641E /* AppDelegate.swift */; };
 		7F467C1E26B5336F008B641E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F467C1D26B5336F008B641E /* SceneDelegate.swift */; };
 		7F467C2026B5336F008B641E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F467C1F26B5336F008B641E /* ViewController.swift */; };
@@ -21,12 +20,12 @@
 		7F87951426DE20E500BC1112 /* Custombutton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87951326DE20E500BC1112 /* Custombutton.swift */; };
 		7FA4979226EC920F00EEC4AD /* check_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA4979026EC920E00EEC4AD /* check_on.png */; };
 		7FA4979326EC920F00EEC4AD /* check_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA4979126EC920F00EEC4AD /* check_off.png */; };
+		7FA4979726ECCCF000EEC4AD /* mtDataAll.csv in Resources */ = {isa = PBXBuildFile; fileRef = 7FA4979626ECCCF000EEC4AD /* mtDataAll.csv */; };
 		7FA7997126DF699B00526743 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FA7997026DF699B00526743 /* background.png */; };
 		7FAE512326E4A66D000613D9 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAE512226E4A66D000613D9 /* CheckBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7F1A282D26DB21CF0041819C /* mtDataAll.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mtDataAll.csv; sourceTree = "<group>"; };
 		7F467C1826B5336F008B641E /* Where.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Where.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F467C1B26B5336F008B641E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F467C1D26B5336F008B641E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +41,7 @@
 		7F87951326DE20E500BC1112 /* Custombutton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custombutton.swift; sourceTree = "<group>"; };
 		7FA4979026EC920E00EEC4AD /* check_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_on.png; sourceTree = "<group>"; };
 		7FA4979126EC920F00EEC4AD /* check_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_off.png; sourceTree = "<group>"; };
+		7FA4979626ECCCF000EEC4AD /* mtDataAll.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mtDataAll.csv; sourceTree = "<group>"; };
 		7FA7997026DF699B00526743 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		7FAE512226E4A66D000613D9 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,7 +90,7 @@
 				7F467C2426B53370008B641E /* Assets.xcassets */,
 				7F467C2626B53370008B641E /* LaunchScreen.storyboard */,
 				7F467C2926B53370008B641E /* Info.plist */,
-				7F1A282D26DB21CF0041819C /* mtDataAll.csv */,
+				7FA4979626ECCCF000EEC4AD /* mtDataAll.csv */,
 				7FA7997026DF699B00526743 /* background.png */,
 				7FA4979126EC920F00EEC4AD /* check_off.png */,
 				7FA4979026EC920E00EEC4AD /* check_on.png */,
@@ -166,10 +166,10 @@
 			files = (
 				7F467C2826B53370008B641E /* LaunchScreen.storyboard in Resources */,
 				7FA7997126DF699B00526743 /* background.png in Resources */,
+				7FA4979726ECCCF000EEC4AD /* mtDataAll.csv in Resources */,
 				7F467C2526B53370008B641E /* Assets.xcassets in Resources */,
 				7F467C2326B5336F008B641E /* Main.storyboard in Resources */,
 				7FA4979326EC920F00EEC4AD /* check_off.png in Resources */,
-				7F1A282E26DB21D00041819C /* mtDataAll.csv in Resources */,
 				7FA4979226EC920F00EEC4AD /* check_on.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
