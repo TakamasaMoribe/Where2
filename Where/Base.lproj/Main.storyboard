@@ -161,7 +161,7 @@
                                                     <constraint firstAttribute="width" constant="40" id="lPq-Dk-SI0"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <state key="normal" title="redButton" image="ico_check_off.png"/>
+                                                <state key="normal" title="redButton" image="check_off.png"/>
                                                 <connections>
                                                     <action selector="checkView:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="zkt-Tk-BdM"/>
                                                 </connections>
@@ -200,7 +200,7 @@
                                                     <constraint firstAttribute="width" constant="40" id="KoW-93-Ssg"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                <state key="normal" title="blueButton" image="ico_check_off.png"/>
+                                                <state key="normal" title="blueButton" image="check_off.png"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="青色で線を引く山名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gm4-v3-jO3">
                                                 <rect key="frame" x="130" y="0.0" width="205" height="20.5"/>
@@ -229,7 +229,7 @@
                                                     <constraint firstAttribute="width" constant="40" id="rLR-XM-dyR"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <state key="normal" title="greenButton" image="ico_check_off.png"/>
+                                                <state key="normal" title="greenButton" image="check_off.png"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="緑色で線を引く山名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aK5-Zt-ezZ">
                                                 <rect key="frame" x="130" y="0.0" width="205" height="20.5"/>
@@ -398,7 +398,7 @@
     </scenes>
     <resources>
         <image name="background.png" width="639" height="1056"/>
-        <image name="ico_check_off.png" width="16" height="16"/>
+        <image name="check_off.png" width="16" height="16"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
