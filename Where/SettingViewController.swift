@@ -36,7 +36,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var mountPickerView: UIPickerView! // 山名用のドラムロール
     
     @IBOutlet weak var selectMtButton: Custombutton! // 目的地を選択後に押すボタン
-    @IBAction func selectMtButton(_ sender: Any) {
+    @IBAction func selectMtButton(_ sender: Any) { //目的地の選択終了ボタン
+        targetMountain() // 山名選択に応じて、赤、青、緑の線を引く山の名前を決める
     }
     
     @IBOutlet weak var selectAreaButton: Custombutton!
@@ -150,6 +151,39 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         }
         return filtered
     }
+    
+//-------------------------------
+    // 山名選択に応じて、赤、青、緑の線を引く山の名前を決め、緯度・経度のデータを保存する
+    func targetMountain()   {
+        let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
+        choice = row2 // ドラムロール２で選択した項目の番号
+        if redButton.isChecked == false {
+            firstRedLabel.text = selectedMounts[choice][2] // 赤線で引く山名を表示する
+            redButton.isChecked = true
+            UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName1") //[2]山名保存
+            UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude1") //[3]緯度保存
+            UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude1") //[4]経度保存
+            
+        }else {
+            if blueButton.isChecked == false {
+                secondBlueLabel.text = selectedMounts[choice][2] // 青線で引く山名を表示する
+                blueButton.isChecked = true
+                UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName2") //[2]山名保存
+                UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude2") //[3]緯度保存
+                UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude2") //[4]経度保存
+            }else {
+                if greenButton.isChecked == false {
+                    thirdGreenLabel.text = selectedMounts[choice][2] // 緑線で引く山名を表示する
+                    greenButton.isChecked = true
+                    UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName3") //[2]山名保存
+                    UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude3") //[3]緯度保存
+                    UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude3") //[4]経度保存
+                }else {
+                //
+                }
+            }
+        }
+    }
 
 // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
     // コンポーネントの数（ホイールの数）
@@ -163,7 +197,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                 return 1 //必要ないが
         }
     }
-        
+
 //func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { // あやしい
     }
     // コンポーネントの行数（配列の要素数＝選択肢の個数）を得る。
@@ -210,7 +244,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             
         } else {
             if (picker.tag == 2){ // 地域名に応じた山名を表示する
-                targetMountain() // メソッドで、場合分けして処理する
+                // targetMountain() // メソッドで、場合分けして処理する
             }
         }
         // 前回使ったときのデータに上書きするために必要？？？？？？？
@@ -219,34 +253,6 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude") //[4]経度保存
     }
     
-    // 山名選択に応じて、赤、青、緑の線を引く山の名前を決める
-    func targetMountain()   {
-        let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
-        choice = row2 // ドラムロール２で選択した項目の番号
-        if redButton.isChecked == false {
-            firstRedLabel.text = selectedMounts[choice][2] // 赤線で引く山名を表示する
-            UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName1") //[2]山名保存
-            UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude1") //[3]緯度保存
-            UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude1") //[4]経度保存
-            
-        }else {
-            if blueButton.isChecked == false {
-                secondBlueLabel.text = selectedMounts[choice][2] // 青線で引く山名を表示する
-                UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName2") //[2]山名保存
-                UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude2") //[3]緯度保存
-                UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude2") //[4]経度保存
-            }else {
-                if greenButton.isChecked == false {
-                    thirdGreenLabel.text = selectedMounts[choice][2] // 緑線で引く山名を表示する
-                    UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName3") //[2]山名保存
-                    UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude3") //[3]緯度保存
-                    UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude3") //[4]経度保存
-                }else {
-                //
-                }
-            }
-        }
-    }
 
     // ドラムロールに表示するテキストの属性を設定する
     func pickerView(_ picker: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
