@@ -39,8 +39,9 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBAction func selectMtButton(_ sender: Any) {
     }
     
-    @IBOutlet weak var selectButton: Custombutton! // 地域名を選択後に押すボタン
-    @IBAction func selectButton(_ sender: Any) { //地域名の選択終了ボタン
+    @IBOutlet weak var selectAreaButton: Custombutton!
+    // 地域名を選択後に押すボタン
+    @IBAction func selectAreaButton(_ sender: Any) { //地域名の選択終了ボタン
         //地域名を選択せずに、選択ボタンを押した場合の処理。
         if selectedRegion == "" {
             // ０行目（最初の行の地域名）を選択したことする
@@ -56,8 +57,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         // 「目的地選択」ボタンを表示して有効化する
         selectMtButton.isHidden = false // 「目的地選択」ボタンを表示する
         selectMtButton.isEnabled = true // 有効にする
-        selectButton.isHidden = true // 「地域選択」ボタンを隠す
-        selectButton.isEnabled = false // 無効にする
+        selectAreaButton.isHidden = true // 「地域選択」ボタンを隠す
+        selectAreaButton.isEnabled = false // 無効にする
         
     }
     

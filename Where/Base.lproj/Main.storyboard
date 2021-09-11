@@ -302,7 +302,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="selectButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="wS3-vj-zcx"/>
+                                    <action selector="selectAreaButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="9Zb-3z-oZf"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="slK-Za-OWn" userLabel="選択" customClass="Custombutton" customModule="Where" customModuleProvider="target">
@@ -361,7 +361,7 @@
                         <outlet property="mountPickerView" destination="oMM-KY-wEa" id="pkX-t8-LBp"/>
                         <outlet property="redButton" destination="OF1-3N-4X8" id="4tb-JV-8rK"/>
                         <outlet property="secondBlueLabel" destination="gm4-v3-jO3" id="lBU-UD-0Ro"/>
-                        <outlet property="selectButton" destination="1FM-pp-3BE" id="XBY-4i-MkV"/>
+                        <outlet property="selectAreaButton" destination="1FM-pp-3BE" id="76b-9J-1nw"/>
                         <outlet property="selectMtButton" destination="slK-Za-OWn" id="BGn-Ov-ZKX"/>
                         <outlet property="thirdGreenLabel" destination="aK5-Zt-ezZ" id="2Y3-nA-rt3"/>
                     </connections>
