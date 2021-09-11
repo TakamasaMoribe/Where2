@@ -38,6 +38,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var selectMtButton: Custombutton! // 目的地を選択後に押すボタン
     @IBAction func selectMtButton(_ sender: Any) { //目的地の選択終了ボタン
         targetMountain() // 山名選択に応じて、赤、青、緑の線を引く山の名前を決める
+        selectAreaButton.isHidden = false // 「地域選択」ボタンを表示する
+        selectAreaButton.isEnabled = true // 有効にする
     }
     
     @IBOutlet weak var selectAreaButton: Custombutton!
@@ -55,6 +57,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         selectedMountsName = setMountsName(mountData: selectedMounts) // func setMountsName()
         //mountPickerView を初期化して、選択した山名　selectedMountsName を表示する
         mountPickerView.reloadAllComponents()
+        
         // 「目的地選択」ボタンを表示して有効化する
         selectMtButton.isHidden = false // 「目的地選択」ボタンを表示する
         selectMtButton.isEnabled = true // 有効にする
@@ -63,7 +66,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         
     }
     
-    @IBAction func returnButton(_ sender: Any) { //設定を終了して、地図へ画面遷移する
+    @IBAction func returnButton(_ sender: Any) { //「Start」ボタン押下時。設定を終了して、地図へ画面遷移する
         //山名を選択せずに、Startボタンを押した場合の処理。
             if choice == 0 {
                 // ドラムロール１の地域名は選択すみである
@@ -153,7 +156,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
 //-------------------------------
-    // 山名選択に応じて、赤、青、緑の線を引く山の名前を決め、緯度・経度のデータを保存する
+    // 山名を選択したら、赤・青・緑の線を引く山の名前を設定し、緯度・経度のデータを保存する
     func targetMountain()   {
         let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
         choice = row2 // ドラムロール２で選択した項目の番号
