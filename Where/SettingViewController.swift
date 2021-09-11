@@ -38,8 +38,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var selectMtButton: Custombutton! // 目的地を選択後に押すボタン
     @IBAction func selectMtButton(_ sender: Any) { //目的地の選択終了ボタン
         targetMountain() // 山名選択に応じて、赤、青、緑の線を引く山の名前を決める
-        selectAreaButton.isHidden = false // 「地域選択」ボタンを表示する
-        selectAreaButton.isEnabled = true // 有効にする
+        //selectAreaButton.isHidden = false // 「地域選択」ボタンを表示する
+        //selectAreaButton.isEnabled = true // 有効にする
     }
     
     @IBOutlet weak var selectAreaButton: Custombutton!
