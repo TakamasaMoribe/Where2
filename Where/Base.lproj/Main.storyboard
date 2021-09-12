@@ -16,11 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="M2Q-f0-3kx">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="a1b-EK-JXa">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Where" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzc-dC-e4T">
-                                <rect key="frame" x="120" y="32" width="135" height="57.5"/>
+                                <rect key="frame" x="100" y="82" width="135" height="57.5"/>
                                 <color key="backgroundColor" red="0.0" green="0.83114748584980869" blue="0.40409519696476481" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,7 +76,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="どっちに見える？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72b-su-HZJ">
-                                <rect key="frame" x="139" y="89" width="146" height="21"/>
+                                <rect key="frame" x="100" y="139" width="146" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -85,23 +86,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="xt4-ap-nf3" firstAttribute="top" secondItem="b4Q-S0-bxE" secondAttribute="bottom" constant="30" id="1kH-Wx-miB"/>
-                            <constraint firstItem="M2Q-f0-3kx" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="38d-W6-gcB"/>
-                            <constraint firstItem="M2Q-f0-3kx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7Pb-qR-BeR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xt4-ap-nf3" secondAttribute="trailing" constant="90" id="85M-ND-ZcK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b4Q-S0-bxE" secondAttribute="trailing" constant="100" id="9BP-jr-el0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="72b-su-HZJ" secondAttribute="trailing" constant="90" id="AKp-jz-l6S"/>
-                            <constraint firstItem="Wzc-dC-e4T" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="AeH-mT-Gfr"/>
-                            <constraint firstAttribute="trailing" secondItem="M2Q-f0-3kx" secondAttribute="trailing" id="Gb5-hO-Ezr"/>
-                            <constraint firstItem="M2Q-f0-3kx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="II6-sP-hXD"/>
-                            <constraint firstItem="M2Q-f0-3kx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IIO-XJ-VOw"/>
-                            <constraint firstItem="72b-su-HZJ" firstAttribute="leading" secondItem="Wzc-dC-e4T" secondAttribute="leading" constant="19" id="L7r-PF-O3g"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="72b-su-HZJ" secondAttribute="trailing" constant="129" id="AKp-jz-l6S"/>
+                            <constraint firstItem="Wzc-dC-e4T" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="82" id="AeH-mT-Gfr"/>
+                            <constraint firstItem="72b-su-HZJ" firstAttribute="leading" secondItem="Wzc-dC-e4T" secondAttribute="leading" id="L7r-PF-O3g"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xt4-ap-nf3" secondAttribute="bottom" constant="40" id="Nh8-aY-Mxg"/>
                             <constraint firstItem="b4Q-S0-bxE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="XPu-g0-pAd"/>
-                            <constraint firstItem="Wzc-dC-e4T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zw5-vA-IMH"/>
-                            <constraint firstItem="M2Q-f0-3kx" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="gE0-To-uUp"/>
+                            <constraint firstItem="Wzc-dC-e4T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-20" id="Zw5-vA-IMH"/>
                             <constraint firstItem="xt4-ap-nf3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="uJJ-lw-RQv"/>
-                            <constraint firstItem="72b-su-HZJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="89" id="uZS-WC-KUl"/>
-                            <constraint firstItem="M2Q-f0-3kx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xvP-05-kcH"/>
+                            <constraint firstItem="72b-su-HZJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="139" id="uZS-WC-KUl"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -147,16 +141,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="赤色の線" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0N-ej-WHL">
-                                                <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="70" id="l5i-Hd-a23"/>
-                                                </constraints>
+                                                <rect key="frame" x="0.0" y="0.0" width="69.5" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OF1-3N-4X8" customClass="CheckBox" customModule="Where" customModuleProvider="target">
-                                                <rect key="frame" x="70" y="0.0" width="85" height="50"/>
+                                                <rect key="frame" x="69.5" y="0.0" width="85.5" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="redButton" image="check_off.png"/>
                                                 <connections>
@@ -165,9 +156,6 @@
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4k-da-KNL">
                                                 <rect key="frame" x="155" y="0.0" width="180" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="180" id="xad-3v-CbR"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -187,24 +175,18 @@
                                         <rect key="frame" x="0.0" y="69" width="335" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="青色の線" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDs-HX-B0S">
-                                                <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="70" id="Rw0-pY-77f"/>
-                                                </constraints>
+                                                <rect key="frame" x="0.0" y="0.0" width="69.5" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eyh-JA-uLL" customClass="CheckBox" customModule="Where" customModuleProvider="target">
-                                                <rect key="frame" x="70" y="0.0" width="85" height="50"/>
+                                                <rect key="frame" x="69.5" y="0.0" width="85.5" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <state key="normal" title="blueButton" image="check_off.png"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gm4-v3-jO3">
                                                 <rect key="frame" x="155" y="0.0" width="180" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="180" id="cqa-lk-kZ8"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -224,24 +206,18 @@
                                         <rect key="frame" x="0.0" y="138" width="335" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="紫色の線" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgO-kG-y34">
-                                                <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="70" id="H4B-1f-8GV"/>
-                                                </constraints>
+                                                <rect key="frame" x="0.0" y="0.0" width="69.5" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaj-mH-7Ob" customClass="CheckBox" customModule="Where" customModuleProvider="target">
-                                                <rect key="frame" x="70" y="0.0" width="85" height="50"/>
+                                                <rect key="frame" x="69.5" y="0.0" width="85.5" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <state key="normal" title="greenButton" image="check_off.png"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aK5-Zt-ezZ">
                                                 <rect key="frame" x="155" y="0.0" width="180" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="180" id="nEi-hq-MVy"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -409,8 +385,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background.png" width="639" height="1056"/>
-        <image name="check_off.png" width="16" height="16"/>
+        <image name="background.png" width="638" height="1059"/>
+        <image name="check_off.png" width="12" height="12"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
