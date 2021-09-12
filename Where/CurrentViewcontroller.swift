@@ -95,21 +95,29 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
         let mtLongitude3 = UserDefaults.standard.double(forKey: "mtLongitude3")
         
         
-//            }
+        // （緯度,経度）座標形式に
         let locMount1 = CLLocationCoordinate2D(latitude: mtLatitude1 , longitude: mtLongitude1 )
         let locMount2 = CLLocationCoordinate2D(latitude: mtLatitude2 , longitude: mtLongitude2 )
         let locMount3 = CLLocationCoordinate2D(latitude: mtLatitude3 , longitude: mtLongitude3 )
         
-        let arrMount1 = [locNow,locMount1]// 現在地と目的地１を入れた配列
-        let arrMount2 = [locNow,locMount2]// 現在地と目的地２を入れた配列
-        let arrMount3 = [locNow,locMount3]// 現在地と目的地３を入れた配列
+        // 現在地と目的地を入れた配列
+        let arrMount1 = [locNow,locMount1]
+        let arrMount2 = [locNow,locMount2]
+        let arrMount3 = [locNow,locMount3]
         
-        let redLine = RedOverlay(coordinates: arrMount1, count: 2)// ２点を結ぶ
-        mapView.addOverlays([redLine])// 地図上に描く
-        let blueLine = BlueOverlay(coordinates: arrMount2, count: 2)
-        mapView.addOverlays([blueLine])
-        let purpleLine = PurpleOverlay(coordinates: arrMount3, count: 2)
-        mapView.addOverlays([purpleLine])
+        // ２点を結ぶ線を引く。（緯度,経度）＝（０、０）　未設定の時は線を引かない
+            if (mtLatitude1 != 0) && (mtLongitude1 != 0) {
+                let redLine = RedOverlay(coordinates: arrMount1, count: 2)
+                mapView.addOverlays([redLine])// 地図上に描く
+            }
+            if (mtLatitude2 != 0) && (mtLongitude2 != 0) {
+                let blueLine = BlueOverlay(coordinates: arrMount2, count: 2)
+                mapView.addOverlays([blueLine])
+            }
+            if (mtLatitude3 != 0) && (mtLongitude3 != 0) {
+                let purpleLine = PurpleOverlay(coordinates: arrMount3, count: 2)
+                mapView.addOverlays([purpleLine])
+            }
     }
 
     // ポリライン(オーバーレイ)がどちらのクラスのものか、switch-case文で３つに分ける
