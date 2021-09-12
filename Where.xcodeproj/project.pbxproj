@@ -22,7 +22,7 @@
 		7FAE512326E4A66D000613D9 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAE512226E4A66D000613D9 /* CheckBox.swift */; };
 		7FED66BB26EDDC79009DF6EC /* check_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FED66B926EDDC79009DF6EC /* check_off.png */; };
 		7FED66BC26EDDC79009DF6EC /* check_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FED66BA26EDDC79009DF6EC /* check_on.png */; };
-		7FED66C426EDEB79009DF6EC /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FED66C326EDEB79009DF6EC /* background.png */; };
+		7FED66CC26EDF010009DF6EC /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FED66CB26EDF010009DF6EC /* background.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +43,7 @@
 		7FAE512226E4A66D000613D9 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		7FED66B926EDDC79009DF6EC /* check_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_off.png; sourceTree = "<group>"; };
 		7FED66BA26EDDC79009DF6EC /* check_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_on.png; sourceTree = "<group>"; };
-		7FED66C326EDEB79009DF6EC /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		7FED66CB26EDF010009DF6EC /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 				7F467C2626B53370008B641E /* LaunchScreen.storyboard */,
 				7F467C2926B53370008B641E /* Info.plist */,
 				7FA4979626ECCCF000EEC4AD /* mtDataAll.csv */,
-				7FED66C326EDEB79009DF6EC /* background.png */,
+				7FED66CB26EDF010009DF6EC /* background.png */,
 				7FED66BA26EDDC79009DF6EC /* check_on.png */,
 				7FED66B926EDDC79009DF6EC /* check_off.png */,
 			);
@@ -166,7 +166,7 @@
 			files = (
 				7FED66BC26EDDC79009DF6EC /* check_on.png in Resources */,
 				7F467C2826B53370008B641E /* LaunchScreen.storyboard in Resources */,
-				7FED66C426EDEB79009DF6EC /* background.png in Resources */,
+				7FED66CC26EDF010009DF6EC /* background.png in Resources */,
 				7FED66BB26EDDC79009DF6EC /* check_off.png in Resources */,
 				7FA4979726ECCCF000EEC4AD /* mtDataAll.csv in Resources */,
 				7F467C2526B53370008B641E /* Assets.xcassets in Resources */,
