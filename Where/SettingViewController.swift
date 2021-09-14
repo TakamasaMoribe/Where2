@@ -61,8 +61,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         // 「目的地選択」ボタンを表示して有効化する
         selectMtButton.isHidden = false // 「目的地選択」ボタンを表示する
         selectMtButton.isEnabled = true // 有効にする
-        selectAreaButton.isHidden = true // 「地域選択」ボタンを隠す
-        selectAreaButton.isEnabled = false // 無効にする
+//        selectAreaButton.isHidden = true // 「地域選択」ボタンを隠す
+//        selectAreaButton.isEnabled = false // 無効にする
         
     }
     
