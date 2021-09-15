@@ -45,6 +45,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         if selectedRegion == "" {
             // ０行目（最初の行の地域名）を選択したことにして処理する
             let region = self.pickerView(areaPickerView, titleForRow:0, forComponent: 0)
+//            let region = self.picker(areaPickerView, titleForRow:0, forComponent: 0)
             selectedRegion = region!
         }
         
@@ -192,7 +193,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     }
 
     
-// ＝　以下　ドラムロール関係　＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝　以下　ドラムロール関係　＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 //-------------------------------
     // コンポーネントの数（ホイールの数）
     func numberOfComponents(in picker: UIPickerView) -> Int {
@@ -207,7 +208,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     }
         
 //-------------------------------
-//func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { // あやしい。この下の } がないと　エラーを起こす？　 上の(_ pickerView: を 下の(_ picker: に変えてある
+//func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { // あやしい。この下の } がないと　エラーを起こす　 上の(_ pickerView: を 下の(_ picker: に変えてある
     }
     // コンポーネントの行数（配列の要素数＝選択肢の個数）を得る。
     func pickerView(_ picker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
