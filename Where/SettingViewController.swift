@@ -26,11 +26,11 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
 
     @IBOutlet weak var firstRedLabel: UILabel! // １番赤色
     @IBOutlet weak var secondBlueLabel: UILabel! // ２番青色
-    @IBOutlet weak var thirdGreenLabel: UILabel! // ３番緑色 紫色にした
+    @IBOutlet weak var thirdPurpleLabel: UILabel! // ３番紫色
     
     @IBOutlet weak var redButton: CheckBox! // 赤色の線の描画を有効にするかどうか
     @IBOutlet weak var blueButton: CheckBox!
-    @IBOutlet weak var greenButton: CheckBox!
+    @IBOutlet weak var purpleButton: CheckBox!
 
     
     // UIButton をチェックボックスとして使う  "CheckBox.swift"  class CheckBox: UIButton
@@ -179,9 +179,9 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                 UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude2")
                 UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude2")
             }else {
-                if greenButton.isChecked == false {
-                    thirdGreenLabel.text = selectedMounts[choice][2] // 緑線 実際は紫色
-                    greenButton.isChecked = true
+                if purpleButton.isChecked == false {
+                    thirdPurpleLabel.text = selectedMounts[choice][2] // 紫線
+                    purpleButton.isChecked = true
                     UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName3")
                     UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude3")
                     UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude3")
