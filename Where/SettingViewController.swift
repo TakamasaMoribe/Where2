@@ -251,10 +251,10 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                 // targetMountain() // メソッドで、場合分けして処理する
             }
         }
-        // 前回使ったときのデータに上書きするために必要？？？？？？？
-        UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName") //[2]山名保存
-        UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude") //[3]緯度保存
-        UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude") //[4]経度保存
+        // 前回使ったときのデータに上書きするために必要？？？？ 配列selectedMountsの要素が不正になる場合あり
+//        UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName") //[2]山名保存
+//        UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude") //[3]緯度保存
+//        UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude") //[4]経度保存
     }
     
 
