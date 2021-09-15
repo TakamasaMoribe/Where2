@@ -7,50 +7,43 @@
 
 import UIKit
 
-var originalMountDatas:[[String]] = [] //山の基本データ。二重配列にして、空にしておく。CSVファイルから読み込む
-let areaName = ["北海道","東北","関東甲越","中部","近畿中国","四国九州","海外"] // 地域名
-var selectedRegion:String = "" // ドラムロール１で選んだ地域名
-var selectedMounts:[[String]] = [] //地域に応じた山の基本データ originalMountDatasから取り出す
-var selectedMountsName:[String] = [] // 地域に応じた山名を入れる配列
-var choice:Int = 0 // ドラムロール２で選択した項目の番号（山の名前）
+    var originalMountDatas:[[String]] = [] //山の基本データ。二重配列にして、空にしておく。CSVファイルから読み込む
+    let areaName = ["北海道","東北","関東甲越","中部","近畿中国","四国九州","海外"] // 地域名
+    var selectedRegion:String = "" // ドラムロール１で選んだ地域名
+    var selectedMounts:[[String]] = [] //地域に応じた山の基本データ originalMountDatasから取り出す
+    var selectedMountsName:[String] = [] // 地域に応じた山名を入れる配列
+    var choice:Int = 0 // ドラムロール２で選択した項目の番号（山の名前に対応する）
 
 
 
 class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource {
  
-    
     @IBOutlet weak var areaPickerView: UIPickerView! // 地域名用のドラムロール
     @IBOutlet weak var mountPickerView: UIPickerView! // 山名用のドラムロール
-    
+
+    @IBOutlet weak var selectAreaButton: Custombutton! //地域選択ボタン
+    @IBOutlet weak var selectMtButton: Custombutton! //目的地選択ボタン
+
     @IBOutlet weak var firstRedLabel: UILabel! // １番赤色
     @IBOutlet weak var secondBlueLabel: UILabel! // ２番青色
     @IBOutlet weak var thirdGreenLabel: UILabel! // ３番緑色 紫色にした
     
-    @IBOutlet weak var redButton: CheckBox!
+    @IBOutlet weak var redButton: CheckBox! // 赤色の線の描画を有効にするかどうか
     @IBOutlet weak var blueButton: CheckBox!
     @IBOutlet weak var greenButton: CheckBox!
-    
-    @IBOutlet weak var selectAreaButton: Custombutton!
-    @IBOutlet weak var selectMtButton: Custombutton!
 
     
+    // UIButton をチェックボックスとして使う  "CheckBox.swift"  class CheckBox: UIButton
     @IBAction func checkView(_ sender: CheckBox) {
          // print(sender.isChecked)
      }
 
-    
-    // 目的地選択　ボタンを押した時
-    @IBAction func selectMtButton(_ sender: Any) { //目的地の選択終了ボタン
-        targetMountain() // 山名選択に応じて、赤、青、緑の線を引く山の名前を決める
-        //selectAreaButton.isHidden = false // 「地域選択」ボタンを表示する
-        //selectAreaButton.isEnabled = true // 有効にする
-    }
 
     // 地域選択　ボタンを押した時
-    @IBAction func selectAreaButton(_ sender: Any) { //地域名の選択終了ボタン
+    @IBAction func selectAreaButton(_ sender: Any) {
         //地域名を選択せずに、選択ボタンを押した場合の処理。
         if selectedRegion == "" {
-            // ０行目（最初の行の地域名）を選択したことする
+            // ０行目（最初の行の地域名）を選択したことにして処理する
             let region = self.pickerView(areaPickerView, titleForRow:0, forComponent: 0)
             selectedRegion = region!
         }
@@ -63,13 +56,17 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         mountPickerView.reloadAllComponents()
         
         // 「目的地選択」ボタンを表示して有効化する
-        selectMtButton.isHidden = false // 「目的地選択」ボタンを表示する
+        selectMtButton.isHidden = false // ボタンを表示する
         selectMtButton.isEnabled = true // 有効にする
-//        selectAreaButton.isHidden = true // 「地域選択」ボタンを隠す
-//        selectAreaButton.isEnabled = false // 無効にする
-        
     }
 
+    
+    // 目的地選択　ボタンを押した時
+    @IBAction func selectMtButton(_ sender: Any) {
+        targetMountain() // 山名選択に応じて、線を引く山の名前を取り出す
+    }
+
+    
     // START ボタンを押した時
     @IBAction func returnButton(_ sender: Any) { //「Start」ボタン押下時。設定を終了して、地図へ画面遷移する
         //山名を選択せずに、Startボタンを押した場合の処理。
@@ -100,7 +97,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     }
 
         
-//-------------------------------
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
     override func viewDidLoad() {
         super.viewDidLoad()
         areaPickerView.delegate = self
@@ -113,7 +110,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         //山の配列データをcsvファイルから読み込む。[番号、地域名、山名、緯度、経度]
         originalMountDatas = dataLoad()
     }
-//-------------------------------
+    
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
     // csvファイルから、山のデータを読み込む
     func dataLoad() -> [[String]] {
         // データを格納するための配列を準備する
@@ -193,7 +191,9 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         }
     }
 
-// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+    
+// ＝　以下　ドラムロール関係　＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+//-------------------------------
     // コンポーネントの数（ホイールの数）
     func numberOfComponents(in picker: UIPickerView) -> Int {
         if (picker.tag == 1){  //tagで分岐
@@ -205,13 +205,14 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                 return 1 //必要ないが
         }
     }
-
-//func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { // あやしい。この下の } がないと　エラーを起こす？　上の(_ pickerView: を 下の(_ picker: に変えてある
+        
+//-------------------------------
+//func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { // あやしい。この下の } がないと　エラーを起こす？　 上の(_ pickerView: を 下の(_ picker: に変えてある
     }
     // コンポーネントの行数（配列の要素数＝選択肢の個数）を得る。
     func pickerView(_ picker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if (picker.tag == 1){ //地域名を表示するドラムロール
-            return areaName.count // 地域名の個数＝６　"北海道","東北","関東甲信越","中部","近畿中国","四国九州"
+            return areaName.count // 地域名の個数＝７　"北海道","東北","関東甲越","中部","近畿中国","四国九州","海外"
         } else {
             if (picker.tag == 2){ //山名を表示するドラムロール
                 return selectedMountsName.count // 選択した地域に属する山名の個数
@@ -221,6 +222,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         }
     }
 
+//-------------------------------
     // 選択中のコンポーネントの番号と行から、指定した配列[areaName]と[mountsName]から項目名を返す
     func pickerView(_ picker: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         // 指定のコンポーネントから 選択中の項目名を取り出す。
@@ -235,6 +237,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         }
     }
 
+//-------------------------------
     // ドラムが回転して、どの項目が選ばれたか。情報を得る。
     //row1,row2でコンポーネント内の行番号。item1,item2でその内容。
     func pickerView(_ picker: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -257,7 +260,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         }
     }
     
-
+//-------------------------------
     // ドラムロールに表示するテキストの属性を設定する
     func pickerView(_ picker: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         // 表示するラベルを生成する
@@ -274,7 +277,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         return label
     }
     
-//---------------------------------------------------------------------------------
+//-------------------------------
 
 }
 
