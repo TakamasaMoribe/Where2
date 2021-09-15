@@ -7,16 +7,20 @@
 
 import UIKit
 
-var originalMountDatas:[[String]] = [] //山の基本データ。二重配列にして、空にしておく
+var originalMountDatas:[[String]] = [] //山の基本データ。二重配列にして、空にしておく。CSVファイルから読み込む
 let areaName = ["北海道","東北","関東甲越","中部","近畿中国","四国九州","海外"] // 地域名
 var selectedRegion:String = "" // ドラムロール１で選んだ地域名
-var selectedMounts:[[String]] = [] //地域に応じた山の基本データ originalMountDatasから取り出す func extract
+var selectedMounts:[[String]] = [] //地域に応じた山の基本データ originalMountDatasから取り出す
 var selectedMountsName:[String] = [] // 地域に応じた山名を入れる配列
 var choice:Int = 0 // ドラムロール２で選択した項目の番号（山の名前）
 
 
 
 class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+ 
+    
+    @IBOutlet weak var areaPickerView: UIPickerView! // 地域名用のドラムロール
+    @IBOutlet weak var mountPickerView: UIPickerView! // 山名用のドラムロール
     
     @IBOutlet weak var firstRedLabel: UILabel! // １番赤色
     @IBOutlet weak var secondBlueLabel: UILabel! // ２番青色
@@ -26,24 +30,23 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var blueButton: CheckBox!
     @IBOutlet weak var greenButton: CheckBox!
     
-    
+    @IBOutlet weak var selectAreaButton: Custombutton!
+    @IBOutlet weak var selectMtButton: Custombutton!
+
     
     @IBAction func checkView(_ sender: CheckBox) {
-         print(sender.isChecked)
+         // print(sender.isChecked)
      }
+
     
-    @IBOutlet weak var areaPickerView: UIPickerView! // 地域名用のドラムロール
-    @IBOutlet weak var mountPickerView: UIPickerView! // 山名用のドラムロール
-    
-    @IBOutlet weak var selectMtButton: Custombutton! // 目的地を選択後に押すボタン
+    // 目的地選択　ボタンを押した時
     @IBAction func selectMtButton(_ sender: Any) { //目的地の選択終了ボタン
         targetMountain() // 山名選択に応じて、赤、青、緑の線を引く山の名前を決める
         //selectAreaButton.isHidden = false // 「地域選択」ボタンを表示する
         //selectAreaButton.isEnabled = true // 有効にする
     }
-    
-    @IBOutlet weak var selectAreaButton: Custombutton!
-    // 地域名を選択後に押すボタン
+
+    // 地域選択　ボタンを押した時
     @IBAction func selectAreaButton(_ sender: Any) { //地域名の選択終了ボタン
         //地域名を選択せずに、選択ボタンを押した場合の処理。
         if selectedRegion == "" {
@@ -66,7 +69,8 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
 //        selectAreaButton.isEnabled = false // 無効にする
         
     }
-    
+
+    // START ボタンを押した時
     @IBAction func returnButton(_ sender: Any) { //「Start」ボタン押下時。設定を終了して、地図へ画面遷移する
         //山名を選択せずに、Startボタンを押した場合の処理。
             if choice == 0 {
@@ -144,11 +148,11 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
 //-------------------------------
     // 二重配列から、特定の要素を含む配列を取り出して、新しい二重配列をつくる
     func extract(_ word:String ,_ Array:[[String]]) -> [[String]] {
-        var filtered:[[String]] = []//　ドラムロールで選択した"地域名"を含む。抽出した配列
+        var filtered:[[String]] = [] // ドラムロールで選択した"地域名"が含まれる行だけの配列
         var j = 0 // ループカウンタ
         for array in originalMountDatas { //山のデータ配列[番号、地域名、山名、緯度、経度]
             // array[1]:２番目の要素（地域名）だけ調べる
-            if array[1] == selectedRegion { //取り出した要素が、検索値に等しい時
+            if array[1] == selectedRegion { //取り出した要素が、選択した地域名に等しい時
                 filtered.append(array)
             }
             j = j + 1
@@ -157,31 +161,31 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
 //-------------------------------
-    // 山名を選択したら、赤・青・緑の線を引く山の名前を設定し、緯度・経度のデータを保存する
+    // 山名を選択したら、赤・青・紫の線を引く山の名前を設定し、緯度・経度のデータを保存する
     func targetMountain()   {
         let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
         choice = row2 // ドラムロール２で選択した項目の番号
         if redButton.isChecked == false {
             firstRedLabel.text = selectedMounts[choice][2] // 赤線で引く山名を表示する
             redButton.isChecked = true
-            UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName1") //[2]山名保存
-            UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude1") //[3]緯度保存
-            UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude1") //[4]経度保存
+            UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName1") //山名保存
+            UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude1") //緯度保存
+            UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude1") //経度保存
             
         }else {
             if blueButton.isChecked == false {
-                secondBlueLabel.text = selectedMounts[choice][2] // 青線で引く山名を表示する
+                secondBlueLabel.text = selectedMounts[choice][2] // 青線
                 blueButton.isChecked = true
-                UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName2") //[2]山名保存
-                UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude2") //[3]緯度保存
-                UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude2") //[4]経度保存
+                UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName2")
+                UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude2")
+                UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude2")
             }else {
                 if greenButton.isChecked == false {
-                    thirdGreenLabel.text = selectedMounts[choice][2] // 緑線で引く山名を表示する
+                    thirdGreenLabel.text = selectedMounts[choice][2] // 緑線 実際は紫色
                     greenButton.isChecked = true
-                    UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName3") //[2]山名保存
-                    UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude3") //[3]緯度保存
-                    UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude3") //[4]経度保存
+                    UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName3")
+                    UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude3")
+                    UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude3")
                 }else {
                 //
                 }
@@ -202,7 +206,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         }
     }
 
-//func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { // あやしい
+//func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { // あやしい。この下の } がないと　エラーを起こす？　上の(_ pickerView: を 下の(_ picker: に変えてある
     }
     // コンポーネントの行数（配列の要素数＝選択肢の個数）を得る。
     func pickerView(_ picker: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -251,10 +255,6 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
                 // targetMountain() // メソッドで、場合分けして処理する
             }
         }
-        // 前回使ったときのデータに上書きするために必要？？？？ 配列selectedMountsの要素が不正になる場合あり
-//        UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName") //[2]山名保存
-//        UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude") //[3]緯度保存
-//        UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude") //[4]経度保存
     }
     
 
