@@ -51,6 +51,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
             let region = self.pickerView(areaPickerView, titleForRow:0, forComponent: 0)
             selectedRegion = region!
         }
+        
         // 選択した地域名に応じた山のデータ配列を抜き出す　word:検索する地域名、Array:検索対象の配列
         selectedMounts = extract(selectedRegion,originalMountDatas) // func extract()
         // 選択した地域名に応じた山名の配列を得る
