@@ -24,6 +24,7 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var selectAreaButton: Custombutton! //地域選択ボタン
     @IBOutlet weak var selectMtButton: Custombutton! //目的地選択ボタン
 
+    
     @IBOutlet weak var firstRedLabel: UILabel! // １番赤色
     @IBOutlet weak var secondBlueLabel: UILabel! // ２番青色
     @IBOutlet weak var thirdPurpleLabel: UILabel! // ３番紫色
@@ -97,6 +98,13 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
         self.present(nextView, animated: true, completion: nil)
     }
 
+    // 戻るボタンを押下時に、初期画面へ遷移する
+    @IBAction func backButton(_ sender: Any) {
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewController(withIdentifier: "StartViewController") as! ViewController
+        self.present(nextView, animated: true, completion: nil)
+    }
+    
         
 // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
     override func viewDidLoad() {
