@@ -89,7 +89,7 @@
         <!--Setting View Controller-->
         <scene sceneID="0Vs-Rl-Xfs">
             <objects>
-                <viewController storyboardIdentifier="Setting" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b9o-1Z-ua1" customClass="SettingViewController" customModule="Where" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b9o-1Z-ua1" customClass="SettingViewController" customModule="Where" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="Setting" id="nco-HY-yU2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -175,6 +175,7 @@
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gm4-v3-jO3">
                                                 <rect key="frame" x="120" y="0.0" width="215" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -310,14 +311,14 @@
                                     <action selector="selectMtButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="rPO-Cx-NK2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cC-sm-pCd">
-                                <rect key="frame" x="40" y="480" width="53" height="28.5"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cC-sm-pCd">
+                                <rect key="frame" x="60" y="450" width="45" height="46"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="53" id="fLx-50-oOG"/>
+                                    <constraint firstAttribute="width" constant="45" id="Kr0-h5-2gb"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="戻る">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
+                                <buttonConfiguration key="configuration" style="filled" image="back.png">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="backButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="NkP-eX-foK"/>
@@ -332,17 +333,17 @@
                             <constraint firstItem="AId-97-LNx" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="20" id="BfY-R0-YI3"/>
                             <constraint firstItem="slK-Za-OWn" firstAttribute="leading" secondItem="1FM-pp-3BE" secondAttribute="trailing" constant="83" id="DQk-M5-Q18"/>
                             <constraint firstItem="Hb9-Wz-Xjs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1FM-pp-3BE" secondAttribute="trailing" constant="8" symbolic="YES" id="EAs-T4-kxq"/>
-                            <constraint firstItem="8cC-sm-pCd" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="480" id="FU0-vQ-7pF"/>
                             <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" secondItem="or2-s6-1Vq" secondAttribute="trailing" constant="20" id="Ieo-zL-KVi"/>
                             <constraint firstItem="slK-Za-OWn" firstAttribute="baseline" secondItem="1FM-pp-3BE" secondAttribute="baseline" constant="-1" id="J74-Ad-QWE"/>
+                            <constraint firstItem="8cC-sm-pCd" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="450" id="MDs-Zh-DU7"/>
                             <constraint firstItem="1FM-pp-3BE" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="208" id="O6Z-MT-Z2d"/>
                             <constraint firstItem="Hb9-Wz-Xjs" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="20" id="QT0-b4-0yU"/>
                             <constraint firstItem="or2-s6-1Vq" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="20" id="Qpd-SV-5pD"/>
                             <constraint firstItem="iyw-HK-y1K" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="20" id="TfV-7v-eo8"/>
                             <constraint firstItem="Hb9-Wz-Xjs" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="220" id="Tmc-zO-Tbl"/>
                             <constraint firstItem="1FM-pp-3BE" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="55" id="TuS-gs-J4q"/>
-                            <constraint firstItem="8cC-sm-pCd" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="40" id="VoZ-Du-2Q9"/>
                             <constraint firstItem="iyw-HK-y1K" firstAttribute="leading" secondItem="nco-HY-yU2" secondAttribute="leading" id="eT9-d4-8XM"/>
+                            <constraint firstItem="8cC-sm-pCd" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="60" id="gQm-zm-dOh"/>
                             <constraint firstItem="or2-s6-1Vq" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="304" id="nqs-J4-ST0"/>
                             <constraint firstItem="AId-97-LNx" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="35" id="twd-6R-UNx"/>
                             <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Hb9-Wz-Xjs" secondAttribute="trailing" symbolic="YES" id="vk1-kn-vg5"/>
@@ -378,20 +379,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4L8-bv-YXg">
-                                <rect key="frame" x="40" y="450" width="53" height="31"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4L8-bv-YXg">
+                                <rect key="frame" x="46" y="450" width="38" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="53" id="Xth-ou-hID"/>
+                                    <constraint firstAttribute="width" constant="38" id="5MP-Hm-1rF"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="戻る"/>
+                                <buttonConfiguration key="configuration" style="plain" image="back.png" buttonSize="large">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="default"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="backButton:" destination="usj-0I-PfH" eventType="touchUpInside" id="SEn-sa-KoX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sxh-9j-e0C"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="4L8-bv-YXg" firstAttribute="top" secondItem="sxh-9j-e0C" secondAttribute="top" constant="450" id="e2E-6u-l8P"/>
-                            <constraint firstItem="4L8-bv-YXg" firstAttribute="leading" secondItem="sxh-9j-e0C" secondAttribute="leading" constant="40" id="pic-Sz-dTY"/>
+                            <constraint firstItem="4L8-bv-YXg" firstAttribute="top" secondItem="sxh-9j-e0C" secondAttribute="top" constant="450" id="KU0-WG-fVh"/>
+                            <constraint firstItem="4L8-bv-YXg" firstAttribute="leading" secondItem="sxh-9j-e0C" secondAttribute="leading" constant="46" id="OPB-gQ-v2v"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LLv-9P-Eix"/>
@@ -405,6 +411,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back.png" width="25.600000381469727" height="25.600000381469727"/>
         <image name="background.png" width="640" height="1058"/>
         <image name="check_off.png" width="12" height="12"/>
         <systemColor name="systemBackgroundColor">

@@ -28,7 +28,7 @@ class ViewController: UIViewController {
          // ①storyboardのインスタンス取得
          let storyboard: UIStoryboard = self.storyboard!
          // ②遷移先ViewControllerのインスタンス取得
-         let nextView = storyboard.instantiateViewController(withIdentifier: "Setting") as! SettingViewController
+         let nextView = storyboard.instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
          // ③画面遷移
          self.present(nextView, animated: true, completion: nil)
      }

@@ -20,6 +20,14 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
     
     // Mapを使用する
     @IBOutlet weak var mapView: MKMapView!
+    
+    @IBAction func backButton(_ sender: Any) {
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
+        self.present(nextView, animated: true, completion: nil)
+        
+    }
+    
     // ロケーションマネージャーのインスタンス
     var locManager: CLLocationManager!
     
