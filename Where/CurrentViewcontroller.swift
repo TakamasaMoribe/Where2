@@ -24,6 +24,7 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
     @IBAction func backButton(_ sender: Any) {
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
+        self.dismiss(animated: true) //画面表示を消去
         self.present(nextView, animated: true, completion: nil)
         
     }

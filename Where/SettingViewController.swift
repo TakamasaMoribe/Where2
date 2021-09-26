@@ -102,7 +102,11 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBAction func backButton(_ sender: Any) {
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "StartViewController") as! ViewController
+        self.dismiss(animated: true) //画面表示を消去
         self.present(nextView, animated: true, completion: nil)
+
+        //presentingViewController?.dismiss(animated: true) と書く方が、
+        //よりリファレンスに忠実なのでしょうかねぇ。
     }
     
         
