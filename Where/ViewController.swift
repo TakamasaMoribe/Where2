@@ -3,7 +3,7 @@
 //  Where
 //
 //  Created by 森部高昌 on 2021/08/13.
-//
+//　２０２１年１０月２日
 
 import UIKit
 
