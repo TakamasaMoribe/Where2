@@ -17,11 +17,9 @@
         @IBOutlet weak var searchText: UISearchBar!
         
         @IBOutlet weak var tableView: UITableView!
-        
-
+        // tableViewは、datasouce、delegateをviewControllerとの接続も必要。右クリックして確認できる
         // feedUrl：searchBarに入力した地名を問い合わせるのに使う
         // var feedUrl:URL = URL(string:"https://geocode.csis.u-tokyo.ac.jp/cgi-bin/simple_geocode.cgi")! //東大
-
 
         var feedUrl:URL = URL(string:"Dummy")! //初期化 何か入れていないとエラーになるので、とりあえずDummyとした
         var feedItems = [FeedItem]() // FeedItem　別クラスの配列。返ってきた値をtableViewに表示するために使う

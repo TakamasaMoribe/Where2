@@ -431,6 +431,10 @@
                                 <rect key="frame" x="16" y="71" width="343" height="541"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="eXT-TX-JQw" id="nU6-9x-WZb"/>
+                                    <outlet property="delegate" destination="eXT-TX-JQw" id="6Pb-a4-Zsf"/>
+                                </connections>
                             </tableView>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MQe-ke-QvH">
                                 <rect key="frame" x="0.0" y="9" width="375" height="44"/>
