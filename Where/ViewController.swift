@@ -13,6 +13,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    //検索ボタンを押したとき
+    @IBAction func searchButton(_ sender: Any) {
+        // ①storyboardのインスタンス取得
+        let storyboard: UIStoryboard = self.storyboard!
+        // ②遷移先ViewControllerのインスタンス取得
+        let nextView = storyboard.instantiateViewController(withIdentifier: "Search") as! SearchController
+        // ③画面遷移
+        self.present(nextView, animated: true, completion: nil)
+    }
+    
     // Startボタン押下時の処理
     @IBAction func goSetting(_ sender: Any) {
         //前回のデータを消去する。３ヶ所分

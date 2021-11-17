@@ -21,37 +21,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xt4-ap-nf3" customClass="Custombutton" customModule="Where" customModuleProvider="target">
-                                <rect key="frame" x="90" y="605" width="195" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title=" 前回と同じ地点 ">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="backColor">
-                                        <color key="value" red="0.26052441240000002" green="0.78785113899075254" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="lastTimeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N4z-W2-xO4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgZ-ZI-8Pa">
-                                <rect key="frame" x="301" y="566" width="57" height="33.5"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="検索">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
-                                </buttonConfiguration>
-                            </button>
                             <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4Q-S0-bxE" customClass="Custombutton" customModule="Where" customModuleProvider="target">
                                 <rect key="frame" x="100" y="487" width="175" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
@@ -76,6 +45,40 @@
                                     <action selector="goSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tSM-vE-m1b"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xt4-ap-nf3" customClass="Custombutton" customModule="Where" customModuleProvider="target">
+                                <rect key="frame" x="90" y="605" width="195" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title=" 前回と同じ地点 ">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backColor">
+                                        <color key="value" red="0.26052441240000002" green="0.78785113899075254" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="lastTimeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N4z-W2-xO4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgZ-ZI-8Pa">
+                                <rect key="frame" x="262" y="501" width="78" height="34"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="検索">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pGC-GA-JOK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -85,16 +88,16 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b4Q-S0-bxE" secondAttribute="trailing" constant="100" id="9BP-jr-el0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xt4-ap-nf3" secondAttribute="bottom" constant="26" id="Nh8-aY-Mxg"/>
                             <constraint firstItem="b4Q-S0-bxE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="XPu-g0-pAd"/>
-                            <constraint firstItem="lgZ-ZI-8Pa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="566" id="ldh-C8-UsQ"/>
+                            <constraint firstItem="lgZ-ZI-8Pa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="501" id="ldh-C8-UsQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lgZ-ZI-8Pa" secondAttribute="trailing" symbolic="YES" id="myD-FV-McH"/>
-                            <constraint firstItem="lgZ-ZI-8Pa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="301" id="nAK-5v-uLM"/>
+                            <constraint firstItem="lgZ-ZI-8Pa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="262" id="nAK-5v-uLM"/>
                             <constraint firstItem="xt4-ap-nf3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="uJJ-lw-RQv"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-154" y="116"/>
+            <point key="canvasLocation" x="-154.40000000000001" y="115.59220389805098"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="0Vs-Rl-Xfs">
@@ -419,7 +422,7 @@
         <!--Search Controller-->
         <scene sceneID="mJn-Dn-JTB">
             <objects>
-                <viewController id="eXT-TX-JQw" customClass="SearchController" customModule="Where" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Search" id="eXT-TX-JQw" customClass="SearchController" customModule="Where" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WSI-BF-W8P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -439,8 +442,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="searchText" destination="MQe-ke-QvH" id="UMN-21-yp2"/>
-                        <outlet property="tableView" destination="eM2-j7-MVo" id="Vf2-BQ-f5w"/>
+                        <outlet property="searchText" destination="MQe-ke-QvH" id="ITm-7K-2ku"/>
+                        <outlet property="tableView" destination="eM2-j7-MVo" id="F45-7M-WCB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tDB-q1-18W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

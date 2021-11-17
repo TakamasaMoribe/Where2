@@ -18,8 +18,11 @@
         
         @IBOutlet weak var tableView: UITableView!
         
+
         // feedUrl：searchBarに入力した地名を問い合わせるのに使う
-//        var feedUrl:URL = URL(string:"https://geocode.csis.u-tokyo.ac.jp/cgi-bin/simple_geocode.cgi")! //東大
+        // var feedUrl:URL = URL(string:"https://geocode.csis.u-tokyo.ac.jp/cgi-bin/simple_geocode.cgi")! //東大
+
+
         var feedUrl:URL = URL(string:"Dummy")! //初期化 何か入れていないとエラーになるので、とりあえずDummyとした
         var feedItems = [FeedItem]() // FeedItem　別クラスの配列。返ってきた値をtableViewに表示するために使う
         var currentElementName:String! // 返ってきた値をパースしている最中に、読み出している項目名
