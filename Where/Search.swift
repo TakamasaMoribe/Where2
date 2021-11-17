@@ -148,6 +148,16 @@
             userDefaults.set(feedItem.address!, forKey: "selectAddress")
             userDefaults.set(feedItem.longitude!, forKey: "selectLongitude")
             userDefaults.set(feedItem.latitude!, forKey: "selectLatitude")
+            
+            // ①storyboardのインスタンス取得
+            let storyboard: UIStoryboard = self.storyboard!
+            // ②遷移先ViewControllerのインスタンス取得
+            let nextView = storyboard.instantiateViewController(withIdentifier: "CurrentViewController") as! CurrentViewController
+            // ③画面遷移
+            self.present(nextView, animated: true, completion: nil)
+            
+            
+            
         }
         
     }

@@ -94,14 +94,17 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
         
         // 追加した山名１〜３について、緯度経度を読み込む・・・・メソッドにする？？
 //        let mtName1 = UserDefaults.standard.string(forKey: "mtName1")//山名読み込み
-        let mtLatitude1 = UserDefaults.standard.double(forKey: "mtLatitude1")//緯度読み込み
-        let mtLongitude1 = UserDefaults.standard.double(forKey: "mtLongitude1")//経度読み込み
+        //let mtLatitude1 = UserDefaults.standard.double(forKey: "mtLatitude1")//緯度読み込み
+        //let mtLongitude1 = UserDefaults.standard.double(forKey: "mtLongitude1")//経度読み込み
 //        let mtName2 = UserDefaults.standard.string(forKey: "mtName2")
         let mtLatitude2 = UserDefaults.standard.double(forKey: "mtLatitude2")
         let mtLongitude2 = UserDefaults.standard.double(forKey: "mtLongitude2")
 //        let mtName3 = UserDefaults.standard.string(forKey: "mtName3")
         let mtLatitude3 = UserDefaults.standard.double(forKey: "mtLatitude3")
         let mtLongitude3 = UserDefaults.standard.double(forKey: "mtLongitude3")
+        
+        let mtLatitude1 = UserDefaults.standard.double(forKey: "selectLatitude")//緯度読み込み
+        let mtLongitude1 = UserDefaults.standard.double(forKey: "selectLongitude")//経度読み込み
         
         
         // （緯度,経度）座標形式に
