@@ -22,6 +22,7 @@
 		7F7607FA26F1DA1100891AF1 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F7607F926F1DA1100891AF1 /* background.png */; };
 		7F87951426DE20E500BC1112 /* Custombutton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87951326DE20E500BC1112 /* Custombutton.swift */; };
 		7FAE512326E4A66D000613D9 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAE512226E4A66D000613D9 /* CheckBox.swift */; };
+		7FD6446B2744E6EE00CABF2E /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD6446A2744E6EE00CABF2E /* Search.swift */; };
 		7FED66BB26EDDC79009DF6EC /* check_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FED66B926EDDC79009DF6EC /* check_off.png */; };
 		7FED66BC26EDDC79009DF6EC /* check_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FED66BA26EDDC79009DF6EC /* check_on.png */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		7F7607F926F1DA1100891AF1 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		7F87951326DE20E500BC1112 /* Custombutton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custombutton.swift; sourceTree = "<group>"; };
 		7FAE512226E4A66D000613D9 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		7FD6446A2744E6EE00CABF2E /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		7FED66B926EDDC79009DF6EC /* check_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_off.png; sourceTree = "<group>"; };
 		7FED66BA26EDDC79009DF6EC /* check_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_on.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 				7F467C1D26B5336F008B641E /* SceneDelegate.swift */,
 				7F467C1F26B5336F008B641E /* ViewController.swift */,
 				7F467C2126B5336F008B641E /* Main.storyboard */,
+				7FD6446A2744E6EE00CABF2E /* Search.swift */,
 				7FAE512226E4A66D000613D9 /* CheckBox.swift */,
 				7F87951326DE20E500BC1112 /* Custombutton.swift */,
 				7F56416C26B93A6300D5F62E /* SettingViewController.swift */,
@@ -190,6 +193,7 @@
 				7F467C2026B5336F008B641E /* ViewController.swift in Sources */,
 				7FAE512326E4A66D000613D9 /* CheckBox.swift in Sources */,
 				7F467C1C26B5336F008B641E /* AppDelegate.swift in Sources */,
+				7FD6446B2744E6EE00CABF2E /* Search.swift in Sources */,
 				7F87951426DE20E500BC1112 /* Custombutton.swift in Sources */,
 				7F467C1E26B5336F008B641E /* SceneDelegate.swift in Sources */,
 			);
