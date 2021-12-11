@@ -42,9 +42,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgZ-ZI-8Pa" customClass="Custombutton" customModule="Where" customModuleProvider="target">
-                                <rect key="frame" x="151" y="511" width="73" height="43"/>
+                                <rect key="frame" x="127" y="511" width="121.5" height="43"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="検索">
+                                <buttonConfiguration key="configuration" style="plain" title="地名検索">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
@@ -460,7 +460,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tDB-q1-18W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1301.5999999999999" y="74.212893553223395"/>
+            <point key="canvasLocation" x="1316" y="-106"/>
         </scene>
     </scenes>
     <resources>
