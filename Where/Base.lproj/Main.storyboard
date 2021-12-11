@@ -17,12 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vhi-xi-clx">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4Q-S0-bxE" customClass="Custombutton" customModule="Where" customModuleProvider="target">
-                                <rect key="frame" x="100" y="487" width="175" height="60"/>
+                                <rect key="frame" x="146.5" y="431" width="82" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -45,8 +41,32 @@
                                     <action selector="goSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tSM-vE-m1b"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgZ-ZI-8Pa" customClass="Custombutton" customModule="Where" customModuleProvider="target">
+                                <rect key="frame" x="151" y="511" width="73" height="43"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="検索">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backColor">
+                                        <color key="value" red="0.23577839340000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pGC-GA-JOK"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xt4-ap-nf3" customClass="Custombutton" customModule="Where" customModuleProvider="target">
-                                <rect key="frame" x="90" y="605" width="195" height="36"/>
+                                <rect key="frame" x="111" y="581" width="153" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title=" 前回と同じ地点 ">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -69,29 +89,17 @@
                                     <action selector="lastTimeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N4z-W2-xO4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgZ-ZI-8Pa">
-                                <rect key="frame" x="262" y="501" width="75" height="34"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="検索">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pGC-GA-JOK"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="xt4-ap-nf3" firstAttribute="top" secondItem="b4Q-S0-bxE" secondAttribute="bottom" constant="58" id="1kH-Wx-miB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xt4-ap-nf3" secondAttribute="trailing" constant="90" id="85M-ND-ZcK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b4Q-S0-bxE" secondAttribute="trailing" constant="100" id="9BP-jr-el0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xt4-ap-nf3" secondAttribute="bottom" constant="26" id="Nh8-aY-Mxg"/>
-                            <constraint firstItem="b4Q-S0-bxE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="XPu-g0-pAd"/>
-                            <constraint firstItem="lgZ-ZI-8Pa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="501" id="ldh-C8-UsQ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lgZ-ZI-8Pa" secondAttribute="trailing" symbolic="YES" id="myD-FV-McH"/>
-                            <constraint firstItem="lgZ-ZI-8Pa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="262" id="nAK-5v-uLM"/>
-                            <constraint firstItem="xt4-ap-nf3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="uJJ-lw-RQv"/>
+                            <constraint firstItem="lgZ-ZI-8Pa" firstAttribute="centerX" secondItem="b4Q-S0-bxE" secondAttribute="centerX" id="EY9-qP-ylL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xt4-ap-nf3" secondAttribute="bottom" constant="50" id="FaL-3k-hTk"/>
+                            <constraint firstItem="xt4-ap-nf3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LnB-he-gAS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xt4-ap-nf3" secondAttribute="trailing" constant="111" id="ROS-g8-p2b"/>
+                            <constraint firstItem="lgZ-ZI-8Pa" firstAttribute="top" secondItem="b4Q-S0-bxE" secondAttribute="bottom" constant="20" id="Z3d-1n-SxH"/>
+                            <constraint firstItem="lgZ-ZI-8Pa" firstAttribute="centerX" secondItem="xt4-ap-nf3" secondAttribute="centerX" id="a4S-wm-tn7"/>
+                            <constraint firstItem="xt4-ap-nf3" firstAttribute="top" secondItem="lgZ-ZI-8Pa" secondAttribute="bottom" constant="27" id="mOd-Oe-6JT"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -457,7 +465,6 @@
     </scenes>
     <resources>
         <image name="back.png" width="25.600000381469727" height="25.600000381469727"/>
-        <image name="background.png" width="640" height="1058"/>
         <image name="check_off.png" width="12" height="12"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
