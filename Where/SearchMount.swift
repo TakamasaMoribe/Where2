@@ -9,7 +9,7 @@
 //  ①searchBarに検索する山名を入力する
 //  ②
 //  ③返ってきた値をtableViewに表示する。
-//  ④tableViewで選択したcellから、地名・緯度・経度を取得する
+//  ④tableViewで選択したcellから、山名・緯度・経度を取得する
 
 
 import UIKit

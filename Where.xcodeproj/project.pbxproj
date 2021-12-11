@@ -18,6 +18,7 @@
 		7F467C3126B5338E008B641E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F467C3026B5338D008B641E /* MapKit.framework */; };
 		7F467C3326B533E4008B641E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F467C3226B533E4008B641E /* CoreLocation.framework */; };
 		7F4B430827648349003DE6EB /* SearchMount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4B430727648349003DE6EB /* SearchMount.swift */; };
+		7F4B430A2764C6B3003DE6EB /* MountData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 7F4B43092764C6B3003DE6EB /* MountData.csv */; };
 		7F56416B26B9365000D5F62E /* CurrentViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56416A26B9365000D5F62E /* CurrentViewcontroller.swift */; };
 		7F56416D26B93A6300D5F62E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F56416C26B93A6300D5F62E /* SettingViewController.swift */; };
 		7F7607FA26F1DA1100891AF1 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F7607F926F1DA1100891AF1 /* background.png */; };
@@ -43,6 +44,7 @@
 		7F467C3026B5338D008B641E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7F467C3226B533E4008B641E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7F4B430727648349003DE6EB /* SearchMount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMount.swift; sourceTree = "<group>"; };
+		7F4B43092764C6B3003DE6EB /* MountData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MountData.csv; sourceTree = "<group>"; };
 		7F56416A26B9365000D5F62E /* CurrentViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentViewcontroller.swift; sourceTree = "<group>"; };
 		7F56416C26B93A6300D5F62E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		7F7607F926F1DA1100891AF1 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				7F467C2626B53370008B641E /* LaunchScreen.storyboard */,
 				7F467C2926B53370008B641E /* Info.plist */,
 				7F176073275E2193003B0063 /* MajorMount.csv */,
+				7F4B43092764C6B3003DE6EB /* MountData.csv */,
 				7F196593270DC1E30092BA39 /* mtDataAll.csv */,
 				7F7607F926F1DA1100891AF1 /* background.png */,
 				7FED66BA26EDDC79009DF6EC /* check_on.png */,
@@ -181,6 +184,7 @@
 				7F196594270DC1E30092BA39 /* mtDataAll.csv in Resources */,
 				7FED66BB26EDDC79009DF6EC /* check_off.png in Resources */,
 				7F3B13912700927400ED6E96 /* back.png in Resources */,
+				7F4B430A2764C6B3003DE6EB /* MountData.csv in Resources */,
 				7F467C2526B53370008B641E /* Assets.xcassets in Resources */,
 				7F467C2326B5336F008B641E /* Main.storyboard in Resources */,
 			);
