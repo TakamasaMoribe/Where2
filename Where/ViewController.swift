@@ -13,7 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    //検索ボタンを押したとき
+    //地名検索ボタンを押したとき
     @IBAction func searchButton(_ sender: Any) {
         // ①storyboardのインスタンス取得
         let storyboard: UIStoryboard = self.storyboard!
@@ -22,6 +22,21 @@ class ViewController: UIViewController {
         // ③画面遷移
         self.present(nextView, animated: true, completion: nil)
     }
+
+    //山名検索ボタンを押したとき
+    @IBAction func searchMountButton(_ sender: Any) {
+        // ①storyboardのインスタンス取得
+        let storyboard: UIStoryboard = self.storyboard!
+        // ②遷移先ViewControllerのインスタンス取得
+        let nextView = storyboard.instantiateViewController(withIdentifier: "SearchMount") as! SearchMountController
+        // ③画面遷移
+        self.present(nextView, animated: true, completion: nil)
+        
+        
+        
+        
+    }
+    
     
     // Startボタン押下時の処理
     @IBAction func goSetting(_ sender: Any) {
