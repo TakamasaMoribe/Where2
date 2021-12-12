@@ -79,7 +79,7 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
         }
         
     //-------------------------------
-        // 二重配列から、特定の要素を含む配列を取り出して、新しい二重配列をつくる
+        // 二重配列から、特定の要素を含む配列を取り出して、新しい二重配列をつくる  ----- いらない？？？
         func extract(_ word:String ,_ Array:[[String]]) -> [[String]] {
             var filtered:[[String]] = [] // ドラムロールで選択した"地域名"が含まれる行だけの配列
             var j = 0 // ループカウンタ
@@ -170,8 +170,8 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
 //            //タグの最初が見つかったとき呼ばれる
 //            func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
 //                self.currentElementName = nil // 初期化
-//                if elementName == "address" {
-//                    currentElementName = "address" //
+//                if elementName == "mountName" {
+//                    currentElementName = "mountName" //
 // ●                   self.findItems.append(findItem()) // tableViewに表示する配列に追加//・・・・・・・いる
 //                } else {
 //                   currentElementName = elementName
@@ -187,10 +187,10 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
 // ●                        let lastItem = self.findItems[self.findItems.count - 1]//・・・・・・・いる
 //
 //                        switch self.currentElementName {
-//                         case "address":
-//                             let tmpString = lastItem.address
-//                             lastItem.address = (tmpString != nil) ? tmpString! + string : string
-//                             print("address:\(string)") // 確認用
+//                         case "mountName":
+//                             let tmpString = lastItem.mountName
+//                             lastItem.mountName = (tmpString != nil) ? tmpString! + string : string
+//                             print("mountName:\(string)") // 確認用
 //                         case "longitude":
 //                             let tmpString = lastItem.longitude
 //                             lastItem.longitude = (tmpString != nil) ? tmpString! + string : string
@@ -227,19 +227,19 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
             func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                 let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "Cell")
                 let findItem = self.findItems[indexPath.row]
-                    cell.textLabel?.text = findItem.address // 検索結果　住所の表示
+                    cell.textLabel?.text = findItem.mountName // 検索結果　住所の表示
                 return cell
             }
 
             // セルを選択したとき
             func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
                 let findItem = self.findItems[indexPath.row]
-                print("選択した地点:\(findItem.address!)") //確認用
+                print("選択した地点:\(findItem.mountName!)") //確認用
                 print("選択した地点:\(findItem.longitude!)") //確認用
                 print("選択した地点:\(findItem.latitude!)") //確認用
                 // 選択した地点のデータを保存する
                 let userDefaults = UserDefaults.standard
-                userDefaults.set(findItem.address!, forKey: "selectAddress")
+                userDefaults.set(findItem.mountName!, forKey: "selectmountName")
                 userDefaults.set(findItem.longitude!, forKey: "selectLongitude")
                 userDefaults.set(findItem.latitude!, forKey: "selectLatitude")
                 
@@ -259,8 +259,14 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
 
     // ============================================================//
     class FindItem {
-        var address: String!
-        var longitude: String!
-        var latitude: String!
+        //[ふりがな,山名,緯度,経度,高度,都道府県名,山域名,地理院地図へのリンク]
+        var ruby:String! //よみがな
+        var mountName:String! //山名
+        var latitude: String! //緯度
+        var longitude: String! //経度
+        var height:String! //高さ
+        var prefecture:String! //都道府県名
+        var region:String! //山域名
+        var link:String! //地理院地図へのリンク
         }
 
