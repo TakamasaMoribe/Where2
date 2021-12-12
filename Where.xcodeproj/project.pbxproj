@@ -30,7 +30,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7F176073275E2193003B0063 /* MajorMount.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = MajorMount.csv; sourceTree = "<group>"; };
 		7F196593270DC1E30092BA39 /* mtDataAll.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mtDataAll.csv; sourceTree = "<group>"; };
 		7F3B13902700927400ED6E96 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		7F467C1826B5336F008B641E /* Where.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Where.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,7 +100,6 @@
 				7F467C2426B53370008B641E /* Assets.xcassets */,
 				7F467C2626B53370008B641E /* LaunchScreen.storyboard */,
 				7F467C2926B53370008B641E /* Info.plist */,
-				7F176073275E2193003B0063 /* MajorMount.csv */,
 				7F4B43092764C6B3003DE6EB /* MountData.csv */,
 				7F196593270DC1E30092BA39 /* mtDataAll.csv */,
 				7F7607F926F1DA1100891AF1 /* background.png */,

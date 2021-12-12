@@ -31,14 +31,103 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //山の配列データをcsvファイルから読み込む。[ふりがな,山名,緯度,経度,高度,都道府県名,山域名,地理院地図へのリンク]
+        originalMountDatas = dataLoad()
+        
         searchText.delegate = self
         searchText.placeholder = "検索する地名を入力してください"
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+ 
+    // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+        // csvファイルから、山のデータを読み込む　"MountData.csv"
+        func dataLoad() -> [[String]] {
+            // データを格納するための配列を準備する
+            var dataArray :[[String]] = [] // 二重配列にして、空配列にしておく
+            // データの読み込み準備 ファイルが見つからないときは実行しない
+            guard let thePath = Bundle.main.path(forResource: "MountData", ofType: "csv") else {
+                return [["null"]]
+            }
+             do {
+                let csvStringData = try String(contentsOfFile: thePath, encoding: String.Encoding.utf8)
+                csvStringData.enumerateLines(invoking: {(line,stop) in //改行されるごとに分割する
+                    let data = line.components(separatedBy: ",") //１行を","で分割して配列に入れる
+                    dataArray.append(data) // 格納用の配列に、１行ずつ追加していく
+                    }) // invokingからのクロージャここまで
+                }catch let error as NSError {
+                 print("ファイル読み込みに失敗。\n \(error)")
+             } // Do節ここまで
+            print(dataArray[1])
+            return dataArray
+            // dataArray = [[ふりがな,山名,緯度,経度,高度,都道府県名,山域名,地理院地図へのリンク]] 二重配列
+        }
+        
+    //------------------------------- いらない？？？
+        // 山名だけ取り出した配列をつくる。（ドラムロールに山名だけを表示するため）
+        func setMountsName(mountData:[[String]]) -> [String]{
+            let mountCount = mountData.count // 山の数
+            var mountsName:[String] = [] // 山名を取り出す配列　最初の宣言はいらない
+                for i in 0...mountCount-1 {
+                    mountsName.append(mountData[i][2]) //山名は、配列内の３番目[番号、地域名、山名、緯度、経度]
+                }
+            return mountsName // 山名の配列を返す
+        }
+        
+    //-------------------------------
+        // 二重配列から、特定の要素を含む配列を取り出して、新しい二重配列をつくる
+        func extract(_ word:String ,_ Array:[[String]]) -> [[String]] {
+            var filtered:[[String]] = [] // ドラムロールで選択した"地域名"が含まれる行だけの配列
+            var j = 0 // ループカウンタ
+            for array in originalMountDatas { //山のデータ配列[番号、地域名、山名、緯度、経度]
+                // array[1]:２番目の要素（地域名）だけ調べる
+                if array[1] == selectedRegion { //取り出した要素が、選択した地域名に等しい時
+                    filtered.append(array)
+                }
+                j = j + 1
+            }
+            return filtered
+        }
+        
+    //-------------------------------
+//        // 山名を選択したら、赤・青・紫の線を引く山の名前を設定し、緯度・経度のデータを保存する
+//        func targetMountain()   {
+//            let row2 = mountPickerView.selectedRow(inComponent: 0)//コンポーネント１内の行番号
+//            choice = row2 // ドラムロール２で選択した項目の番号
+//            if redButton.isChecked == false {
+//                firstRedLabel.text = selectedMounts[choice][2] // 赤線で引く山名を表示する
+//                redButton.isChecked = true
+//                UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName1") //山名保存
+//                UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude1") //緯度保存
+//                UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude1") //経度保存
+//
+//            }else {
+//                if blueButton.isChecked == false {
+//                    secondBlueLabel.text = selectedMounts[choice][2] // 青線
+//                    blueButton.isChecked = true
+//                    UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName2")
+//                    UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude2")
+//                    UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude2")
+//                }else {
+//                    if purpleButton.isChecked == false {
+//                        thirdPurpleLabel.text = selectedMounts[choice][2] // 紫線
+//                        purpleButton.isChecked = true
+//                        UserDefaults.standard.set(selectedMounts[choice][2], forKey: "mtName3")
+//                        UserDefaults.standard.set(selectedMounts[choice][3], forKey: "mtLatitude3")
+//                        UserDefaults.standard.set(selectedMounts[choice][4], forKey: "mtLongitude3")
+//                    }else {
+//                    //
+//                    }
+//                }
+//            }
+//        }
+//
+//
+    // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝　以下　SearchBarとtableView 関係　＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
     
     
     //-----------------------------------------------------------------------------
