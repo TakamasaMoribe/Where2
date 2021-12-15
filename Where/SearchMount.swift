@@ -62,8 +62,8 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
                 }catch let error as NSError {
                  print("ファイル読み込みに失敗。\n \(error)")
              } // Do節ここまで
-            print(dataArray[1])
-            print(dataArray[1][1])
+            print("dataArray[1]:\(dataArray[1])")
+            print("dataArray[1][0]:\(dataArray[1][0])")
             if let result = dataArray[1][0].firstIndex(of: "お") {
             print("result:\(result)")
             } else {
@@ -72,7 +72,9 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
             return dataArray
             // dataArray = [[ふりがな,山名,緯度,経度,高度,都道府県名,山域名,地理院地図へのリンク]] 二重配列
         }
-        
+    
+    // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+    
 //    //------------------------------- いらない？？？
 //        // 山名だけ取り出した配列をつくる。（ドラムロールに山名だけを表示するため）
 //        func setMountsName(mountData:[[String]]) -> [String]{
@@ -142,13 +144,38 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
             //キーボードを閉じる
             view.endEditing(true)
             if let searchWord = searchBar.text {
-                print("①検索地名:\(searchWord)") // キーボードからsearchBarに入力した地名の表示 ①
-            //入力されていたら、地名を検索する
-                //searchPlace(keyword: searchWord)// 別のルーチンを使う  // searchMount とでも名付ける
+                print("originalMountDatas:\(originalMountDatas[0])")
+                print("①検索山名:\(searchWord)") // キーボードからsearchBarに入力した山名の表示 ①
+
+            //入力されていたら、山名を検索する
+                searchMount(keyword: searchWord)
             }
         }
+  
     
-            
+        // 山名の検索  searchMountメソッド 第一引数：keyword 検索したい語句
+            func searchMount(keyword:String) {
+                print("searchMountの中")
+                for data in originalMountDatas {//originalMountDatasから１つずつdataに取り出す
+                    print("data:\(data)")
+                    print("data[0]:\(data[0])")//ふりがなの部分だけ
+                        if keyword == data[0] {
+                            print("keyword:\(keyword)")
+                        }
+                }
+                
+                let lastItem = self.findItems[self.findItems.count - 1]
+                    self.findItems.append(FindItem()) // tableViewに表示する配列に追加//
+                        if self.findItems.count > 0 {//
+                            let tmpString = lastItem.mountName
+                           // lastItem.mountName = (tmpString != nil) ? tmpString! + string : string
+                           // print("mountName:\(string)") // 確認用
+                            let lastItem = self.findItems[self.findItems.count - 1]//
+                        }//
+                
+                self.tableView.reloadData() //tableViewへ表示する
+            }
+    
 //            // 地名の検索  searchPlaceメソッド 第一引数：keyword 検索したい語句
 //            func searchPlace(keyword:String) {
 //                // keyword をurlエンコードする
@@ -232,7 +259,7 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
             func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                 let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "Cell")
                 let findItem = self.findItems[indexPath.row]
-                    cell.textLabel?.text = findItem.mountName // 検索結果　住所の表示
+                    cell.textLabel?.text = findItem.mountName // 検索結果　山名の表示
                 return cell
             }
 
@@ -263,7 +290,7 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
     // ============================================================//
     class FindItem {
         //[ふりがな,山名,緯度,経度,高度,都道府県名,山域名,地理院地図へのリンク]
-        var ruby:String! //よみがな
+        var phonetic:String! //よみがな
         var mountName:String! //山名
         var latitude: String! //緯度
         var longitude: String! //経度
