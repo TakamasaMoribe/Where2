@@ -63,35 +63,41 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
                  print("ファイル読み込みに失敗。\n \(error)")
              } // Do節ここまで
             print(dataArray[1])
+            print(dataArray[1][1])
+            if let result = dataArray[1][0].firstIndex(of: "お") {
+            print("result:\(result)")
+            } else {
+                print("nil")
+            }
             return dataArray
             // dataArray = [[ふりがな,山名,緯度,経度,高度,都道府県名,山域名,地理院地図へのリンク]] 二重配列
         }
         
-    //------------------------------- いらない？？？
-        // 山名だけ取り出した配列をつくる。（ドラムロールに山名だけを表示するため）
-        func setMountsName(mountData:[[String]]) -> [String]{
-            let mountCount = mountData.count // 山の数
-            var mountsName:[String] = [] // 山名を取り出す配列　最初の宣言はいらない
-                for i in 0...mountCount-1 {
-                    mountsName.append(mountData[i][2]) //山名は、配列内の３番目[番号、地域名、山名、緯度、経度]
-                }
-            return mountsName // 山名の配列を返す
-        }
+//    //------------------------------- いらない？？？
+//        // 山名だけ取り出した配列をつくる。（ドラムロールに山名だけを表示するため）
+//        func setMountsName(mountData:[[String]]) -> [String]{
+//            let mountCount = mountData.count // 山の数
+//            var mountsName:[String] = [] // 山名を取り出す配列　最初の宣言はいらない
+//                for i in 0...mountCount-1 {
+//                    mountsName.append(mountData[i][2]) //山名は、配列内の３番目[番号、地域名、山名、緯度、経度]
+//                }
+//            return mountsName // 山名の配列を返す
+//        }
         
-    //-------------------------------
-        // 二重配列から、特定の要素を含む配列を取り出して、新しい二重配列をつくる  ----- いらない？？？
-        func extract(_ word:String ,_ Array:[[String]]) -> [[String]] {
-            var filtered:[[String]] = [] // ドラムロールで選択した"地域名"が含まれる行だけの配列
-            var j = 0 // ループカウンタ
-            for array in originalMountDatas { //山のデータ配列[番号、地域名、山名、緯度、経度]
-                // array[1]:２番目の要素（地域名）だけ調べる
-                if array[1] == selectedRegion { //取り出した要素が、選択した地域名に等しい時
-                    filtered.append(array)
-                }
-                j = j + 1
-            }
-            return filtered
-        }
+//    //------------------------------- ----- いらない？？？
+//        // 二重配列から、特定の要素を含む配列を取り出して、新しい二重配列をつくる
+//        func extract(_ word:String ,_ Array:[[String]]) -> [[String]] {
+//            var filtered:[[String]] = [] // ドラムロールで選択した"地域名"が含まれる行だけの配列
+//            var j = 0 // ループカウンタ
+//            for array in originalMountDatas { //山のデータ配列[番号、地域名、山名、緯度、経度]
+//                // array[1]:２番目の要素（地域名）だけ調べる
+//                if array[1] == selectedRegion { //取り出した要素が、選択した地域名に等しい時
+//                    filtered.append(array)
+//                }
+//                j = j + 1
+//            }
+//            return filtered
+//        }
         
     //-------------------------------
 //        // 山名を選択したら、赤・青・紫の線を引く山の名前を設定し、緯度・経度のデータを保存する
@@ -138,8 +144,7 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
             if let searchWord = searchBar.text {
                 print("①検索地名:\(searchWord)") // キーボードからsearchBarに入力した地名の表示 ①
             //入力されていたら、地名を検索する
-                //searchPlace(keyword: searchWord)// 別のルーチンを使う
-                // searchMount とでも名付ける
+                //searchPlace(keyword: searchWord)// 別のルーチンを使う  // searchMount とでも名付ける
             }
         }
     
@@ -249,8 +254,6 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
                 let nextView = storyboard.instantiateViewController(withIdentifier: "CurrentViewController") as! CurrentViewController
                 // ③画面遷移
                 self.present(nextView, animated: true, completion: nil)
-                
-                
                 
             }
             
