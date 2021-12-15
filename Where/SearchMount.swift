@@ -4,7 +4,6 @@
 //
 //  Created by 森部高昌 on 2021/12/11.
 //  山の配列データをcsvファイルから読み込む。[ふりがな,山名,緯度,経度,高度,都道府県名,山域名,地理院地図へのリンク]
-//  あらかじめ五十音順にしておくべきか？
 //  山のデータを配列に入れる
 //  ①searchBarに検索する山名を入力する
 //  ②
@@ -14,18 +13,13 @@
 
 import UIKit
 
-class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDelegate, UITableViewDataSource, XMLParserDelegate {
+class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var searchText: UISearchBar!
     
     @IBOutlet weak var tableView: UITableView!
     // tableViewは、datasouce、delegateをviewControllerとの接続も必要。右クリックして確認できる
-    // feedUrl：searchBarに入力した地名を問い合わせるのに使う
-    // var feedUrl:URL = URL(string:"https://geocode.csis.u-tokyo.ac.jp/cgi-bin/simple_geocode.cgi")! //東大
-
-//    var feedUrl:URL = URL(string:"Dummy")! //初期化 何か入れていないとエラーになるので、とりあえずDummyとした
     var findItems = [FindItem]() // FindItem　別クラスの配列。返ってきた値をtableViewに表示するために使う
-//    var currentElementName:String! // 返ってきた値をパースしている最中に、読み出している項目名
     
 // -------------------------------------------------------------------------------
     
@@ -62,14 +56,6 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
                 }catch let error as NSError {
                  print("ファイル読み込みに失敗。\n \(error)")
              } // Do節ここまで
-            //print("dataArray[1]:\(dataArray[1])")
-            //print("dataArray[1][0]:\(dataArray[1][0])")
-            
-//            if let result = dataArray[1][0].firstIndex(of: "お") {
-//            print("result:\(result)")
-//            } else {
-//                print("nil")
-//            }
             
             return dataArray
             // dataArray = [[ふりがな,山名,緯度,経度,高度,都道府県名,山域名,地理院地図へのリンク]] 二重配列
@@ -84,43 +70,48 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
             //キーボードを閉じる
             view.endEditing(true)
             if let searchWord = searchBar.text {
-                //print("originalMountDatas:\(originalMountDatas[0])")
-                print("①検索山名:\(searchWord)") // キーボードからsearchBarに入力した山名の表示 ①
-
-            //入力されていたら、山名を検索する
+                print("①検索山名:\(searchWord)") // searchBarに入力した山名の表示
+                //入力されていたら、山名を検索する
                 searchMount(keyword: searchWord)
             }
         }
   
-    
+    //-----------------------------------------------------------------------------
         // 山名の検索  searchMountメソッド 第一引数：keyword 検索したい語句
-            func searchMount(keyword:String) {
-                print("searchMountの中")
-                for data in originalMountDatas {//originalMountDatasから１つずつdataに取り出す
-                    //print("data:\(data)")
-                        if data[0] == keyword {
-                            //print("keyword:\(keyword)")
-                            //print("data[0]:\(data[0])")//ふりがなの部分だけ
-                            print("data:\(data)")//
-                            print("self.findItems.count:\(self.findItems.count)")//０になってる
-                            if self.findItems.count > 0 {//
-                                let lastItem = self.findItems[self.findItems.count - 1]
-                                let tmpString = lastItem.mountName
-                                print(tmpString)
-                            }
-                        }
+        func searchMount(keyword:String) {
+            print("searchMountの中")
+            findItems = []
+            for data in originalMountDatas { //originalMountDatasから、１件ずつdataに取り出して調べる
+                //print(data)
+                if data[0] == keyword { //ふりがなの部分が一致したとき
+                    self.findItems.append(FindItem()) // tableViewに表示する配列に追加
+
+                    print("data:\(data)")//
+                    print("data[0]:\(data[0])")
+                    print("FindItem():\(FindItem())")
+                    print("findItems:\(self.findItems)")
+                    print("self.findItems.count:\(self.findItems.count)")
+
+//                    let lastItem = self.findItems[self.findItems.count - 1]
+//                    let tmpString = lastItem.mountName
+//                    print("tmpString:\(tmpString!)")
+
+//                    if self.findItems.count > 0 {//
+//                        //let lastItem = self.findItems[self.findItems.count - 1]
+//                        //let tmpString = lastItem.mountName
+//
+//                    }
                 }
-                
-                
-                    self.findItems.append(FindItem()) // tableViewに表示する配列に追加//
-                print("findItems:\(findItems)")
-                        
-                            //let tmpString = lastItem.mountName
-                           // lastItem.mountName = (tmpString != nil) ? tmpString! + string : string
-                           // print("mountName:\(string)") // 確認用
-                            //let lastItem = self.findItems[self.findItems.count - 1]//
-                self.tableView.reloadData() //tableViewへ表示する
             }
+                //self.findItems.append(FindItem()) // tableViewに表示する配列に追加//
+                //let tmpString = lastItem.mountName
+                // lastItem.mountName = (tmpString != nil) ? tmpString! + string : string
+                // print("mountName:\(string)") // 確認用
+                //let lastItem = self.findItems[self.findItems.count - 1]//
+            self.tableView.reloadData() //tableViewへ表示する
+        }
+    
+    //-----------------------------------------------------------------------------
     
 //            // 地名の検索  searchPlaceメソッド 第一引数：keyword 検索したい語句
 //            func searchPlace(keyword:String) {
