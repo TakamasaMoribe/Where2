@@ -38,7 +38,7 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
         // Dispose of any resources that can be recreated.
     }
  
-    // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
         // csvファイルから、山のデータを読み込む　"MountData.csv"
         func dataLoad() -> [[String]] {
             // データを格納するための配列を準備する
