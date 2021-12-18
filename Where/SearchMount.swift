@@ -19,7 +19,7 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
     
     @IBOutlet weak var tableView: UITableView!
     // tableViewは、datasouce、delegateをviewControllerとの接続も必要。右クリックして確認できる
-    var findItems = [FindItem]() // FindItem　別クラスの配列。返ってきた値をtableViewに表示するために使う
+    var findItems = [FindItem()] // FindItem　別クラスの配列。返ってきた値をtableViewに表示するために使う
     
 // -------------------------------------------------------------------------------
     
@@ -81,13 +81,15 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
         func searchMount(keyword:String) {
             print("searchMountの中")
             findItems = []
+            var filter:[[String]]=[]
             for data in originalMountDatas { //originalMountDatasから、１件ずつdataに取り出して調べる
-                //print(data)
                 if data[0] == keyword { //ふりがなの部分が一致したとき
+                    filter.append(data)
                     self.findItems.append(FindItem()) // tableViewに表示する配列に追加
-
+                    
                     print("data:\(data)")//
                     print("data[0]:\(data[0])")
+                    print("filter:\(filter)")//
                     print("FindItem():\(FindItem())")
                     print("findItems:\(self.findItems)")
                     print("self.findItems.count:\(self.findItems.count)")
@@ -227,8 +229,8 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
     // ============================================================//
     class FindItem {
         //[ふりがな,山名,緯度,経度,高度,都道府県名,山域名,地理院地図へのリンク]
-        var phonetic:String! //よみがな
-        var mountName:String! //山名
+        var phonetic:String! = "よみがな"//よみがな
+        var mountName:String! = "山名"//山名
         var latitude: String! //緯度
         var longitude: String! //経度
         var height:String! //高さ
