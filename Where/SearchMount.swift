@@ -119,17 +119,19 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
             return cell
         }
 
-        // セルを選択したとき ----------------------------------------
+        // セルを選択したとき そこのデータを保存して画面遷移する------------------------------
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let findItem = self.findItems[indexPath.row]
-//                print("選択した地点:\(findItem.mountName!)") //確認用
-//                print("選択した地点:\(findItem.longitude!)") //確認用
-//                print("選択した地点:\(findItem.latitude!)") //確認用
+            let selectedItem = self.findItems[indexPath.row]
+                print("選択した地点:\(selectedItem[1])") //確認用
+                print("選択した地点:\(selectedItem[2])") //確認用
+                print("選択した地点:\(selectedItem[3])") //確認用
+                print("選択した地点:\(selectedItem[4])") //確認用
+                print("選択した地点:\(selectedItem[5])") //確認用
                 // 選択した地点のデータを保存する
                 let userDefaults = UserDefaults.standard
-//                userDefaults.set(findItem.mountName!, forKey: "selectmountName")
-//                userDefaults.set(findItem.longitude!, forKey: "selectLongitude")
-//                userDefaults.set(findItem.latitude!, forKey: "selectLatitude")
+                userDefaults.set(selectedItem[1], forKey: "selectmountName") // 山名
+                userDefaults.set(selectedItem[2], forKey: "selectLatitude") // 緯度
+                userDefaults.set(selectedItem[3], forKey: "selectLongitude") // 経度
                 
                 // ①storyboardのインスタンス取得
                 let storyboard: UIStoryboard = self.storyboard!
