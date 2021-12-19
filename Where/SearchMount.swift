@@ -109,8 +109,13 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
         // セルへの表示
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "Cell")
+            //let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
             let findItem = self.findItems[indexPath.row]
-            cell.textLabel?.text = findItem[1] // 検索結果　山名の表示
+            
+            let mountText = findItem[0] + "(" + findItem[1] + ")"
+            cell.textLabel?.text = mountText// 検索結果　山名の表示
+            let detailText = findItem[5] + "/" + findItem[6]
+            cell.detailTextLabel?.text = detailText // 検索結果　県名・山域名の表示
             return cell
         }
 
