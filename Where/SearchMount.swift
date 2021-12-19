@@ -19,7 +19,7 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
     
     @IBOutlet weak var tableView: UITableView!
     // tableViewは、datasouce、delegateをviewControllerとの接続も必要。右クリックして確認できる
-    var findItems = [FindItem()] // FindItem　別クラスの配列。返ってきた値をtableViewに表示するために使う
+    var findItems:[FindItem] = [] // FindItem　別クラスの配列。返ってきた値をtableViewに表示するために使う
     
 // -------------------------------------------------------------------------------
     
@@ -81,17 +81,18 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
         func searchMount(keyword:String) {
             print("searchMountの中")
             findItems = []
-            var filter:[[String]]=[]
+            var filtered:[[String]]=[]
             for data in originalMountDatas { //originalMountDatasから、１件ずつdataに取り出して調べる
                 if data[0] == keyword { //ふりがなの部分が一致したとき
-                    filter.append(data)
+                    filtered.append(data)
+                    //FindItem = filter
                     self.findItems.append(FindItem()) // tableViewに表示する配列に追加
                     
                     print("data:\(data)")//
                     print("data[0]:\(data[0])")
-                    print("filter:\(filter)")//
-                    print("FindItem():\(FindItem())")
-                    print("findItems:\(self.findItems)")
+                    print("filtered[0]:\(filtered[0])")//
+                    print("FindItem():\(FindItem().mountName)")
+                    print("findItems:\(findItems)")
                     print("self.findItems.count:\(self.findItems.count)")
 
 //                    let lastItem = self.findItems[self.findItems.count - 1]
