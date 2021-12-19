@@ -2,11 +2,11 @@
 //  SearchMount.swift
 //  Where
 //
-//  Created by 森部高昌 on 2021/12/11.
+//  Created by 森部高昌 on 2021/12/19.
 //  山の配列データをcsvファイルから読み込む。[ふりがな,山名,緯度,経度,高度,都道府県名,山域名,地理院地図へのリンク]
 //  山のデータを配列に入れる
 //  ①searchBarに検索する山名を入力する
-//  ②
+//  ②データを検索する
 //  ③返ってきた値をtableViewに表示する。
 //  ④tableViewで選択したcellから、山名・緯度・経度を取得する
 
@@ -19,10 +19,10 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
     
     @IBOutlet weak var tableView: UITableView!
     // tableViewは、datasouce、delegateをviewControllerとの接続も必要。右クリックして確認できる
-//    var findItems:[FindItem] = [] // FindItem　別クラスの配列。返ってきた値をtableViewに表示するために使う
+
     var findItems:[[String]] = []
     
-// -------------------------------------------------------------------------------
+    // -------------------------------------------------------------------------------
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +38,9 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
- 
-// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+    // -------------------------------------------------------------------------------
+
         // csvファイルから、山のデータを読み込む　"MountData.csv"
         func dataLoad() -> [[String]] {
             // データを格納するための配列を準備する
@@ -62,10 +63,8 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
             // dataArray = [[ふりがな,山名,緯度,経度,高度,都道府県名,山域名,地理院地図へのリンク]] 二重配列
         }
 
-
-    // ＝＝＝＝＝＝　以下　SearchBarとtableView 関係　＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
     
-    //-----------------------------------------------------------------------------
+    //　以下　SearchBar 関係　＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
         // searchBarへの入力に対する処理
         func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
             //キーボードを閉じる
@@ -77,7 +76,7 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
             }
         }
   
-    //-----------------------------------------------------------------------------
+    //---------------------------------------------------------------
         // 山名の検索  searchMountメソッド 第一引数：keyword 検索したい語句
         func searchMount(keyword:String) {
 
@@ -100,7 +99,7 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
         }
     
             
-    // tableView への表示・セルの選択----------------------------------------
+    // 以下　tableView 関係　＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
         // 行数の取得
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return self.findItems.count
@@ -109,17 +108,13 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
         // セルへの表示
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "Cell")
-            //let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-            let findItem = self.findItems[indexPath.row]
-            
-            let mountText = findItem[0] + "(" + findItem[1] + ")"
-            cell.textLabel?.text = mountText// 検索結果　山名の表示
-            let detailText = findItem[5] + "/" + findItem[6]
-            cell.detailTextLabel?.text = detailText // 検索結果　県名・山域名の表示
+            let findItem = self.findItems[indexPath.row] // セルに表示されるデータ配列
+            cell.textLabel?.text = findItem[0] + "(" + findItem[1] + ")" // 検索結果　山名の表示
+            cell.detailTextLabel?.text = findItem[5] + "/" + findItem[6] // 検索結果　県名・山域名の表示
             return cell
         }
 
-        // セルを選択したとき そこのデータを保存して画面遷移する------------------------------
+        // セルを選択したときの動作：データ保存、map画面へ遷移
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let selectedItem = self.findItems[indexPath.row]
                 print("選択した地点:\(selectedItem[1])") //確認用
@@ -141,6 +136,6 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
                 self.present(nextView, animated: true, completion: nil)
                 
             }
-    // ----------------------------------------
+    // 　＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
     
     }
