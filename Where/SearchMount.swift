@@ -99,90 +99,24 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
             self.tableView.reloadData() //tableViewへ表示する
         }
     
-    //-----------------------------------------------------------------------------
-    
-//            // 地名の検索  searchPlaceメソッド 第一引数：keyword 検索したい語句
-//            func searchPlace(keyword:String) {
-//                // keyword をurlエンコードする
-//                guard let keyword_encode = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
-//                    return
-//                }
-//                // keyword_encode を使って、リクエストurlを組み立てる
-//                guard let req_url = URL(string: "https://geocode.csis.u-tokyo.ac.jp/cgi-bin/simple_geocode.cgi?addr=\(keyword_encode)") else {
-//                    return
-//                }
-//
-//                feedUrl = req_url // パースするときに使っている
-//                print("②feedUrl:\(feedUrl)")//入力されていたら、アドレスを表示する。
-//                //feedUrlの中身をパースする  パーサーは使わない
-//                    //print("パース開始")
-//                    //let parser: XMLParser! = XMLParser(contentsOf: feedUrl)
-//                    //parser.delegate = self
-//                    //parser.parse()
-//                self.tableView.reloadData() //tableViewへ表示する
-//            }
-            
-    //-----------------------------------------------------------------------------
-            
-//            //タグの最初が見つかったとき呼ばれる
-//            func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
-//                self.currentElementName = nil // 初期化
-//                if elementName == "mountName" {
-//                    currentElementName = "mountName" //
-// ●                   self.findItems.append(findItem()) // tableViewに表示する配列に追加//・・・・・・・いる
-//                } else {
-//                   currentElementName = elementName
-//                }
-//            }
-//
-//            // 開始タグと終了タグでくくられたデータがあったときに実行されるメソッド。stringが得られる
-//             func parser(_ parser: XMLParser, foundCharacters string: String) {
-//
-//                 if string != "\n" { // 改行でなければ読み取る
-//
-// ●                    if self.findItems.count > 0 {//・・・・・・・いる
-// ●                        let lastItem = self.findItems[self.findItems.count - 1]//・・・・・・・いる
-//
-//                        switch self.currentElementName {
-//                         case "mountName":
-//                             let tmpString = lastItem.mountName
-//                             lastItem.mountName = (tmpString != nil) ? tmpString! + string : string
-//                             print("mountName:\(string)") // 確認用
-//                         case "longitude":
-//                             let tmpString = lastItem.longitude
-//                             lastItem.longitude = (tmpString != nil) ? tmpString! + string : string
-//                             print("longitude:\(string)") // 確認用
-//                         case "latitude":
-//                             let tmpString = lastItem.latitude
-//                             lastItem.latitude = (tmpString != nil) ? tmpString! + string : string
-//                             print("latitude:\(string)") // 確認用
-//                         default:
-//                             break
-//                        }
-//                    }
-//                 }
-//             }
-//
-
-
             
     // tableView への表示・セルの選択----------------------------------------
-            // 行数の取得
-            func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-                return self.findItems.count
-            }
+        // 行数の取得
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return self.findItems.count
+        }
 
-            // セルへの表示
-            func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "Cell")
-                let findItem = self.findItems[indexPath.row]
-                    cell.textLabel?.text = findItem[1] // 検索結果　山名の表示
-                return cell
-            }
+        // セルへの表示
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "Cell")
+            let findItem = self.findItems[indexPath.row]
+            cell.textLabel?.text = findItem[1] // 検索結果　山名の表示
+            return cell
+        }
 
-            // セルを選択したとき
-            func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-                let findItem = self.findItems[indexPath.row]
+        // セルを選択したとき ----------------------------------------
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let findItem = self.findItems[indexPath.row]
 //                print("選択した地点:\(findItem.mountName!)") //確認用
 //                print("選択した地点:\(findItem.longitude!)") //確認用
 //                print("選択した地点:\(findItem.latitude!)") //確認用
@@ -200,20 +134,6 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
                 self.present(nextView, animated: true, completion: nil)
                 
             }
-            
-        }
-
-
-    // ============================================================//
-//    class FindItem {
-//        //[ふりがな,山名,緯度,経度,高度,都道府県名,山域名,地理院地図へのリンク]
-//        var phonetic:String! = "よみがな"//よみがな
-//        var mountName:String! = "山名"//山名
-//        var latitude: String! //緯度
-//        var longitude: String! //経度
-//        var height:String! //高さ
-//        var prefecture:String! //都道府県名
-//        var region:String! //山域名
-//        var link:String! //地理院地図へのリンク
-//        }
-
+    // ----------------------------------------
+    
+    }
