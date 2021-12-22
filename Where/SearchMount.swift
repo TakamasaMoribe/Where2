@@ -86,10 +86,11 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
 //                let lastItem = self.findItems[self.findItems.count - 1]//現在のデータ
 //                    print("lastItem[1]:\(lastItem[1])") // 山名確認
 //            }
-            if (data[0].hasPrefix(keyword)){ //trueのとき
-               print("\(keyword)から始まる文字列")
+
+            if (data[0].hasPrefix(keyword)){ //ふりがな部分が前方一致で見つかったとき
+                self.findItems.append(data)// tableViewに表示する配列に追加
             }else{
-               print("見つかりません")
+               //print("見つかりません")
             }
             
         }
