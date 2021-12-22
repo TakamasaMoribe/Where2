@@ -81,11 +81,17 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
     func searchMount(keyword:String) {
         findItems = [] // 空にしておく
         for data in originalMountDatas { //originalMountDatasから、１件ずつdataに取り出して調べる
-            if data[0] == keyword { //ふりがなの部分が一致したとき
-                self.findItems.append(data)// tableViewに表示する配列に追加
-                let lastItem = self.findItems[self.findItems.count - 1]//現在のデータ
-                    print("lastItem[1]:\(lastItem[1])") // 山名確認
+//            if data[0] == keyword { //ふりがなの部分が一致したとき
+//                self.findItems.append(data)// tableViewに表示する配列に追加
+//                let lastItem = self.findItems[self.findItems.count - 1]//現在のデータ
+//                    print("lastItem[1]:\(lastItem[1])") // 山名確認
+//            }
+            if (data[0].hasPrefix(keyword)){ //trueのとき
+               print("\(keyword)から始まる文字列")
+            }else{
+               print("見つかりません")
             }
+            
         }
         self.tableView.reloadData() //tableViewへ表示する
     }
