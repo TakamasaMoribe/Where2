@@ -62,10 +62,10 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
                  print("ファイル読み込みに失敗。\n \(error)")
         } // Do節ここまで
          
+        // dataArray 山のデータ 二重配列
         //print(dataArray[100])  //OK
         
         return dataArray
-        // dataArray 山のデータ 二重配列
 
     }
 
