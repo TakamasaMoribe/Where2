@@ -32,7 +32,7 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
         originalMountDatas = dataLoad()
         
         searchText.delegate = self
-        searchText.placeholder = "検索する地名を入力してください"
+        searchText.placeholder = "ひらがなで、地名を入力してください"
         
     }
     
@@ -61,9 +61,12 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
         }catch let error as NSError {
                  print("ファイル読み込みに失敗。\n \(error)")
         } // Do節ここまで
-            
+         
+        //print(dataArray[100])  //OK
+        
         return dataArray
         // dataArray 山のデータ 二重配列
+
     }
 
     
