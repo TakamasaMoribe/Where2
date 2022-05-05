@@ -350,27 +350,22 @@
                                     <action selector="selectMtButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="rPO-Cx-NK2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cC-sm-pCd">
-                                <rect key="frame" x="60" y="450" width="152" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="Sdv-Jl-tSm"/>
-                                    <constraint firstAttribute="height" constant="36" id="l2I-TD-Cm3"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="back.png">
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="backButton:" destination="b9o-1Z-ua1" eventType="touchUpInside" id="NkP-eX-foK"/>
-                                </connections>
-                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nTh-Iy-3Z2">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Back" image="arrowshape.turn.up.left.fill" catalog="system" id="Qxf-nO-a9X">
+                                        <connections>
+                                            <action selector="backButtonClicked:" destination="b9o-1Z-ua1" id="fsn-OX-lbn"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3g2-uh-Tjw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="m6K-qa-Sqa" secondAttribute="trailing" symbolic="YES" id="0PC-IR-iEf"/>
-                            <constraint firstItem="m6K-qa-Sqa" firstAttribute="leading" secondItem="8cC-sm-pCd" secondAttribute="trailing" constant="8" symbolic="YES" id="0pM-z3-5a9"/>
                             <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="slK-Za-OWn" secondAttribute="trailing" symbolic="YES" id="2wp-KL-o58"/>
                             <constraint firstAttribute="trailing" secondItem="iyw-HK-y1K" secondAttribute="trailing" id="7kR-uR-67F"/>
                             <constraint firstItem="AId-97-LNx" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="20" id="BfY-R0-YI3"/>
@@ -385,8 +380,6 @@
                             <constraint firstItem="Hb9-Wz-Xjs" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="220" id="Tmc-zO-Tbl"/>
                             <constraint firstItem="1FM-pp-3BE" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="55" id="TuS-gs-J4q"/>
                             <constraint firstItem="iyw-HK-y1K" firstAttribute="leading" secondItem="nco-HY-yU2" secondAttribute="leading" id="eT9-d4-8XM"/>
-                            <constraint firstItem="8cC-sm-pCd" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="60" id="eZc-rC-V5e"/>
-                            <constraint firstItem="8cC-sm-pCd" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="450" id="lAy-Dj-A7r"/>
                             <constraint firstItem="or2-s6-1Vq" firstAttribute="top" secondItem="3g2-uh-Tjw" secondAttribute="top" constant="304" id="nqs-J4-ST0"/>
                             <constraint firstItem="AId-97-LNx" firstAttribute="leading" secondItem="3g2-uh-Tjw" secondAttribute="leading" constant="35" id="twd-6R-UNx"/>
                             <constraint firstItem="3g2-uh-Tjw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Hb9-Wz-Xjs" secondAttribute="trailing" symbolic="YES" id="vk1-kn-vg5"/>
@@ -395,6 +388,7 @@
                     </view>
                     <connections>
                         <outlet property="areaPickerView" destination="7cs-BQ-oK5" id="ocb-Uf-WBs"/>
+                        <outlet property="backButton" destination="Qxf-nO-a9X" id="rkb-ke-19x"/>
                         <outlet property="blueButton" destination="Eyh-JA-uLL" id="aln-yg-Eli"/>
                         <outlet property="firstRedLabel" destination="d4k-da-KNL" id="8gn-Ct-Deh"/>
                         <outlet property="mountPickerView" destination="oMM-KY-wEa" id="pkX-t8-LBp"/>
@@ -495,31 +489,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4L8-bv-YXg">
-                                <rect key="frame" x="46" y="450" width="72" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="Sdj-cl-34p"/>
-                                    <constraint firstAttribute="height" constant="36" id="atX-iG-RW0"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="back.png" buttonSize="large">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="default"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="backButton:" destination="usj-0I-PfH" eventType="touchUpInside" id="SEn-sa-KoX"/>
-                                </connections>
-                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aSg-RR-ORG">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Back" image="arrowshape.turn.up.left.fill" catalog="system" id="kaX-PQ-lkw">
+                                        <connections>
+                                            <action selector="backButtonClicked:" destination="usj-0I-PfH" id="LXy-TM-eDn"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sxh-9j-e0C"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="sxh-9j-e0C" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4L8-bv-YXg" secondAttribute="trailing" symbolic="YES" id="h8P-Jl-jig"/>
-                            <constraint firstItem="4L8-bv-YXg" firstAttribute="top" secondItem="sxh-9j-e0C" secondAttribute="top" constant="450" id="jPk-iW-T24"/>
-                            <constraint firstItem="4L8-bv-YXg" firstAttribute="leading" secondItem="sxh-9j-e0C" secondAttribute="leading" constant="46" id="tUB-WA-HYe"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LLv-9P-Eix"/>
                     <connections>
+                        <outlet property="backButton" destination="kaX-PQ-lkw" id="RJt-h5-w8i"/>
                         <outlet property="mapView" destination="wDf-x1-kSq" id="wOu-b4-gmg"/>
                     </connections>
                 </viewController>
@@ -579,7 +566,6 @@
         <image name="AroundJapan.png" width="838" height="909"/>
         <image name="arrowshape.turn.up.backward.fill" catalog="system" width="128" height="106"/>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
-        <image name="back.png" width="25.600000381469727" height="25.600000381469727"/>
         <image name="check_off.png" width="12" height="12"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

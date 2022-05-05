@@ -17,7 +17,11 @@ import UIKit
 
 
 class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewDataSource {
- 
+    
+    //ツールバーのbackButton
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    
+    
     @IBOutlet weak var areaPickerView: UIPickerView! // 地域名用のドラムロール
     @IBOutlet weak var mountPickerView: UIPickerView! // 山名用のドラムロール
 
@@ -33,6 +37,16 @@ class SettingViewController: ViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var blueButton: CheckBox!
     @IBOutlet weak var purpleButton: CheckBox!
 
+  //戻るボタン "StartViewController"
+    @IBAction func backButtonClicked(_ sender: UIBarButtonItem) {
+        
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewController(withIdentifier: "StartViewController") as! ViewController
+        self.dismiss(animated: true) //画面表示を消去
+        self.present(nextView, animated: true, completion: nil)
+        
+    }
+    
     
     // UIButton をチェックボックスとして使う  "CheckBox.swift"  class CheckBox: UIButton
     @IBAction func checkView(_ sender: CheckBox) {

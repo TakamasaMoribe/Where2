@@ -21,13 +21,17 @@ class CurrentViewController: ViewController,CLLocationManagerDelegate,MKMapViewD
     // Mapを使用する
     @IBOutlet weak var mapView: MKMapView!
     
-    @IBAction func backButton(_ sender: Any) {
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    
+    //初期画面"SettingViewController"に戻る
+    @IBAction func backButtonClicked(_ sender: UIBarButtonItem) {
         let storyboard: UIStoryboard = self.storyboard!
-        let nextView = storyboard.instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
+        let nextView = storyboard.instantiateViewController(withIdentifier: "SettingViewController") as! ViewController
         self.dismiss(animated: true) //画面表示を消去
         self.present(nextView, animated: true, completion: nil)
         
     }
+
     
     // ロケーションマネージャーのインスタンス
     var locManager: CLLocationManager!
