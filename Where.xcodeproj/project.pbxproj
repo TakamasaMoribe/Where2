@@ -48,6 +48,7 @@
 		7F56416C26B93A6300D5F62E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		7F7607F926F1DA1100891AF1 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		7F87951326DE20E500BC1112 /* Custombutton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custombutton.swift; sourceTree = "<group>"; };
+		7FA03AFB28235D5300B1942A /* AroundJapan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AroundJapan.png; sourceTree = "<group>"; };
 		7FAE512226E4A66D000613D9 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		7FD6446A2744E6EE00CABF2E /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		7FED66B926EDDC79009DF6EC /* check_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_off.png; sourceTree = "<group>"; };
@@ -102,6 +103,7 @@
 				7F467C2926B53370008B641E /* Info.plist */,
 				7F4B43092764C6B3003DE6EB /* MountData.csv */,
 				7F196593270DC1E30092BA39 /* mtDataAll.csv */,
+				7FA03AFB28235D5300B1942A /* AroundJapan.png */,
 				7F7607F926F1DA1100891AF1 /* background.png */,
 				7FED66BA26EDDC79009DF6EC /* check_on.png */,
 				7FED66B926EDDC79009DF6EC /* check_off.png */,
