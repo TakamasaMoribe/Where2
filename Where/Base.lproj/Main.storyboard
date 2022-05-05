@@ -458,11 +458,23 @@
                                     <outlet property="delegate" destination="8tH-WW-Oc2" id="OrT-1l-sDe"/>
                                 </connections>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SS3-G6-uTl">
+                                <rect key="frame" x="16" y="620" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Back" image="arrowshape.turn.up.left.fill" catalog="system" id="AmG-uT-rLY">
+                                        <connections>
+                                            <action selector="backButtonClicked:" destination="8tH-WW-Oc2" id="F2W-Jq-coh"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NPW-fl-28X"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="AmG-uT-rLY" id="9SW-U3-GLL"/>
                         <outlet property="searchText" destination="NXq-j0-DQz" id="L9J-Yf-hvv"/>
                         <outlet property="tableView" destination="lO1-fm-yQx" id="WLJ-mJ-iye"/>
                     </connections>
@@ -566,6 +578,7 @@
     <resources>
         <image name="AroundJapan.png" width="838" height="909"/>
         <image name="arrowshape.turn.up.backward.fill" catalog="system" width="128" height="106"/>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
         <image name="back.png" width="25.600000381469727" height="25.600000381469727"/>
         <image name="check_off.png" width="12" height="12"/>
         <systemColor name="systemBackgroundColor">

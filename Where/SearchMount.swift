@@ -19,6 +19,10 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
     @IBOutlet weak var searchText: UISearchBar!
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    
+    
     // tableViewは、datasouce、delegateをviewControllerとの接続も必要。右クリックして確認できる
 
     var findItems:[[String]] = []
@@ -42,7 +46,17 @@ class SearchMountController: UIViewController, UISearchBarDelegate,UITableViewDe
     }
 
     // -------------------------------------------------------------------------------
-
+    //戻る"↩"ボタンで初期画面"StartViewController"に戻る
+    
+    @IBAction func backButtonClicked(_ sender: UIBarButtonItem) {
+        
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewController(withIdentifier: "StartViewController") as! ViewController
+        self.dismiss(animated: true) //画面表示を消去
+        self.present(nextView, animated: true, completion: nil)
+        
+   }
+    
     // csvファイルから、山のデータを読み込む　"MountData.csv"
     func dataLoad() -> [[String]] {
         // データを格納するための配列を準備する
