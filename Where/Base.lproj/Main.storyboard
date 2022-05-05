@@ -537,17 +537,15 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="6xQ-so-d6i">
-                                <rect key="frame" x="16" y="468" width="343" height="114"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="back.png" title="Button"/>
-                            </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mmg-Nj-s13">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Back" image="arrowshape.turn.up.backward.fill" catalog="system" id="KHL-hI-XXd"/>
+                                    <barButtonItem title="Back" image="arrowshape.turn.up.backward.fill" catalog="system" id="KHL-hI-XXd">
+                                        <connections>
+                                            <action selector="backButtonClicked:" destination="eXT-TX-JQw" id="sS1-tl-ZfR"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -555,6 +553,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="KHL-hI-XXd" id="uK5-Bb-EVf"/>
                         <outlet property="searchText" destination="MQe-ke-QvH" id="ITm-7K-2ku"/>
                         <outlet property="tableView" destination="eM2-j7-MVo" id="F45-7M-WCB"/>
                     </connections>

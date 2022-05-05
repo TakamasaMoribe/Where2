@@ -17,6 +17,10 @@
         @IBOutlet weak var searchText: UISearchBar!
         
         @IBOutlet weak var tableView: UITableView!
+        
+        @IBOutlet weak var backButton: UIBarButtonItem!
+        
+        
         // tableViewは、datasouce、delegateをviewControllerとの接続も必要。右クリックして確認できる
         // feedUrl：searchBarに入力した地名を問い合わせるのに使う
         // var feedUrl:URL = URL(string:"https://geocode.csis.u-tokyo.ac.jp/cgi-bin/simple_geocode.cgi")! //東大
@@ -72,6 +76,16 @@
         }
         
 //-----------------------------------------------------------------------------
+        //戻る"↩"ボタンで初期画面"StartViewController"に戻る
+        @IBAction func backButtonClicked(_ sender: UIBarButtonItem) {
+
+            let storyboard: UIStoryboard = self.storyboard!
+            let nextView = storyboard.instantiateViewController(withIdentifier: "StartViewController") as! ViewController
+            self.dismiss(animated: true) //画面表示を消去
+            self.present(nextView, animated: true, completion: nil)
+            
+        }
+        
         
         //タグの最初が見つかったとき呼ばれる
         func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
